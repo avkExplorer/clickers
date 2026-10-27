@@ -41,7 +41,7 @@ button{cursor:pointer}
 .brand{display:flex;align-items:center;gap:10px}
 .brand .dot{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:19px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
 .brand b{font-family:var(--display);font-weight:600;font-size:21px}
-.brand .logo{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 2px var(--surface),0 0 0 3px var(--line);flex:none}
+.brand .logo{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#fff;box-shadow:0 0 0 2px var(--surface),0 0 0 3px var(--line);flex:none}
 .brandtx{display:grid;text-align:left;line-height:1.1}
 .brandtx small{font-size:12px;font-weight:600;color:var(--muted)}
 .iglink{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-weight:700;font-size:14px;color:var(--pop);text-decoration:none;border:1px solid var(--line);background:var(--surface)}
@@ -291,10 +291,121 @@ td input[type=text]{padding:6px 8px}
 .kitmini{display:grid;gap:0;padding:0;border:1px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden;text-align:left;font-size:13.5px}
 .kitmini:hover{border-color:var(--accent)}
 .kitmini span{padding:8px 10px}
+/* landing: two showcase frames (no prices), full-screen viewers, the DIY deck and Paint Play. Palette taken from the My Curious Hands logo. */
+:root{--rb1:#F0479A;--rb2:#FF8A1F;--rb3:#FFC21A;--rb4:#3DBB62;--rb5:#2F7FE6;--rb6:#8B4FE0;--rainbow:linear-gradient(90deg,var(--rb1),var(--rb2),var(--rb3),var(--rb4),var(--rb5),var(--rb6))}
+.hello{position:relative;display:flex;align-items:center;gap:clamp(16px,4vw,40px);margin:0 0 24px;padding:clamp(18px,3vw,30px);border-radius:32px;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.hello::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--rainbow)}
+.biglogo{width:clamp(112px,18vw,176px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;background:#fff;flex:none;position:relative;box-shadow:0 0 0 4px var(--surface),0 0 0 7px var(--rb3),0 14px 30px rgba(30,20,60,.16)}
+.hello-copy{display:grid;gap:10px;min-width:0;position:relative}
+.hello .land-h{font-size:clamp(38px,6.4vw,76px)}
+.hello .land-h span{background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hello .lede{font-size:17px;max-width:46ch}
+@media (max-width:620px){.hello{flex-direction:column;text-align:center}.hello .lede{margin-inline:auto}}
+.spks{position:absolute;inset:0;pointer-events:none;z-index:1}
+.spk{position:absolute;width:22px;height:22px;color:var(--rb3);animation:twinkle 3.2s ease-in-out infinite}
+.spk svg{width:100%;height:100%;display:block}
+.spk0{top:12%;right:6%;color:var(--rb1)}
+.spk1{top:62%;right:14%;width:14px;height:14px;color:var(--rb5);animation-delay:-.8s}
+.spk2{bottom:14%;left:3%;width:16px;height:16px;color:var(--rb6);animation-delay:-1.6s}
+.spk3{top:8%;left:44%;width:12px;height:12px;color:var(--rb4);animation-delay:-2.2s}
+.spk4{bottom:12%;right:34%;width:18px;height:18px;color:var(--rb2);animation-delay:-1.1s}
+.spk5{top:40%;right:3%;width:10px;height:10px;color:var(--rb6);animation-delay:-2.7s}
+@keyframes twinkle{0%,100%{transform:scale(.6) rotate(0);opacity:.55}50%{transform:scale(1.1) rotate(20deg);opacity:1}}
+.frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-bottom:40px}
+@media (max-width:860px){.frames{grid-template-columns:minmax(0,1fr)}}
+.frame{position:relative;height:clamp(440px,66vh,660px);border-radius:28px}
+@media (max-width:860px){.frame{height:440px}}
+.frame .land-studio{height:100%}
+.frame:not(.full) .studio-foot{display:none}
+.frame-open{position:absolute;inset:0;z-index:3;border:0;padding:18px;background:transparent;border-radius:inherit;display:flex;align-items:flex-end;justify-content:center;cursor:zoom-in}
+.frame-open:focus-visible{outline-offset:-5px}
+.frame-tag{position:relative;display:grid;gap:2px;text-align:center;background:var(--surface);color:var(--ink);border:3px solid transparent;background-clip:padding-box;border-radius:22px;padding:12px 24px;box-shadow:0 12px 30px rgba(30,20,60,.18);transition:transform .2s}
+.frame-tag::before{content:"";position:absolute;inset:-3px;z-index:-1;border-radius:22px;background:var(--rainbow)}
+.frame-tag b{font-family:var(--display);font-weight:600;font-size:23px;line-height:1.1}
+.frame-tag span{font-size:13px;font-weight:600;color:var(--muted)}
+.frame-open:hover .frame-tag{transform:translateY(-3px)}
+.fs-bar,.fs-only{display:none}
+.fs-bar{align-items:center;justify-content:space-between;gap:10px;padding:max(10px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+.fs-title{font-family:var(--display);font-weight:600;font-size:20px;text-align:center}
+.backbtn{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ink);color:var(--bg);font-weight:700;font-size:15px;padding:10px 16px 10px 12px;border-radius:999px}
+.backbtn svg,.deckarrow svg{width:20px;height:20px}
+.frame.full{position:fixed;inset:0;z-index:40;height:auto;border-radius:0;background:var(--bg);display:flex;flex-direction:column}
+.frame.full .frame-open{display:none}
+.frame.full .fs-bar,.frame.full .fs-only{display:flex}
+.frame.full .studio{flex:1;min-height:0;height:auto;border-radius:0;border-left:0;border-right:0}
+.fs-colors{justify-content:center;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.fs-colors .field{justify-items:center}
+html.noscroll,html.noscroll body{overflow:hidden}
+.diyframe{overflow:hidden;border:1px solid var(--line);background:radial-gradient(60% 50% at 18% 18%,color-mix(in srgb,var(--rb1) 22%,transparent),transparent),radial-gradient(60% 50% at 86% 28%,color-mix(in srgb,var(--rb5) 22%,transparent),transparent),radial-gradient(70% 60% at 50% 100%,color-mix(in srgb,var(--rb3) 26%,transparent),transparent),var(--surface)}
+.pile{position:absolute;z-index:1;inset:0 0 84px;display:grid;place-items:center}
+.pcard{position:absolute;width:min(58%,290px);aspect-ratio:1;border-radius:24px;overflow:hidden;background:#fff;border:6px solid #fff;box-shadow:0 14px 34px rgba(30,20,60,.2);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.pc0{z-index:4;transform:rotate(-3deg)}
+.pc1{z-index:3;transform:translate(20%,-6%) rotate(8deg)}
+.pc2{z-index:2;transform:translate(-20%,-4%) rotate(-12deg)}
+.pc3{z-index:1;transform:translate(4%,-15%) rotate(14deg)}
+.diyframe:hover .pc1{transform:translate(28%,-8%) rotate(11deg)}
+.diyframe:hover .pc2{transform:translate(-28%,-6%) rotate(-15deg)}
+.pimg{display:block;width:100%;height:100%;object-fit:cover}
+.pimg.nopic,.spin-img.nopic{align-content:center;gap:6px;font-size:56px}
+.nopic small{font-family:var(--body);font-size:13px;font-weight:600;color:var(--muted)}
+.fsdiy{position:fixed;inset:0;z-index:40;overflow:auto;overflow-x:hidden;display:grid;grid-template-columns:minmax(0,1fr) 290px;grid-template-rows:auto minmax(0,1fr);background:radial-gradient(50% 40% at 10% 10%,color-mix(in srgb,var(--rb1) 16%,transparent),transparent),radial-gradient(50% 40% at 90% 18%,color-mix(in srgb,var(--rb5) 16%,transparent),transparent),radial-gradient(60% 50% at 50% 100%,color-mix(in srgb,var(--rb3) 20%,transparent),transparent),var(--bg)}
+.fsdiy[hidden]{display:none}
+.fsdiy .fs-bar{display:flex;grid-column:1/-1}
+.deckarea{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:14px;min-height:0;padding:6px 16px 18px}
+.deckstage{position:relative;min-height:0}
+.deck{position:absolute;inset:0 58px}
+.slide{position:absolute;inset:0;margin:auto;width:min(100%,560px);max-height:690px;display:grid;grid-template-rows:minmax(0,1fr) auto;background:var(--surface);border-radius:28px;box-shadow:0 18px 44px rgba(30,20,60,.18);overflow:hidden;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .35s}
+.spin{position:relative;display:grid;place-items:center;min-height:0;padding:18px;background:#fff;perspective:900px;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.spin.drag{cursor:grabbing}
+.painting .spin{cursor:crosshair}
+.spin-in{position:relative;width:240px;height:240px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.9,.25,1.3)}
+.spin.drag .spin-in{transition:none}
+.spin-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:18px;-webkit-user-drag:none}
+.paint{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply;pointer-events:none;border-radius:18px;transition:opacity .3s}
+.paint.wipe{opacity:0}
+.sheen{position:absolute;inset:0;border-radius:18px;pointer-events:none;opacity:0;transition:opacity .3s;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.5) var(--sx,50%),transparent 70%)}
+.spin.drag .sheen{opacity:1}
+.slide.cur .spin:not(.drag) .spin-in{animation:sway 7s ease-in-out infinite}
+.painting .slide.cur .spin .spin-in{animation:none}
+@keyframes sway{0%,100%{transform:rotateY(-10deg)}50%{transform:rotateY(10deg)}}
+.slide-cap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-top:1px solid var(--line)}
+.slide-cap>div{display:grid;gap:2px;min-width:0}
+.slide-cap b{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1}
+.slide-cap .btn{flex:none}
+.deckarrow{position:absolute;top:50%;z-index:60;width:46px;height:46px;margin-top:-23px;border:0;border-radius:50%;background:var(--surface);color:var(--ink);display:grid;place-items:center;box-shadow:0 6px 18px rgba(30,20,60,.18)}
+.deckarrow.prev{left:0}
+.deckarrow.next{right:0}
+.deckarrow.next svg{transform:scaleX(-1)}
+.deckarrow:disabled{opacity:.35;cursor:default}
+.dots{display:flex;justify-content:center;gap:8px}
+.dots button{width:10px;height:10px;padding:0;border:0;border-radius:999px;background:var(--line);transition:width .25s}
+.dots button[aria-current="true"]{width:28px;background:var(--rainbow)}
+.deckcount{font-weight:700;color:var(--muted);min-width:60px;text-align:right}
+.paintplay{position:relative;display:grid;align-self:start;align-content:start;gap:12px;margin:6px 16px 18px 0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.paintplay>:not(.spks){position:relative;z-index:2}
+.pp-h{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.15}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tool{display:flex;align-items:center;gap:8px;padding:10px 12px;border:2px solid var(--line);border-radius:14px;background:var(--sunk);font-weight:700}
+.tool svg{width:22px;height:22px;flex:none}
+.tool.brush svg{color:var(--c)}
+.tool[aria-pressed="true"]{border-color:var(--c,var(--ink));background:var(--surface);box-shadow:0 0 0 3px color-mix(in srgb,var(--c,var(--ink)) 22%,transparent)}
+.psp{position:absolute;z-index:5;width:16px;height:16px;margin:-8px 0 0 -8px;pointer-events:none;animation:psp .7s ease-out forwards}
+.psp svg{width:100%;height:100%;display:block}
+@keyframes psp{0%{transform:scale(.2) rotate(0);opacity:1}100%{transform:translateY(-26px) scale(1.2) rotate(90deg);opacity:0}}
+@media (max-width:860px){
+  .fsdiy{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(400px,1fr) auto}
+  .deck{inset:0}
+  .deckarrow{width:40px;height:40px;margin-top:-20px}
+  .deckarrow.prev{left:-6px}.deckarrow.next{right:-6px}
+  .paintplay{margin:0 16px calc(16px + env(safe-area-inset-bottom,0px))}
+  .tools{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .tool{flex-direction:column;gap:4px;padding:8px 4px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){.spk,.slide.cur .spin:not(.drag) .spin-in{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <div id="root"><div class="wrap"><p class="muted">Loading the charm counter…</p></div></div>
-<script type="application/json" id="catalog">{"v": 1, "shop": {"name": "Click & Charm", "tagline": "Clicky keychain charms, spelled your way.", "contact": "Text or email your order slip to us", "phone": "+1 512-947-8249", "email": "orders@avkaiexplorer.com", "instagram": "https://www.instagram.com/my_curious_hands/", "pickup": "Pay cash when you pick up at the stall."}, "estimates": true, "pricing": {"tiers": {"1": 3, "2": 5, "3": 7, "4": 9, "5": 11}, "extraKey": 2, "fancyExtra": 4, "maxKeys": 12}, "bases": 350, "colors": [{"id": "blue", "name": "Blue", "hex": "#3E7BFA", "stock": 120}, {"id": "purple", "name": "Purple", "hex": "#8B5CF6", "stock": 120}, {"id": "pink", "name": "Pink", "hex": "#F25FA8", "stock": 150}], "charms": [{"id": "L-A", "label": "A", "kind": "letter", "name": "A", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-B", "label": "B", "kind": "letter", "name": "B", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-C", "label": "C", "kind": "letter", "name": "C", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-D", "label": "D", "kind": "letter", "name": "D", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-E", "label": "E", "kind": "letter", "name": "E", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-F", "label": "F", "kind": "letter", "name": "F", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-G", "label": "G", "kind": "letter", "name": "G", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-H", "label": "H", "kind": "letter", "name": "H", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-I", "label": "I", "kind": "letter", "name": "I", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-J", "label": "J", "kind": "letter", "name": "J", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-K", "label": "K", "kind": "letter", "name": "K", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-L", "label": "L", "kind": "letter", "name": "L", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-M", "label": "M", "kind": "letter", "name": "M", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-N", "label": "N", "kind": "letter", "name": "N", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-O", "label": "O", "kind": "letter", "name": "O", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-P", "label": "P", "kind": "letter", "name": "P", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Q", "label": "Q", "kind": "letter", "name": "Q", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-R", "label": "R", "kind": "letter", "name": "R", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-S", "label": "S", "kind": "letter", "name": "S", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-T", "label": "T", "kind": "letter", "name": "T", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-U", "label": "U", "kind": "letter", "name": "U", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-V", "label": "V", "kind": "letter", "name": "V", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-W", "label": "W", "kind": "letter", "name": "W", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-X", "label": "X", "kind": "letter", "name": "X", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Y", "label": "Y", "kind": "letter", "name": "Y", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Z", "label": "Z", "kind": "letter", "name": "Z", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-heart", "label": "♥", "kind": "symbol", "name": "Heart", "stock": 6, "aud": ["girls", "women", "boys", "men"]}, {"id": "S-star", "label": "★", "kind": "symbol", "name": "Star", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-excl", "label": "!", "kind": "symbol", "name": "Exclamation", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-q", "label": "?", "kind": "symbol", "name": "Question mark", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-amp", "label": "&", "kind": "symbol", "name": "And", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-hash", "label": "#", "kind": "symbol", "name": "Hash", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-at", "label": "@", "kind": "symbol", "name": "At", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-plus", "label": "+", "kind": "symbol", "name": "Plus", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "T-princess", "label": "", "icon": "crown", "kind": "theme", "name": "Princess crown", "stock": 15, "aud": ["girls", "women"]}, {"id": "T-bow", "label": "", "icon": "bow", "kind": "theme", "name": "Bow", "stock": 15, "aud": ["girls", "women"]}, {"id": "T-paw", "label": "", "icon": "paw", "kind": "theme", "name": "Dog paw", "stock": 15, "aud": ["boys", "girls", "men", "women"]}, {"id": "F-duck", "label": "", "icon": "duck", "kind": "fancy", "name": "Duck light & sound", "stock": 15, "aud": ["boys", "girls", "men", "women"]}, {"id": "F-frog", "label": "", "icon": "frog", "kind": "fancy", "name": "Frog light & sound", "stock": 15, "aud": ["boys", "girls", "men", "women"]}], "punchlines": [{"text": "GAME ON", "aud": ["boys", "men"]}, {"text": "BOSS", "aud": ["boys", "men", "women"]}, {"text": "LEVEL UP", "aud": ["boys"]}, {"text": "DAD #1", "aud": ["men"]}, {"text": "QUEEN", "aud": ["girls", "women"]}, {"text": "BFF ♥", "aud": ["girls", "women"]}, {"text": "MOM ♥", "aud": ["women"]}, {"text": "SPARKLE", "aud": ["girls"]}, {"text": "NO DRAMA", "aud": ["women", "men"]}, {"text": "LOL!", "aud": ["boys", "girls", "men", "women"]}, {"text": "HAPPY", "aud": ["boys", "girls", "men", "women"]}, {"text": "DREAM BIG", "aud": ["boys", "girls", "men", "women"]}], "offers": [{"id": "o-name6", "title": "Big-name deal: 6+ keys, 10% off", "type": "percent", "value": 10, "minKeys": 6, "maxKeys": 0, "active": true}], "kits": [{"id": "D-heartbear", "name": "Heart Bear", "desc": "Plaster bear to paint, 3 colour pods and a brush", "pic": "heartbear", "price": 5, "stock": 5}, {"id": "D-bowbear", "name": "Bow Tie Bear", "desc": "Plaster bear to paint, 3 colour pods and a brush", "pic": "bowbear", "price": 5, "stock": 5}, {"id": "D-car", "name": "Vintage Car", "desc": "Plaster car to paint, 3 colour pods and a brush", "pic": "car", "price": 5, "stock": 5}, {"id": "D-pika", "name": "Pikachu Fridge Magnet", "desc": "Plaster magnet to paint, 3 colour pods and a brush", "pic": "pika", "price": 3, "stock": 5}], "updated": "2026-10-25"}</script>
+<script type="application/json" id="catalog">{"v": 1, "shop": {"name": "Click & Charm", "tagline": "Clicky keychain charms, spelled your way.", "contact": "Text or email your order slip to us", "phone": "+1 512-947-8249", "email": "orders@avkaiexplorer.com", "instagram": "https://www.instagram.com/my_curious_hands/", "pickup": "Pay cash when you pick up at the stall."}, "estimates": true, "pricing": {"tiers": {"4": 6, "5": 8, "6": 10}, "extraKey": 0, "fancyExtra": 0, "minKeys": 4, "maxKeys": 6}, "bases": 350, "colors": [{"id": "blue", "name": "Blue", "hex": "#3E7BFA", "stock": 120}, {"id": "purple", "name": "Purple", "hex": "#8B5CF6", "stock": 120}, {"id": "pink", "name": "Pink", "hex": "#F25FA8", "stock": 150}], "charms": [{"id": "L-A", "label": "A", "kind": "letter", "name": "A", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-B", "label": "B", "kind": "letter", "name": "B", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-C", "label": "C", "kind": "letter", "name": "C", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-D", "label": "D", "kind": "letter", "name": "D", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-E", "label": "E", "kind": "letter", "name": "E", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-F", "label": "F", "kind": "letter", "name": "F", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-G", "label": "G", "kind": "letter", "name": "G", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-H", "label": "H", "kind": "letter", "name": "H", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-I", "label": "I", "kind": "letter", "name": "I", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-J", "label": "J", "kind": "letter", "name": "J", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-K", "label": "K", "kind": "letter", "name": "K", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-L", "label": "L", "kind": "letter", "name": "L", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-M", "label": "M", "kind": "letter", "name": "M", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-N", "label": "N", "kind": "letter", "name": "N", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-O", "label": "O", "kind": "letter", "name": "O", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-P", "label": "P", "kind": "letter", "name": "P", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Q", "label": "Q", "kind": "letter", "name": "Q", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-R", "label": "R", "kind": "letter", "name": "R", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-S", "label": "S", "kind": "letter", "name": "S", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-T", "label": "T", "kind": "letter", "name": "T", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-U", "label": "U", "kind": "letter", "name": "U", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-V", "label": "V", "kind": "letter", "name": "V", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-W", "label": "W", "kind": "letter", "name": "W", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-X", "label": "X", "kind": "letter", "name": "X", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Y", "label": "Y", "kind": "letter", "name": "Y", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "L-Z", "label": "Z", "kind": "letter", "name": "Z", "stock": 12, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-heart", "label": "♥", "kind": "symbol", "name": "Heart", "stock": 6, "aud": ["girls", "women", "boys", "men"]}, {"id": "S-star", "label": "★", "kind": "symbol", "name": "Star", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-excl", "label": "!", "kind": "symbol", "name": "Exclamation", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-q", "label": "?", "kind": "symbol", "name": "Question mark", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-amp", "label": "&", "kind": "symbol", "name": "And", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-hash", "label": "#", "kind": "symbol", "name": "Hash", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-at", "label": "@", "kind": "symbol", "name": "At", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "S-plus", "label": "+", "kind": "symbol", "name": "Plus", "stock": 6, "aud": ["boys", "girls", "men", "women"]}, {"id": "T-princess", "label": "", "icon": "crown", "kind": "theme", "name": "Princess crown", "stock": 15, "aud": ["girls", "women"]}, {"id": "T-bow", "label": "", "icon": "bow", "kind": "theme", "name": "Bow", "stock": 15, "aud": ["girls", "women"]}, {"id": "T-paw", "label": "", "icon": "paw", "kind": "theme", "name": "Dog paw", "stock": 15, "aud": ["boys", "girls", "men", "women"]}, {"id": "F-duck", "label": "", "icon": "duck", "kind": "fancy", "name": "Duck light & sound", "stock": 15, "aud": ["boys", "girls", "men", "women"]}, {"id": "F-frog", "label": "", "icon": "frog", "kind": "fancy", "name": "Frog light & sound", "stock": 15, "aud": ["boys", "girls", "men", "women"]}], "punchlines": [{"text": "GAME ON", "aud": ["boys", "men"]}, {"text": "BOSS", "aud": ["boys", "men", "women"]}, {"text": "LEVEL UP", "aud": ["boys"]}, {"text": "DAD #1", "aud": ["men"]}, {"text": "QUEEN", "aud": ["girls", "women"]}, {"text": "BFF ♥", "aud": ["girls", "women"]}, {"text": "MOM ♥", "aud": ["women"]}, {"text": "SPARKLE", "aud": ["girls"]}, {"text": "NO DRAMA", "aud": ["women", "men"]}, {"text": "LOL!", "aud": ["boys", "girls", "men", "women"]}, {"text": "HAPPY", "aud": ["boys", "girls", "men", "women"]}, {"text": "DREAM BIG", "aud": ["boys", "girls", "men", "women"]}], "offers": [{"id": "o-magnet", "title": "Magnet offer: buy any 2 clickers or one 6-piece clicker and every fridge magnet is $3", "type": "magnet", "value": 3, "minKeys": 1, "maxKeys": 0, "active": true}], "kits": [{"id": "D-heartbear", "name": "Heart Bear", "desc": "Plaster bear to paint, 3 colour pods and a brush", "pic": "heartbear", "price": 5, "stock": 5, "cat": "kit"}, {"id": "D-bowbear", "name": "Bow Tie Bear", "desc": "Plaster bear to paint, 3 colour pods and a brush", "pic": "bowbear", "price": 5, "stock": 5, "cat": "kit"}, {"id": "D-car", "name": "Vintage Car", "desc": "Plaster car to paint, 3 colour pods and a brush", "pic": "car", "price": 5, "stock": 5, "cat": "kit"}, {"id": "D-pika", "name": "Pikachu Fridge Magnet", "desc": "Plaster magnet to paint, 3 colour pods and a brush", "pic": "pika", "price": 4, "stock": 5, "cat": "magnet", "offerPrice": 3}, {"id": "D-bearmag", "name": "Bear Fridge Magnet", "desc": "Plaster magnet to paint, 3 colour pods and a brush", "pic": "", "price": 4, "offerPrice": 3, "stock": 5, "cat": "magnet"}, {"id": "D-unimag", "name": "Unicorn Fridge Magnet", "desc": "Plaster magnet to paint, 3 colour pods and a brush", "pic": "", "price": 4, "offerPrice": 3, "stock": 5, "cat": "magnet"}], "updated": "2026-10-27"}</script>
 <script id="app">
 (function(){
 "use strict";
@@ -381,18 +492,28 @@ function addKey(id){
   S.keys.push({id:id,cap:nextCap(S.keys.length)});S.sel=null;updateBuilder();
 }
 /* ---------- pricing ---------- */
+function minK(){return Math.max(1,+catalog.pricing.minKeys||1)}
 function basePrice(n){var p=catalog.pricing;if(n<=0)return 0;var t=p.tiers;
   if(t[String(n)]!=null)return +t[String(n)];
-  var maxT=0;for(var k in t)if(+k>maxT)maxT=+k;return +t[String(maxT)]+(n-maxT)*(+p.extraKey||0);}
+  var ks=Object.keys(t).map(Number).sort(function(a,b){return a-b});if(!ks.length)return 0;
+  if(n<ks[0])return +t[String(ks[0])];
+  var maxT=ks[ks.length-1];return +t[String(maxT)]+(n-maxT)*(+p.extraKey||0);}
 function priceFor(keys){
   var n=keys.length,fancy=0;keys.forEach(function(k){var c=k.id&&charmById(k.id);if(c&&c.kind==='fancy')fancy++});
   var base=basePrice(n)+fancy*(+catalog.pricing.fancyExtra||0);
   var best=null,bestOff=0;
-  (catalog.offers||[]).forEach(function(o){if(!o.active)return;if(n<(+o.minKeys||1))return;if(+o.maxKeys&&n>+o.maxKeys)return;
+  (catalog.offers||[]).forEach(function(o){if(!o.active||o.type==='magnet')return;if(n<(+o.minKeys||1))return;if(+o.maxKeys&&n>+o.maxKeys)return;
     var off=0;if(o.type==='percent')off=base*(+o.value||0)/100;else if(o.type==='flat')off=+o.value||0;else if(o.type==='price')off=base-(+o.value||0);
     off=Math.max(0,Math.min(base,off));if(off>bestOff){bestOff=off;best=o}});
   return {keys:n,base:base,off:Math.round(bestOff*100)/100,offer:best?best.title:'',total:Math.round((base-bestOff)*100)/100};
 }
+/* Fridge magnet offer: any 2 keychains, or one 6-key keychain, in the same request puts every magnet at its offer price. Kits never change. */
+function magnetOffer(){return (catalog.offers||[]).filter(function(o){return o.active&&o.type==='magnet'})[0]||null}
+function isMagnet(k){return !!k&&k.cat==='magnet'}
+function offerQualifies(lines){var n=0,six=false;lines.forEach(function(l){if(l.kit)return;n++;if((+l.keysCount||(l.keys||[]).length)>=6)six=true});return !!magnetOffer()&&(n>=2||six)}
+function unitFor(k,q){return isMagnet(k)&&q&&k.offerPrice!=null?+k.offerPrice:(+k.price||0)}
+function priceLines(lines){var q=offerQualifies(lines),mo=magnetOffer();
+  lines.forEach(function(l){if(!l.kit)return;var k=kitById(l.kit);if(!k)return;l.unit=unitFor(k,q);l.offer=l.unit<(+k.price||0)&&mo?mo.title:'';l.price=Math.round(l.unit*l.qty*100)/100});return q}
 
 /* ---------- stock ---------- */
 /* Kit lines ({kit,qty}) use kit stock only; keychain lines use charms, a color and a base. */
@@ -654,7 +775,7 @@ function renderShop(){
   h+='<div id="offers"></div></section></div>';
   if(kits().length)h+='<section class="kits" id="kits" aria-label="DIY colouring kits"><div class="row"><div><span class="eyebrow">For kids</span><h2>DIY colouring kits</h2></div><span class="muted small">Each kit: a plaster toy to paint, 3 colour pods and a brush</span></div><div class="kitgrid" id="kitgrid"></div></section>';
   h+='<section class="request" aria-label="Your request"><h2>Your request</h2><div id="cartbox"></div></section>';
-  h+='<section class="panel" style="margin-top:28px" aria-label="Price list"><div class="row"><h2>Price list</h2><span class="muted small">Up to '+catalog.pricing.maxKeys+' keys on one keychain</span></div><div class="ladder" id="plist"></div></section>';
+  h+='<section class="panel" style="margin-top:28px" aria-label="Price list"><div class="row"><h2>Price list</h2><span class="muted small">'+minK()+' to '+catalog.pricing.maxKeys+' keys on one keychain</span></div><div class="ladder" id="plist"></div></section>';
   return h;
 }
 function bindShop(){
@@ -683,8 +804,8 @@ function bindShop(){
   var p=catalog.pricing,tiers=p.tiers,ks=Object.keys(tiers).sort(function(a,b){return a-b}),pl='';
   var cubes=function(n){var s='';for(var i=0;i<n;i++)s+='<i></i>';return '<span class="stack" aria-hidden="true">'+s+'</span>'};
   ks.forEach(function(k){pl+='<div class="rung">'+cubes(+k)+'<b class="num">'+money(tiers[k])+'</b><span class="muted">'+k+' key'+(k==='1'?'':'s')+'</span></div>'});
-  pl+='<div class="rung extra">'+cubes(1)+'<b class="num">+'+money(p.extraKey)+'</b><span class="muted">each key after '+ks[ks.length-1]+'</span></div>';
-  pl+='<div class="rung fancy">'+cubes(1)+'<b class="num">+'+money(p.fancyExtra)+'</b><span class="muted">light &amp; sound key</span></div>';
+  if(+p.extraKey)pl+='<div class="rung extra">'+cubes(1)+'<b class="num">+'+money(p.extraKey)+'</b><span class="muted">each key after '+ks[ks.length-1]+'</span></div>';
+  if(+p.fancyExtra)pl+='<div class="rung fancy">'+cubes(1)+'<b class="num">+'+money(p.fancyExtra)+'</b><span class="muted">light &amp; sound key</span></div>';
   $('#plist').innerHTML=pl;
   if(!S.color||!colorById(S.color)){var c0=catalog.colors.filter(function(c){return +c.stock>0})[0];S.color=c0?c0.id:null}
   renderPunch();renderColors();renderCharms();renderKits();updateBuilder();renderCart();
@@ -718,7 +839,7 @@ function renderPunch(){$('#punch').innerHTML=(catalog.punchlines||[]).filter(fun
 function renderColors(){$('#colors').innerHTML=catalog.colors.map(function(c){var out=+c.stock<=0;return '<button type="button" class="swatch" data-col="'+c.id+'" aria-pressed="'+(S.color===c.id)+'" '+(out?'disabled':'')+' style="--c:'+esc(c.hex)+'"><i></i>'+esc(c.name)+(out?' · sold out':'')+'</button>'}).join('')}
 function renderCharms(){
   var list=catalog.charms.filter(function(c){return (c.kind==='theme'||c.kind==='fancy'||c.kind==='symbol')&&audOK(c.aud)});
-  $('#charms').innerHTML=list.map(function(c){var out=+c.stock<=0;return '<button type="button" class="charmbtn" data-add="'+c.id+'" '+(out?'disabled':'')+'>'+capHTML(c,{sm:true})+'<span>'+esc(c.name)+'</span>'+(c.kind==='fancy'?'<span class="tag">+'+money(catalog.pricing.fancyExtra)+'</span>':'')+(out?'<span class="tag">sold out</span>':'')+'</button>'}).join('');
+  $('#charms').innerHTML=list.map(function(c){var out=+c.stock<=0;return '<button type="button" class="charmbtn" data-add="'+c.id+'" '+(out?'disabled':'')+'>'+capHTML(c,{sm:true})+'<span>'+esc(c.name)+'</span>'+(c.kind==='fancy'&&+catalog.pricing.fancyExtra?'<span class="tag">+'+money(catalog.pricing.fancyExtra)+'</span>':'')+(out?'<span class="tag">sold out</span>':'')+'</button>'}).join('');
 }
 function updateBuilder(){
   var keys=currentKeys();var col=colorById(S.color);
@@ -735,6 +856,7 @@ function updateBuilder(){
   var a='';
   if(keys.length>catalog.pricing.maxKeys)a='<span class="pill bad">Too long: '+keys.length+' keys, max '+catalog.pricing.maxKeys+'</span>';
   else if(sh.length)a='<span class="pill bad">Not enough in stock: '+esc(sh.join(', '))+'</span>';
+  else if(keys.length&&keys.length<minK())a='<span class="pill warn">Add '+(minK()-keys.length)+' more key'+(minK()-keys.length===1?'':'s')+'. Keychains have '+minK()+' to '+catalog.pricing.maxKeys+' keys.</span>';
   else if(keys.length)a='<span class="pill ok">All '+keys.length+' keys in stock</span>';
   $('#avail').innerHTML=a;
   $('#kcount').textContent=keys.length+' of '+catalog.pricing.maxKeys+' keys';
@@ -742,27 +864,32 @@ function updateBuilder(){
   var p=priceFor(keys);
   var pb='<span class="label">This keychain</span><div class="pricerow"><span class="price num">'+money(p.total)+'</span>'+(p.off?'<span class="strike num">'+money(p.base)+'</span>':'')+'</div>';
   if(p.offer)pb+='<span class="offer">'+esc(p.offer)+'</span>';
+  if(keys.length<minK())pb='<span class="label">This keychain</span><div class="pricerow"><span class="price num">'+minK()+'–'+catalog.pricing.maxKeys+' keys</span></div><span class="small muted">The price shows once your keychain has '+minK()+' keys.</span>';
   $('#pricebox').innerHTML=pb;
   var act=(catalog.offers||[]).filter(function(o){return o.active});
   $('#offers').innerHTML=act.length?'<div class="offers"><span class="label">Today’s offers</span>'+act.map(function(o){return '<span class="small offer">'+esc(o.title)+'</span>'}).join('')+'</div>':'';
-  var ok=keys.length>0&&keys.length<=catalog.pricing.maxKeys&&!sh.length&&col;
+  var ok=keys.length>=minK()&&keys.length<=catalog.pricing.maxKeys&&!sh.length&&col;
   $('#add').disabled=!ok;
   renderBoard();renderEditor();
 }
 function addToCart(){
   var keys=currentKeys();var col=colorById(S.color);var p=priceFor(keys);
   S.cart.push({text:keyText(keys),keys:keys.map(function(k){return {id:k.id,cap:k.cap}}),colorId:col.id,colorName:col.name,keysCount:p.keys,base:p.base,off:p.off,offer:p.offer,price:p.total});
-  S.keys=[];S.sel=null;S.slip=null;updateBuilder();renderCart();toast('Added. Build another or send your request below.');
+  S.keys=[];S.sel=null;S.slip=null;updateBuilder();renderCart();renderKits();toast('Added. Build another or send your request below.');
 }
 /* ---------- DIY colouring kits (sold as they are; repeat taps raise the quantity) ---------- */
 function kitLeft(id){var k=kitById(id);return k?+k.stock-(demand(S.cart).kits[id]||0):0}
+function kitPriceHTML(k,q){var reg=+k.price||0,u=unitFor(k,q);
+  return '<span class="pricerow"><span class="price num">'+money(u)+'</span>'+(u<reg?'<span class="strike num">'+money(reg)+'</span>':'')+'</span>'}
 function renderKits(){
+  var q=offerQualifies(S.cart),mo=magnetOffer();
   var kp=$('#kitpick');if(kp)kp.innerHTML=kits().map(function(k){var left=kitLeft(k.id);
-    return '<button type="button" class="charmbtn kitbtn" data-kit="'+esc(k.id)+'" '+(left<=0?'disabled':'')+' aria-label="Add '+esc(k.name)+' kit to request">'+kitImg(k,'kitthumb')+'<span>'+esc(k.name)+'</span><span class="tag">'+(+k.stock<=0?'sold out':left<=0?'all in request':'+'+money(+k.price||0))+'</span></button>'}).join('');
+    return '<button type="button" class="charmbtn kitbtn" data-kit="'+esc(k.id)+'" '+(left<=0?'disabled':'')+' aria-label="Add '+esc(k.name)+' to request">'+kitImg(k,'kitthumb')+'<span>'+esc(k.name)+'</span><span class="tag">'+(+k.stock<=0?'sold out':left<=0?'all in request':'+'+money(unitFor(k,q)))+'</span></button>'}).join('');
   var g=$('#kitgrid');if(!g)return;
   g.innerHTML=kits().map(function(k){var out=+k.stock<=0,left=kitLeft(k.id);
+    var note=isMagnet(k)&&mo&&k.offerPrice!=null?'<span class="small '+(q?'offer':'muted')+'">'+(q?'Magnet offer on: '+money(+k.offerPrice)+' each':money(+k.offerPrice)+' each when you buy any 2 clickers or one 6-piece clicker')+'</span>':'';
     return '<div class="kit">'+kitImg(k,'kitpic')+'<div class="kitbody"><b>'+esc(k.name)+'</b>'+(k.desc?'<span class="small muted">'+esc(k.desc)+'</span>':'')+
-      '<div class="row"><span class="price num">'+money(+k.price||0)+'</span>'+(out?'<span class="pill bad">Sold out</span>':left<=0?'<span class="pill warn">All in your request</span>':'')+'</div>'+
+      '<div class="row">'+kitPriceHTML(k,q)+(out?'<span class="pill bad">Sold out</span>':left<=0?'<span class="pill warn">All in your request</span>':'')+'</div>'+note+
       '<button type="button" class="btn small" data-kit="'+esc(k.id)+'" '+(left<=0?'disabled':'')+' aria-label="Add '+esc(k.name)+' to request">Add to request</button></div></div>'}).join('');
 }
 function addKit(id){var k=kitById(id);if(!k)return;
@@ -776,11 +903,12 @@ function cartTotal(){return Math.round(S.cart.reduce(function(s,l){return s+l.pr
 function cartCount(lines){var n=0,k=0;lines.forEach(function(l){if(l.kit)k+=+l.qty||1;else n++});
   return [n?n+' keychain'+(n===1?'':'s'):'',k?k+' kit'+(k===1?'':'s'):''].filter(Boolean).join(' · ')}
 function kitLineHTML(l,i){var k=kitById(l.kit);
-  return '<div class="line"><div class="kitline">'+kitImg(k,'kitthumb')+'<div><b>'+esc(l.text)+'</b> <span class="muted small">· DIY kit · '+money(l.unit)+' each</span>'+
+  return '<div class="line"><div class="kitline">'+kitImg(k,'kitthumb')+'<div><b>'+esc(l.text)+'</b> <span class="muted small">· '+(isMagnet(k)?'Fridge magnet':'DIY kit')+' · '+money(l.unit)+' each</span>'+(l.offer?' <span class="offer">Magnet offer</span>':'')+
     (i==null?'<div class="small">Qty '+l.qty+'</div>':'<div class="stepper" style="margin-top:6px"><button type="button" data-kq="'+i+'" data-d="-1" aria-label="One less">−</button><b class="num" style="min-width:22px;text-align:center">'+l.qty+'</b><button type="button" data-kq="'+i+'" data-d="1" aria-label="One more">+</button></div>')+
     '</div></div><div style="text-align:right"><b class="num">'+money(l.price)+'</b>'+(i==null?'':'<br><button class="linkbtn" type="button" data-del="'+i+'">Remove</button>')+'</div></div>'}
 function renderCart(){
   var box=$('#cartbox');if(!box)return;
+  priceLines(S.cart);
   if(S.slip){box.innerHTML='<div class="panel">'+slipHTML(S.slip)+'</div>';bindSlip();return}
   if(!S.cart.length){box.innerHTML='<div class="panel"><p class="muted">Nothing here yet. Build a keychain or pick a DIY kit above and tap <b>Add to request</b>. You can add as many as you like and send them together.</p></div>';return}
   var h='<div class="reqgrid"><div class="panel cart"><span class="label">'+cartCount(S.cart)+'</span>';
@@ -827,7 +955,7 @@ async function submitOrder(){
     if(a.minor&&!(a.guardian&&a.guardian.name&&a.guardian.phone)){toast('Add a parent or guardian to your account first.');go('account');return}
     cust={id:a.id,name:a.name,phone:a.phone,email:a.email||'',note:S.cust.note.trim(),minor:!!a.minor,guardian:a.minor?a.guardian:null,termsAt:a.termsAt};
   }
-  var order={code:newCode(),customer:cust,items:clone(S.cart),total:cartTotal(),payment:'Cash on pickup',createdAt:Date.now()};
+  priceLines(S.cart);var order={code:newCode(),customer:cust,items:clone(S.cart),total:cartTotal(),payment:'Cash on pickup',createdAt:Date.now()};
   if(S.canEdit&&S.db){
     if(!order.customer.id)order.customer.id='p-'+order.code;
     try{await saveOrder(order,'stall');S.cart=[];S.cust={name:'',phone:'',note:''};renderCart();updateBuilder();renderKits();toast('Order '+order.code+' saved.')}
@@ -1027,6 +1155,7 @@ async function importSlip(){
       l.price=Math.round(l.unit*l.qty*100)/100;return}
     l.keys=(l.keys||[]).map(function(k){return {id:k.id,cap:k.cap&&capById(k.cap)[0]===k.cap?k.cap:undefined}});
     var p=priceFor(l.keys);l.keysCount=p.keys;l.base=p.base;l.off=p.off;l.offer=p.offer;l.price=p.total;var col=colorById(l.colorId);l.colorName=col?col.name:(l.colorName||'?')});
+  priceLines(o.items);
   o.total=Math.round(o.items.reduce(function(s,l){return s+l.price},0)*100)/100;
   var c=o.customer||{},str=function(v,n){return String(v||'').slice(0,n)};
   o.customer={id:str(c.id,24).replace(/[^\w-]/g,''),name:str(c.name,80),phone:str(c.phone,40),email:str(c.email,120),note:str(c.note,200),minor:!!c.minor,
@@ -1095,7 +1224,7 @@ function adminPricing(el){
   h+='<div class="formrow"><div class="field"><label class="label" for="pextra">Each key after '+tk[tk.length-1]+' ($)</label><input id="pextra" type="number" min="0" step="0.5" value="'+p.extraKey+'"></div><div class="field"><label class="label" for="pfancy">Light &amp; sound key surcharge ($)</label><input id="pfancy" type="number" min="0" step="0.5" value="'+p.fancyExtra+'"></div><div class="field"><label class="label" for="pmax">Most keys on one keychain</label><input id="pmax" type="number" min="1" max="30" value="'+p.maxKeys+'"></div></div>';
   h+='<p class="muted small">Example: a 6-letter name costs '+money(basePrice(6))+' before offers. A single light &amp; sound charm costs '+money(basePrice(1)+(+p.fancyExtra))+'.</p></div>';
   h+='<div class="sec"><h2>Offers</h2><p class="muted small">Active offers apply on their own. When several fit a keychain, the biggest discount wins.</p><div class="tablewrap"><table><thead><tr><th>On</th><th>Offer name shoppers see</th><th>Type</th><th>Value</th><th>Min keys</th><th>Max keys (0 = any)</th><th></th></tr></thead><tbody>';
-  (catalog.offers||[]).forEach(function(o,i){h+='<tr><td><input type="checkbox" data-oact="'+i+'" '+(o.active?'checked':'')+' aria-label="Active"></td><td><input type="text" data-otitle="'+i+'" value="'+esc(o.title)+'" aria-label="Offer name"></td><td><select data-otype="'+i+'" aria-label="Offer type"><option value="percent"'+(o.type==='percent'?' selected':'')+'>% off</option><option value="flat"'+(o.type==='flat'?' selected':'')+'>$ off</option><option value="price"'+(o.type==='price'?' selected':'')+'>Fixed price $</option></select></td><td><input type="number" min="0" step="0.5" data-oval="'+i+'" value="'+o.value+'" aria-label="Value"></td><td><input type="number" min="1" data-omin="'+i+'" value="'+(o.minKeys||1)+'" aria-label="Min keys"></td><td><input type="number" min="0" data-omax="'+i+'" value="'+(o.maxKeys||0)+'" aria-label="Max keys"></td><td><button type="button" class="btn danger small" data-odel="'+i+'">Remove</button></td></tr>'});
+  (catalog.offers||[]).forEach(function(o,i){h+='<tr><td><input type="checkbox" data-oact="'+i+'" '+(o.active?'checked':'')+' aria-label="Active"></td><td><input type="text" data-otitle="'+i+'" value="'+esc(o.title)+'" aria-label="Offer name"></td><td><select data-otype="'+i+'" aria-label="Offer type"><option value="percent"'+(o.type==='percent'?' selected':'')+'>% off</option><option value="flat"'+(o.type==='flat'?' selected':'')+'>$ off</option><option value="price"'+(o.type==='price'?' selected':'')+'>Fixed price $</option><option value="magnet"'+(o.type==='magnet'?' selected':'')+'>Fridge magnets at their offer price</option></select></td><td><input type="number" min="0" step="0.5" data-oval="'+i+'" value="'+o.value+'" aria-label="Value"></td><td><input type="number" min="1" data-omin="'+i+'" value="'+(o.minKeys||1)+'" aria-label="Min keys"></td><td><input type="number" min="0" data-omax="'+i+'" value="'+(o.maxKeys||0)+'" aria-label="Max keys"></td><td><button type="button" class="btn danger small" data-odel="'+i+'">Remove</button></td></tr>'});
   h+='</tbody></table></div><div><button class="btn small" type="button" id="addoffer">Add offer</button></div></div>';
   h+='<div class="sec"><h2>Punchline ideas</h2><div class="tablewrap"><table><thead><tr><th>Punchline</th><th>Show to</th><th></th></tr></thead><tbody>';
   (catalog.punchlines||[]).forEach(function(pl,i){h+='<tr><td><input type="text" data-ptext="'+i+'" value="'+esc(pl.text)+'" maxlength="24" aria-label="Punchline"></td><td><span class="aud">'+['boys','girls','men','women'].map(function(a){return '<label><input type="checkbox" data-paud="'+i+'" value="'+a+'" '+((pl.aud||[]).indexOf(a)>=0?'checked':'')+'>'+a[0].toUpperCase()+'</label>'}).join('')+'</span></td><td><button type="button" class="btn danger small" data-pdel="'+i+'">Remove</button></td></tr>'});
@@ -1184,6 +1313,7 @@ function bindAuth(){
 }
 function afterAuth(){var to=S.after||'home';S.after=null;go(to)}
 function go(where){
+  if(S.fs){S.fs=null;document.documentElement.classList.remove('noscroll')}
   if(where==='signin'||where==='signup'||where==='account'){
     if(where==='account'&&!me())where='signin';
     if(S.view!=='auth')S.after=S.view==='admin'?'home':S.view;
@@ -1195,30 +1325,42 @@ function go(where){
 }
 
 /* ---------- landing ---------- */
+/* A showcase with no prices: two frames, Clickers (the 3D keychain) and DIY Coloring Kits (a deck of spins with Paint Play).
+   Tapping a frame opens it full screen with a back button; prices appear only in the shop, once something is picked. */
 function showSpec(){
   var col=colorById(S.showColor)||colorById('purple')||catalog.colors[0];S.showColor=col?col.id:null;
   var ks=keysFromText('CLICK').filter(function(k){return k.id}).map(function(k,i){return {id:k.id,cap:nextCap(i)}});
   var duck=charmById('F-duck');if(duck&&+duck.stock>0)ks.push({id:'F-duck'});
   return {mode:'home',keys:ks,hex:col?col.hex:'#8B5CF6'};
 }
+var SPARK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.2 7.3 7.3 2.2-7.3 2.2L12 20.5l-2.2-7.3L2.5 11l7.3-2.2z" fill="currentColor"/></svg>';
+var BACK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var TURN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var BRUSH='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3c-3 1.4-7.8 6-9.8 8.9l1.9 1.9C16 11.8 20.6 7 22 4z" fill="currentColor"/><path d="M10.2 13.1c-2.3 0-3.8 1.6-3.8 3.5 0 1.6-1 2.6-2.4 2.6 1 1 2.7 1.6 4.3 1.6 3 0 4.8-2 4.8-4.6z" fill="currentColor"/></svg>';
+var PAINTS=[['blue','Blue','#2F7FE6'],['purple','Purple','#8B4FE0'],['pink','Pink','#F0479A']];
+function sparkles(n){var t='';for(var i=0;i<n;i++)t+='<i class="spk spk'+i+'">'+SPARK+'</i>';return '<span class="spks" aria-hidden="true">'+t+'</span>'}
+function deckKits(){return kits().filter(function(k){return +k.stock>0})}
+/* A kit can carry a photo set for a true 360 spin (kits[].spin = KIT_PICS keys, about 24, one every 15 degrees). With one photo it tilts instead. */
+function kitFrames(k){var f=(k.spin||[]).map(function(p){return KIT_PICS[p]}).filter(Boolean);if(f.length>1)return f;var one=kitPic(k);return one?[one]:[]}
+function kitArt(k,cls){var src=kitPic(k);return src?'<img class="'+cls+'" src="'+src+'" alt="'+esc(k.name)+'" draggable="false">':'<span class="'+cls+' nopic" role="img" aria-label="'+esc(k.name)+', photo coming soon">'+(isMagnet(k)?'🧲':'🎨')+'<small>Photo coming soon</small></span>'}
 function renderHome(){
-  var a=me(),p=catalog.pricing,ks=Object.keys(p.tiers).sort(function(x,y){return x-y});
-  var h='<section class="land"><div class="land-copy"><span class="eyebrow">'+esc(catalog.shop.name)+'</span><h1 class="land-h">Click it.<br>Spin it.<br><span>Spell it.</span></h1>';
-  h+='<p class="lede muted">Clicker keychains built one key at a time. Every letter clicks like a real keyboard key and gets its own cap color. From '+money(p.tiers[ks[0]])+' for one key.</p>';
-  h+='<div class="ctas"><button type="button" class="btn big" data-go="shop">Build your keychain</button>'+(a?'<button type="button" class="btn ghost big" data-go="account">Hi, '+esc(a.name.split(' ')[0])+'</button>':'<button type="button" class="btn ghost big" data-go="signup">Create account</button>')+'</div>';
-  if(!a)h+='<p class="small muted">Already have an account? <button type="button" class="linkbtn" data-go="signin">Sign in</button></p>';
-  h+='<div class="field"><span class="label">Try a base color</span><div class="colors" id="showcols">'+catalog.colors.map(function(c){return '<button type="button" class="swatch" data-show="'+c.id+'" aria-pressed="'+(S.showColor===c.id)+'" style="--c:'+esc(c.hex)+'"><i></i>'+esc(c.name)+'</button>'}).join('')+'</div></div></div>';
+  var dk=deckKits(),h;
+  h='<section class="hello">'+sparkles(6)+'<img class="biglogo" src="'+LOGO+'" alt="'+esc(catalog.shop.name)+' logo" width="176" height="176"><div class="hello-copy"><span class="eyebrow">'+esc(catalog.shop.name)+'</span><h1 class="land-h">Click it. Spin it. <span>Paint it.</span></h1><p class="lede muted">Clicky keychains and paint-your-own plaster kits, made by hand. Tap a frame to take a closer look.</p></div></section>';
+  h+='<section class="frames" aria-label="Our products"><div class="frame" id="fclk"><div class="fs-bar"><button type="button" class="backbtn" data-close>'+BACK+'Back</button><b class="fs-title">Clickers</b><button type="button" class="btn" data-go="shop">Build yours</button></div>';
   h+='<section class="studio land-studio" id="studio" aria-label="3D keychain you can spin"><div id="stage3d" class="stage3d"></div><div id="stage2d" class="stage2d"></div>';
   h+='<div class="studio-top"><span class="eyebrow">Spin it 360°</span><span class="specline">Tap any key</span></div>';
-  h+='<div class="studio-foot"><span class="hint" id="hint">A real clicker keychain, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section></section>';
+  h+='<div class="studio-foot"><span class="hint" id="hint">A real clicker keychain, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section>';
+  h+='<div class="fs-only fs-colors">';
+  h+='<div class="field"><span class="label">Try a base color</span><div class="colors" id="showcols">'+catalog.colors.map(function(c){return '<button type="button" class="swatch" data-show="'+c.id+'" aria-pressed="'+(S.showColor===c.id)+'" style="--c:'+esc(c.hex)+'"><i></i>'+esc(c.name)+'</button>'}).join('')+'</div></div>';
+  h+='</div><button type="button" class="frame-open" data-open="clk" aria-label="Open Clickers full screen"><span class="frame-tag"><b>Clickers</b><span>Tap to spin one 360°</span></span></button></div>';
+  if(dk.length)h+='<div class="frame diyframe" id="fdiy">'+sparkles(5)+'<div class="pile" aria-hidden="true">'+dk.slice(0,4).map(function(k,i){return '<span class="pcard pc'+i+'">'+kitArt(k,'pimg')+'</span>'}).join('')+'</div>'+
+    '<button type="button" class="frame-open" data-open="diy" aria-label="Open DIY Coloring Kits full screen"><span class="frame-tag"><b>DIY Coloring Kits</b><span>Bears, cars and fridge magnets to paint</span></span></button></div>';
+  h+='</section>';
   h+='<section class="steps" aria-label="How it works"><h2>How it works</h2><ol class="stepgrid">'+
     '<li><b>Tap your letters</b><span class="muted">Pick each key on the letter board, then choose cap colors and a base color.</span></li>'+
     '<li><b>Send your request</b><span class="muted">Sign in, and we get an order slip with your keychains and your contact details.</span></li>'+
     '<li><b>Pay cash at pickup</b><span class="muted">We text you when it’s ready. '+esc(catalog.shop.pickup)+'</span></li></ol></section>';
-  var kl=kits().filter(function(k){return +k.stock>0});
-  if(kl.length){var lo=Math.min.apply(null,kl.map(function(k){return +k.price||0}));
-    h+='<section class="kits" aria-label="DIY colouring kits"><div class="row"><div><span class="eyebrow">Also at the stall</span><h2>DIY colouring kits</h2></div><button type="button" class="btn ghost small" data-go="kits">See the kits</button></div>'+
-      '<p class="muted">A plaster toy to paint, 3 colour pods and a brush. From '+money(lo)+'.</p><div class="kitstrip">'+kl.map(function(k){return '<button type="button" class="kitmini" data-go="kits">'+kitImg(k,'kitpic')+'<span><b>'+esc(k.name)+'</b> '+money(+k.price||0)+'</span></button>'}).join('')+'</div></section>';}
+  if(dk.length)h+='<div class="fsdiy" id="fsdiy" role="dialog" aria-modal="true" aria-label="DIY Coloring Kits" hidden></div>';
   return h;
 }
 function bindHome(){
@@ -1229,7 +1371,93 @@ function bindHome(){
   var sp=showSpec(),stage='<div class="chain" style="--base:'+esc(sp.hex)+'"><span class="ring" aria-hidden="true"></span>'+sp.keys.map(function(k){return capHTML(k.id,{cap:k.cap})}).join('')+'</div>';
   $('#stage2d').innerHTML=stage;
   viewerSet(sp);mountViewer();
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){openFS(b.dataset.open)})});
+  $('#fclk [data-close]').addEventListener('click',closeFS);
 }
+/* ---------- full-screen frames (the browser back button closes them too) ---------- */
+function openFS(which){if(S.fs===which)return;S.fs=which;S.fsFrom=which;try{history.pushState({ccfs:which},'')}catch(e){}applyFS()}
+function closeFS(){if(!S.fs)return;var st=null;try{st=history.state}catch(e){}if(st&&st.ccfs){history.back();return}S.fs=null;applyFS()}
+function applyFS(){
+  var c=$('#fclk'),d=$('#fsdiy');
+  if(c)c.classList.toggle('full',S.fs==='clk');
+  if(d){d.hidden=S.fs!=='diy';if(S.fs==='diy'){if(!d.firstChild)renderDeck();else requestAnimationFrame(sizeSpins)}}
+  document.documentElement.classList.toggle('noscroll',!!S.fs);
+  var f=S.fs==='clk'?c:S.fs==='diy'?d:null,b=f?f.querySelector('[data-close]'):$('[data-open="'+S.fsFrom+'"]');
+  if(b)try{b.focus({preventScroll:true})}catch(e){}
+}
+window.addEventListener('popstate',function(e){var w=e.state&&e.state.ccfs||null;if(w&&S.view!=='home')w=null;if(S.fs!==w){S.fs=w;applyFS()}});
+document.addEventListener('keydown',function(e){if(!S.fs)return;
+  if(e.key==='Escape'){e.preventDefault();closeFS()}
+  else if(S.fs==='diy'&&(e.key==='ArrowRight'||e.key==='ArrowLeft')&&!/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)){e.preventDefault();deckGo(e.key==='ArrowRight'?1:-1)}});
+/* ---------- DIY deck: kits pile up like slides; each one spins (or tilts) and can be painted for fun ---------- */
+var D={i:0,tool:'spin'};
+function renderDeck(){
+  var d=$('#fsdiy'),dk=deckKits();D.i=Math.max(0,Math.min(D.i,dk.length-1));
+  var h='<div class="fs-bar"><button type="button" class="backbtn" data-close>'+BACK+'Back</button><b class="fs-title">DIY Coloring Kits</b><span class="deckcount num" id="deckcount"></span></div>';
+  h+='<div class="deckarea"><div class="deckstage"><div class="deck" id="deck">';
+  dk.forEach(function(k,i){h+='<article class="slide" aria-roledescription="slide" aria-label="'+esc(k.name)+'"><div class="spin" data-kit="'+esc(k.id)+'"><div class="spin-in">'+kitArt(k,'spin-img')+'<canvas class="paint" width="720" height="720"></canvas><span class="sheen" aria-hidden="true"></span></div></div>'+
+    '<div class="slide-cap"><div><b>'+esc(k.name)+'</b><span class="small muted">'+esc(k.desc||'')+'</span></div><button type="button" class="btn" data-pick="'+esc(k.id)+'">Choose this</button></div></article>'});
+  h+='</div><button type="button" class="deckarrow prev" data-step="-1" aria-label="Previous kit">'+BACK+'</button><button type="button" class="deckarrow next" data-step="1" aria-label="Next kit">'+BACK+'</button></div>';
+  h+='<div class="dots">'+dk.map(function(k,i){return '<button type="button" data-dot="'+i+'" aria-label="'+esc(k.name)+'"></button>'}).join('')+'</div></div>';
+  h+='<aside class="paintplay" aria-label="Paint Play">'+sparkles(3)+'<span class="eyebrow">Paint Play</span><b class="pp-h">Paint it before you pick it</b>';
+  h+='<div class="tools"><button type="button" class="tool" data-tool="spin" aria-pressed="true">'+TURN+'<span>Spin</span></button>'+PAINTS.map(function(p){return '<button type="button" class="tool brush" data-tool="'+p[0]+'" style="--c:'+p[2]+'" aria-pressed="false">'+BRUSH+'<span>'+p[1]+'</span></button>'}).join('')+'</div>';
+  h+='<p class="small muted" id="pphint">Drag the kit to turn it. Pick a color to paint it.</p><button type="button" class="btn ghost small" id="ppreset">Reset paint</button><p class="small muted">Just for fun. Your painting is not part of the order.</p></aside>';
+  d.innerHTML=h;
+  d.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var t=b.dataset;
+    if(t.close!=null)closeFS();
+    else if(t.step)deckGo(+t.step);
+    else if(t.dot!=null){D.i=+t.dot;deckShow()}
+    else if(t.tool){D.tool=t.tool;d.querySelectorAll('[data-tool]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});d.classList.toggle('painting',D.tool!=='spin');
+      $('#pphint').textContent=D.tool==='spin'?'Drag the kit to turn it. Pick a color to paint it.':'Drag on the kit to paint it '+t.tool+'. Tap Spin to turn it again.'}
+    else if(t.pick){var id=t.pick;go('kits');addKit(id)}
+    else if(b.id==='ppreset'){var cv=d.querySelector('.slide.cur .paint');if(!cv)return;cv.classList.add('wipe');setTimeout(function(){cv.getContext('2d').clearRect(0,0,cv.width,cv.height);cv.classList.remove('wipe')},300)}});
+  d.querySelectorAll('.spin').forEach(function(el){el._frames=kitFrames(kitById(el.dataset.kit));el._fr=0;bindSpin(el)});
+  if(window.ResizeObserver)new ResizeObserver(sizeSpins).observe($('#deck'));
+  deckShow();requestAnimationFrame(sizeSpins);
+}
+function deckShow(){
+  var sl=document.querySelectorAll('#deck .slide'),n=sl.length;
+  sl.forEach(function(s,i){var o=i-D.i;
+    s.style.transform=o<0?'translate3d(-125%,0,0) rotate(-10deg)':'translate3d('+(o*18)+'px,'+(o*-12)+'px,0) scale('+(1-o*0.06)+') rotate('+(o*2.5)+'deg)';
+    s.style.zIndex=String(50-Math.abs(o));s.style.opacity=o<0||o>3?'0':'1';s.classList.toggle('cur',o===0);s.setAttribute('aria-hidden',String(o!==0));s.inert=o!==0});
+  document.querySelectorAll('#fsdiy [data-dot]').forEach(function(b){b.setAttribute('aria-current',String(+b.dataset.dot===D.i))});
+  var c=$('#deckcount');if(c)c.textContent=(D.i+1)+' / '+n;
+  var p=$('#fsdiy .prev'),x=$('#fsdiy .next');if(p)p.disabled=D.i<=0;if(x)x.disabled=D.i>=n-1;
+}
+function deckGo(step){var j=Math.max(0,Math.min(deckKits().length-1,D.i+step));if(j===D.i)return;D.i=j;deckShow()}
+/* Keep each spin square so the paint layer lines up with the photo. */
+function sizeSpins(){document.querySelectorAll('#deck .spin').forEach(function(sp){var z=Math.max(80,Math.min(sp.clientWidth,sp.clientHeight)-36);sp.firstChild.style.width=z+'px';sp.firstChild.style.height=z+'px'})}
+function bindSpin(el){
+  var st=null,inner=el.firstChild;
+  el.addEventListener('pointerdown',function(e){if(!el.closest('.slide').classList.contains('cur'))return;
+    try{el.setPointerCapture(e.pointerId)}catch(x){}st={x:e.clientX,y:e.clientY,t:performance.now(),fr:el._fr};
+    if(D.tool==='spin')el.classList.add('drag');else paintStart(el,e)});
+  el.addEventListener('pointermove',function(e){if(!st)return;
+    if(D.tool!=='spin'){paintMove(el,e);return}
+    var dx=e.clientX-st.x,dy=e.clientY-st.y,f=el._frames;
+    if(f.length>1){var n=f.length,fr=((st.fr+Math.round(dx/10))%n+n)%n;if(fr!==el._fr){el._fr=fr;var im=el.querySelector('img');if(im)im.src=f[fr]}}
+    else{var ry=Math.max(-40,Math.min(40,dx*0.3)),rx=Math.max(-16,Math.min(16,-dy*0.15));inner.style.transform='rotateY('+ry+'deg) rotateX('+rx+'deg)';el.style.setProperty('--sx',(50+ry)+'%')}});
+  var end=function(e,swipe){if(!st)return;var dt=performance.now()-st.t,dx=e.clientX-st.x;
+    if(D.tool==='spin'){el.classList.remove('drag');inner.style.transform='';el.style.removeProperty('--sx');if(swipe&&dt<300&&Math.abs(dx)>60)deckGo(dx<0?1:-1)}
+    else P.cv=null;
+    st=null};
+  el.addEventListener('pointerup',function(e){end(e,true)});
+  el.addEventListener('pointercancel',function(e){end(e,false)});
+}
+/* Paint Play: soft dabs bloom onto a canvas over the photo; multiply blending lets the white plaster take the color. */
+var P={cv:null,last:null,dabs:[],raf:0};
+function paintHex(){for(var i=0;i<PAINTS.length;i++)if(PAINTS[i][0]===D.tool)return PAINTS[i][2];return PAINTS[2][2]}
+function canvasPt(cv,e){var r=cv.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width*cv.width,y:(e.clientY-r.top)/r.height*cv.height}}
+function paintStart(el,e){P.cv=el.querySelector('.paint');P.last=canvasPt(P.cv,e);addDab(P.last);sparkleAt(el,e)}
+function paintMove(el,e){if(!P.cv)return;var p=canvasPt(P.cv,e),l=P.last,dx=p.x-l.x,dy=p.y-l.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<9)return;
+  var n=Math.floor(dist/9);for(var i=1;i<=n;i++)addDab({x:l.x+dx*i*9/dist,y:l.y+dy*i*9/dist});P.last={x:l.x+dx*n*9/dist,y:l.y+dy*n*9/dist};
+  if(Math.random()<0.15)sparkleAt(el,e)}
+function addDab(p){P.dabs.push({x:p.x,y:p.y,k:REDUCED?5:0,c:paintHex(),cv:P.cv});if(!P.raf)P.raf=requestAnimationFrame(paintTick)}
+function paintTick(){P.raf=0;var next=[];
+  P.dabs.forEach(function(d){var g=d.cv.getContext('2d');d.k++;g.globalAlpha=REDUCED?0.6:0.16;g.fillStyle=d.c;g.beginPath();g.arc(d.x,d.y,6+d.k*4.2,0,Math.PI*2);g.fill();if(d.k<6)next.push(d)});
+  P.dabs=next;if(next.length)P.raf=requestAnimationFrame(paintTick)}
+function sparkleAt(el,e){if(REDUCED)return;var r=el.getBoundingClientRect(),s=document.createElement('i');s.className='psp';s.innerHTML=SPARK;
+  s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';s.style.color=paintHex();el.appendChild(s);setTimeout(function(){s.remove()},750)}
 /* ---------- shell ---------- */
 function render(){
   var a=me(),v=S.view,nav=[['home','Home'],['shop','Build a keychain']];if(kits().length)nav.push(['kits','DIY kits']);if(S.canEdit)nav.push(['admin','Back office']);
