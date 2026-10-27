@@ -285,6 +285,8 @@ td input[type=text]{padding:6px 8px}
 .kitthumb{width:52px;height:52px;border-radius:10px;object-fit:cover;flex:none;background:#fff;border:1px solid var(--line)}
 .kitthumb.nopic{font-size:22px}
 .kitline{display:flex;gap:10px;align-items:center;min-width:0}
+.kitpick{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+.kitbtn .kitthumb{width:64px;height:64px}
 .kitstrip{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .kitmini{display:grid;gap:0;padding:0;border:1px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden;text-align:left;font-size:13.5px}
 .kitmini:hover{border-color:var(--accent)}
@@ -648,6 +650,7 @@ function renderShop(){
   h+='<div class="field"><span class="label">Or start from an idea</span><div class="chips" id="punch"></div></div>';
   h+='<div class="field"><span class="label">Base color</span><div class="colors" id="colors"></div></div>';
   h+='<div class="field"><span class="label">Add a charm key</span><div class="charmgrid" id="charms"></div></div>';
+  if(kits().length)h+='<div class="field"><span class="label">Add a DIY colouring kit</span><span class="small muted">For kids: a plaster toy to paint, 3 colour pods and a brush. Added to your request on its own, not on the keychain.</span><div class="charmgrid kitpick" id="kitpick"></div></div>';
   h+='<div id="offers"></div></section></div>';
   if(kits().length)h+='<section class="kits" id="kits" aria-label="DIY colouring kits"><div class="row"><div><span class="eyebrow">For kids</span><h2>DIY colouring kits</h2></div><span class="muted small">Each kit: a plaster toy to paint, 3 colour pods and a brush</span></div><div class="kitgrid" id="kitgrid"></div></section>';
   h+='<section class="request" aria-label="Your request"><h2>Your request</h2><div id="cartbox"></div></section>';
@@ -674,7 +677,7 @@ function bindShop(){
     else if(b.id==='capmix'){S.keys.forEach(function(x,i){x.cap=nextCap(i)});updateBuilder()}
     else if(b.id==='keydone'){S.sel=null;renderEditor()}});
   $('#add').addEventListener('click',addToCart);
-  var kg=$('#kitgrid');if(kg)kg.addEventListener('click',function(e){var b=e.target.closest('[data-kit]');if(!b||b.disabled)return;tapClick();addKit(b.dataset.kit)});
+  ['#kitgrid','#kitpick'].forEach(function(s){var kg=$(s);if(kg)kg.addEventListener('click',function(e){var b=e.target.closest('[data-kit]');if(!b||b.disabled)return;tapClick();addKit(b.dataset.kit)})});
   $('#vreset').addEventListener('click',function(){V.fitN=-1;if(V.spec)fitCamera(V.spec.keys.length);V.lastInteract=-1e9});
   $('#vsound').addEventListener('click',function(e){V.sound=!V.sound;e.currentTarget.setAttribute('aria-pressed',String(V.sound));e.currentTarget.textContent=V.sound?'Sound on':'Sound off'});
   var p=catalog.pricing,tiers=p.tiers,ks=Object.keys(tiers).sort(function(a,b){return a-b}),pl='';
@@ -753,7 +756,10 @@ function addToCart(){
 }
 /* ---------- DIY colouring kits (sold as they are; repeat taps raise the quantity) ---------- */
 function kitLeft(id){var k=kitById(id);return k?+k.stock-(demand(S.cart).kits[id]||0):0}
-function renderKits(){var g=$('#kitgrid');if(!g)return;
+function renderKits(){
+  var kp=$('#kitpick');if(kp)kp.innerHTML=kits().map(function(k){var left=kitLeft(k.id);
+    return '<button type="button" class="charmbtn kitbtn" data-kit="'+esc(k.id)+'" '+(left<=0?'disabled':'')+' aria-label="Add '+esc(k.name)+' kit to request">'+kitImg(k,'kitthumb')+'<span>'+esc(k.name)+'</span><span class="tag">'+(+k.stock<=0?'sold out':left<=0?'all in request':'+'+money(+k.price||0))+'</span></button>'}).join('');
+  var g=$('#kitgrid');if(!g)return;
   g.innerHTML=kits().map(function(k){var out=+k.stock<=0,left=kitLeft(k.id);
     return '<div class="kit">'+kitImg(k,'kitpic')+'<div class="kitbody"><b>'+esc(k.name)+'</b>'+(k.desc?'<span class="small muted">'+esc(k.desc)+'</span>':'')+
       '<div class="row"><span class="price num">'+money(+k.price||0)+'</span>'+(out?'<span class="pill bad">Sold out</span>':left<=0?'<span class="pill warn">All in your request</span>':'')+'</div>'+
