@@ -355,7 +355,7 @@ html.noscroll,html.noscroll body{overflow:hidden}
 .deckstage{position:relative;min-height:0}
 .deck{position:absolute;inset:0 58px}
 .slide{position:absolute;inset:0;margin:auto;width:min(100%,560px);max-height:690px;display:grid;grid-template-rows:minmax(0,1fr) auto;background:var(--surface);border-radius:28px;box-shadow:0 18px 44px rgba(30,20,60,.18);overflow:hidden;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .35s}
-.spin{position:relative;display:grid;place-items:center;min-height:0;padding:18px;background:#fff;perspective:900px;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.spin{position:relative;display:grid;place-items:center;min-height:0;padding:18px;background:radial-gradient(120% 90% at 50% 38%,#3b3552 0%,#211d30 60%,#15131e 100%);perspective:900px;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
 .spin.drag{cursor:grabbing}
 .painting .spin{cursor:crosshair}
 .spin-in{position:relative;width:240px;height:240px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.9,.25,1.3)}
@@ -1434,6 +1434,9 @@ function applyFS(){
 window.addEventListener('popstate',function(e){var w=e.state&&e.state.ccfs||null;if(w&&S.view!=='home')w=null;if(S.fs!==w){S.fs=w;applyFS()}});
 document.addEventListener('keydown',function(e){if(!S.fs)return;
   if(e.key==='Escape'){e.preventDefault();closeFS()}
+  else if(S.fs==='diy'&&(e.key==='m'||e.key==='M')&&K.cur){K.strip=!K.strip;Object.keys(K.mats).forEach(function(k){var m=K.mats[k];if(m.userData.bump===undefined)m.userData.bump=m.bumpMap;m.bumpMap=K.strip?null:m.userData.bump;m.needsUpdate=true});
+    K.scene.children.forEach(function(o){if(o.material&&o.material.isShadowMaterial)o.visible=!K.strip});K.r.setClearColor(K.strip?0xd2d2d4:0x000000,K.strip?1:0);document.querySelectorAll('.turnbadge').forEach(function(b){b.style.visibility=K.strip?'hidden':''})}
+  else if(S.fs==='diy'&&(e.key==='r'||e.key==='R')&&K.cur){K.yaw=(Math.round(K.yaw/(Math.PI/2))+1)*Math.PI/2;K.vel=0;K.pitch=0.05;K.idle=performance.now()+30000}
   else if(S.fs==='diy'&&(e.key==='ArrowRight'||e.key==='ArrowLeft')&&!/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)){e.preventDefault();deckGo(e.key==='ArrowRight'?1:-1)}});
 /* ---------- DIY deck: kits pile up like slides; each one spins (or tilts) and can be painted for fun ---------- */
 var D={i:0,tool:'spin',raf:0};
@@ -1518,14 +1521,20 @@ function k3Rand(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;var 
 /* Bump maps drawn on a canvas: short strokes read as teddy fur, specks and pits as cast plaster. */
 function k3Bump(kind){var T=K.T,c=document.createElement('canvas');c.width=c.height=256;var x=c.getContext('2d'),r=k3Rand(kind==='fur'?7:3);
   x.fillStyle='#808080';x.fillRect(0,0,256,256);
-  if(kind==='fur'){x.lineCap='round';for(var i=0;i<5200;i++){var px=r()*256,py=r()*256,a=r()*Math.PI*2,l=3+r()*5,g=Math.floor(70+r()*120);x.strokeStyle='rgb('+g+','+g+','+g+')';x.lineWidth=1+r()*1.6;x.beginPath();x.moveTo(px,py);x.lineTo(px+Math.cos(a)*l,py+Math.sin(a)*l);x.stroke()}}
+  /* fur: coarse curly tufts (~0.06 model units long) like the cast pile in the product photos */
+  if(kind==='fur'){x.lineCap='round';x.fillStyle='#5a5a5a';x.fillRect(0,0,256,256);for(var i=0;i<1100;i++){var px=r()*256,py=r()*256,a=-Math.PI/2+(r()-0.5)*1.6,l=14+r()*26,bend=(r()-0.5)*18,g=Math.floor(110+r()*130);
+    x.strokeStyle='rgb('+g+','+g+','+g+')';x.lineWidth=3+r()*5;x.beginPath();x.moveTo(px,py);x.quadraticCurveTo(px+Math.cos(a)*l*0.5+bend,py+Math.sin(a)*l*0.5,px+Math.cos(a)*l,py+Math.sin(a)*l);x.stroke()}}
   else{for(var j=0;j<2600;j++){var g2=Math.floor(96+r()*64);x.fillStyle='rgb('+g2+','+g2+','+g2+')';x.fillRect(r()*256,r()*256,1+r()*2,1+r()*2)}
     for(var k=0;k<60;k++){x.fillStyle='rgba(30,30,30,.55)';x.beginPath();x.arc(r()*256,r()*256,0.8+r()*1.6,0,7);x.fill()}}
   var t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(kind==='fur'?3:2,kind==='fur'?3:2);return t}
+var K3PAL={'paint-yellow':[0xe2ba40,0.5],'paint-red':[0xaf3a40,0.5],'paint-blue':[0x39639f,0.5],'handle-black':[0x131315,0.25],'bristle-orange':[0xc8763e,0.6]};
 function k3Mat(kind){var T=K.T;if(K.mats[kind])return K.mats[kind];var m;
-  if(kind==='magnet')m=new T.MeshStandardMaterial({color:0x2b2b2e,roughness:0.55,metalness:0.2});
+  if(K3PAL[kind])m=new T.MeshStandardMaterial({color:new T.Color(K3PAL[kind][0]).convertSRGBToLinear(),roughness:K3PAL[kind][1],metalness:0});
+  else if(kind==='clear-plastic')m=new T.MeshPhysicalMaterial({color:0xf4f6f8,roughness:0.12,metalness:0,clearcoat:1,clearcoatRoughness:0.08,transparent:true,opacity:0.18,depthWrite:false});
+  else if(kind==='ferrule-metal')m=new T.MeshStandardMaterial({color:0xc2c3c5,roughness:0.3,metalness:0.55});
+  else if(kind==='magnet')m=new T.MeshStandardMaterial({color:0x2b2b2e,roughness:0.55,metalness:0.2});
   else if(kind==='shade')m=new T.MeshStandardMaterial({color:0xdedbd5,roughness:0.8,metalness:0,bumpMap:k3Bump('plaster'),bumpScale:0.008});
-  else m=new T.MeshStandardMaterial({color:0xf4f2ed,roughness:0.93,metalness:0,bumpMap:k3Bump(kind==='fur'?'fur':'plaster'),bumpScale:kind==='fur'?0.05:0.012});
+  else m=new T.MeshStandardMaterial({color:0xebe8e2,roughness:0.93,metalness:0,bumpMap:k3Bump(kind==='fur'?'fur':'plaster'),bumpScale:kind==="fur"?0.09:0.012});
   return K.mats[kind]=m}
 function k3(o,x,y,z,rx,ry,rz){o.position.set(x,y,z);o.rotation.set(rx||0,ry||0,rz||0);return o}
 function k3Sph(r,m,sx,sy,sz){var g=new K.T.Mesh(new K.T.SphereGeometry(r,40,28),m);g.scale.set(sx||1,sy||sx||1,sz||sx||1);return g}
@@ -1650,22 +1659,72 @@ function k3BearMag(){var g=k3Group(),p=k3Mat('plaster');
   [-1,1].forEach(function(s){g.put(k3Ext(k3Circle(0.16),0.14,p,0.04),s*0.34,0.82,-0.01);g.put(k3Sph(0.035,p,1,1.5,0.5),s*0.17,0.6,0.085)});
   g.put(k3Sph(0.2,p,1.15,0.8,0.25),0,0.36,0.08);g.put(k3Sph(0.055,p,1.3,1,0.6),0,0.42,0.13);g.put(k3Smile(0.06,0.012,p),0,0.33,0.125);
   return k3Magnet(g,0.48,0.16)}
-var KIT3D={heartbear:function(){return k3Bear({heart:1})},bowbear:function(){return k3Bear({bow:1})},vintagecar:k3VintageCar,policecar:k3PoliceCar,supercar:k3SuperCar,astronaut:k3Astronaut,pikamag:k3PikaMag,starmag:k3StarMag,bearmag:k3BearMag};
+/* Plain-JS port of the img2threejs generator's implicit-surface runtime (primitive SDFs, smooth-min
+   chained operations, naive surface nets with gradient normals). Builds a kit from KIT_SDF data. */
+function sdfCompile(desc){var T=K.T,nodes={},first=null;
+  desc.primitives.forEach(function(p){var t=p.transform||{},c=t.position||t.translation||p.center||[0,0,0],r=t.rotation||[0,0,0],sc=t.scale||[1,1,1];
+    var e=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromQuaternion(new T.Quaternion().setFromEuler(new T.Euler(r[0],r[1],r[2])).invert())).elements;
+    var ms=Math.min(sc[0],sc[1],sc[2]),rad=typeof p.radius==='number'?p.radius:null,radii=p.radii||(rad!=null?[rad,rad,rad]:(p.radius||[0.5,0.5,0.5])),
+      h=p.height==null?1:p.height,size=p.size||p.dimensions||[1,1,1];
+    var f=function(x,y,z){var lx=x-c[0],ly=y-c[1],lz=z-c[2],px=(e[0]*lx+e[3]*ly+e[6]*lz)/sc[0],py=(e[1]*lx+e[4]*ly+e[7]*lz)/sc[1],pz=(e[2]*lx+e[5]*ly+e[8]*lz)/sc[2],d;
+      switch(p.type){
+        case 'sphere':d=Math.sqrt(px*px+py*py+pz*pz)-(rad==null?0.5:rad);break;
+        case 'capsule':var hh=h*0.5,cy=Math.max(-hh,Math.min(hh,py));d=Math.sqrt(px*px+(py-cy)*(py-cy)+pz*pz)-(rad==null?0.25:rad);break;
+        case 'box':var qx=Math.abs(px)-size[0]*0.5,qy=Math.abs(py)-size[1]*0.5,qz=Math.abs(pz)-size[2]*0.5,mx=Math.max(qx,0),my=Math.max(qy,0),mz=Math.max(qz,0);d=Math.sqrt(mx*mx+my*my+mz*mz)+Math.min(Math.max(qx,qy,qz),0);break;
+        case 'cone':var ch=h*0.5,tp=(rad==null?0.5:rad)*(1-(py+ch)/h);d=Math.max(Math.hypot(px,pz)-Math.max(0,tp),Math.abs(py)-ch);break;
+        default:var ex=px/radii[0],ey=py/radii[1],ez=pz/radii[2];d=(Math.sqrt(ex*ex+ey*ey+ez*ez)-1)*Math.min(radii[0],radii[1],radii[2])}
+      return d*ms};
+    nodes[p.id]=f;if(!first)first=f});
+  var result=first;
+  (desc.operations||[]).forEach(function(o,i){var L=nodes[o.left],R=nodes[o.right];if(!L||!R)return;var rr=o.radius||0.1,g;
+    if(o.type==='smooth-union')g=function(x,y,z){var a=L(x,y,z),b=R(x,y,z),k=Math.max(rr-Math.abs(a-b),0)/rr;return Math.min(a,b)-k*k*rr*0.25};
+    else if(o.type==='subtract')g=function(x,y,z){return Math.max(L(x,y,z),-R(x,y,z))};
+    else g=function(x,y,z){return Math.max(L(x,y,z),R(x,y,z))};
+    nodes[o.id||o.output||('operation-'+i)]=g;result=g});
+  return result||function(){return Infinity}}
+function sdfGeometry(desc){var T=K.T,res=Math.max(4,Math.min(64,Math.floor(desc.resolution))),b=desc.bounds||{min:[-2,-2,-2],max:[2,2,2]},
+  mn=b.min,sx=(b.max[0]-mn[0])/res,sy=(b.max[1]-mn[1])/res,sz=(b.max[2]-mn[2])/res,f=sdfCompile(desc),side=res+1,field=new Float32Array(side*side*side);
+  var ci=function(x,y,z){return (z*side+y)*side+x},cl=function(x,y,z){return (z*res+y)*res+x};
+  for(var z=0;z<side;z++)for(var y=0;y<side;y++)for(var x=0;x<side;x++)field[ci(x,y,z)]=f(mn[0]+x*sx,mn[1]+y*sy,mn[2]+z*sz);
+  var E=[[0,0,0,1,0,0],[1,0,0,1,1,0],[0,1,0,1,1,0],[0,0,0,0,1,0],[0,0,1,1,0,1],[1,0,1,1,1,1],[0,1,1,1,1,1],[0,0,1,0,1,1],[0,0,0,0,0,1],[1,0,0,1,0,1],[1,1,0,1,1,1],[0,1,0,0,1,1]];
+  var pos=[],nor=[],uv=[],idx=[],cv=new Int32Array(res*res*res).fill(-1),eps=Math.min(sx,sy,sz)*0.25;
+  for(z=0;z<res;z++)for(y=0;y<res;y++)for(x=0;x<res;x++){var n=0,ax=0,ay=0,az=0;
+    for(var k=0;k<12;k++){var q=E[k],a=field[ci(x+q[0],y+q[1],z+q[2])],bb=field[ci(x+q[3],y+q[4],z+q[5])];if((a<=0)===(bb<=0))continue;var t=a/(a-bb);ax+=q[0]+(q[3]-q[0])*t;ay+=q[1]+(q[4]-q[1])*t;az+=q[2]+(q[5]-q[2])*t;n++}
+    if(!n)continue;var px=mn[0]+(x+ax/n)*sx,py=mn[1]+(y+ay/n)*sy,pz=mn[2]+(z+az/n)*sz;cv[cl(x,y,z)]=pos.length/3;pos.push(px,py,pz);
+    var gx=f(px+eps,py,pz)-f(px-eps,py,pz),gy=f(px,py+eps,pz)-f(px,py-eps,pz),gz=f(px,py,pz+eps)-f(px,py,pz-eps),gl=Math.sqrt(gx*gx+gy*gy+gz*gz);
+    if(gl<1e-10){gx=0;gy=1;gz=0;gl=1}gx/=gl;gy/=gl;gz/=gl;nor.push(gx,gy,gz);
+    /* planar UV on the dominant normal axis, for the bump map */
+    var axX=Math.abs(gx),axY=Math.abs(gy),axZ=Math.abs(gz);uv.push.apply(uv,axX>axY&&axX>axZ?[pz*0.8,py*0.8]:axY>axZ?[px*0.8,pz*0.8]:[px*0.8,py*0.8])}
+  var quad=function(a,b,c,d,fl){if(a<0||b<0||c<0||d<0)return;if(fl)idx.push(a,c,b,a,d,c);else idx.push(a,b,c,a,c,d)};
+  for(z=0;z<side;z++)for(y=0;y<side;y++)for(x=0;x<side;x++){var here=field[ci(x,y,z)]<=0;
+    if(x+1<side&&y>0&&z>0&&y<side-1&&z<side-1&&here!==(field[ci(x+1,y,z)]<=0))quad(cv[cl(x,y-1,z-1)],cv[cl(x,y,z-1)],cv[cl(x,y,z)],cv[cl(x,y-1,z)],!here);
+    if(y+1<side&&x>0&&z>0&&x<side-1&&z<side-1&&here!==(field[ci(x,y+1,z)]<=0))quad(cv[cl(x-1,y,z-1)],cv[cl(x-1,y,z)],cv[cl(x,y,z)],cv[cl(x,y,z-1)],!here);
+    if(z+1<side&&x>0&&y>0&&x<side-1&&y<side-1&&here!==(field[ci(x,y,z+1)]<=0))quad(cv[cl(x-1,y-1,z)],cv[cl(x,y-1,z)],cv[cl(x,y,z)],cv[cl(x-1,y,z)],!here)}
+  var g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('normal',new T.Float32BufferAttribute(nor,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);return g}
+function k3FromSdf(parts){var T=K.T,g=k3Group();parts.forEach(function(p){var d=p.dims,geo=p.prim==='cylinder'?new T.CylinderGeometry(d[0]/2,d[0]/2,d[1],40):p.prim==='cone'?new T.ConeGeometry(d[0]/2,d[1],32):p.prim==='box'?new T.BoxGeometry(d[0],d[1],d[2]):sdfGeometry(p.sdf);
+  var m=new T.Mesh(geo,k3Mat(p.mat));m.name=p.id;if(p.pos){m.position.fromArray(p.pos);m.rotation.set(p.rot[0],p.rot[1],p.rot[2])}if(m.material.transparent)m.renderOrder=2;g.add(m)});return g}
+/* The paint set (3 pots + brush) comes with every kit, so it sits beside each kit on the turntable, pots about a quarter of the kit's height. */
+function k3WithPaints(g){if(!KIT_SDF.paintset)return g;var T=K.T,kb=new T.Box3().setFromObject(g),h=Math.max(kb.max.y-kb.min.y,0.6*Math.max(kb.max.x-kb.min.x,kb.max.z-kb.min.z)),ps=k3FromSdf(KIT_SDF.paintset),s=h*0.32/0.5,out=k3Group();
+  ps.scale.setScalar(s);ps.rotation.y=-0.35;var pb=new T.Box3().setFromObject(ps);ps.position.set(kb.max.x-(pb.max.x+pb.min.x)/2-h*0.05,kb.min.y-pb.min.y,kb.max.z-pb.min.z+h*0.02);
+  out.add(g);out.add(ps);return out}
+/* SDF models exported from .img2threejs/<kit>/object-sculpt-spec.json by scripts/export_kit_sdf.py */
+var KIT_SDF={"heartbear":[{"id":"root","mat":"fur","sdf":{"primitives":[{"id":"torso","type":"ellipsoid","center":[0,0.62,0],"radii":[0.56,0.5,0.52]},{"id":"belly","type":"ellipsoid","center":[0,0.36,0.05],"radii":[0.72,0.38,0.57]},{"id":"head","type":"ellipsoid","center":[0,1.42,0.02],"radii":[0.6,0.47,0.46]},{"id":"muzzle","type":"ellipsoid","center":[0,1.26,0.4],"radii":[0.26,0.2,0.21]},{"id":"ear-l","type":"ellipsoid","center":[0.5,1.78,-0.04],"radii":[0.25,0.25,0.13],"transform":{"position":[0.5,1.78,-0.04],"rotation":[0,0,-0.45]}},{"id":"ear-r","type":"ellipsoid","center":[-0.5,1.78,-0.04],"radii":[0.25,0.25,0.13],"transform":{"position":[-0.5,1.78,-0.04],"rotation":[0,0,0.45]}},{"id":"arm-l","type":"capsule","radius":0.16,"height":0.6259,"center":[0.515,0.81,0.32],"transform":{"position":[0.515,0.81,0.32],"rotation":[2.1461,0.4176,0.2292]}},{"id":"arm-r","type":"capsule","radius":0.16,"height":0.6259,"center":[-0.515,0.81,0.32],"transform":{"position":[-0.515,0.81,0.32],"rotation":[2.1461,-0.4176,-0.2292]}},{"id":"paw-l","type":"ellipsoid","center":[0.45,0.6,0.6],"radii":[0.14,0.16,0.13]},{"id":"paw-r","type":"ellipsoid","center":[-0.45,0.6,0.6],"radii":[0.14,0.16,0.13]},{"id":"leg-l","type":"capsule","radius":0.24,"height":0.4969,"center":[0.44,0.25,0.285],"transform":{"position":[0.44,0.25,0.285],"rotation":[1.4993,-0.3229,-0.3464]}},{"id":"leg-r","type":"capsule","radius":0.24,"height":0.4969,"center":[-0.44,0.25,0.285],"transform":{"position":[-0.44,0.25,0.285],"rotation":[1.4993,0.3229,0.3464]}},{"id":"ear-cup-l","type":"ellipsoid","center":[0.5,1.78,0.08],"radii":[0.15,0.15,0.08],"transform":{"position":[0.5,1.78,0.08],"rotation":[0,0,-0.45]}},{"id":"ear-cup-r","type":"ellipsoid","center":[-0.5,1.78,0.08],"radii":[0.15,0.15,0.08],"transform":{"position":[-0.5,1.78,0.08],"rotation":[0,0,0.45]}}],"operations":[{"type":"smooth-union","left":"torso","right":"belly","radius":0.15,"id":"u-belly"},{"type":"smooth-union","left":"u-belly","right":"head","radius":0.06,"id":"u-head"},{"type":"smooth-union","left":"u-head","right":"muzzle","radius":0.1,"id":"u-muzzle"},{"type":"smooth-union","left":"u-muzzle","right":"ear-l","radius":0.06,"id":"u-ear-l"},{"type":"smooth-union","left":"u-ear-l","right":"ear-r","radius":0.06,"id":"u-ear-r"},{"type":"smooth-union","left":"u-ear-r","right":"arm-l","radius":0.09,"id":"u-arm-l"},{"type":"smooth-union","left":"u-arm-l","right":"arm-r","radius":0.09,"id":"u-arm-r"},{"type":"smooth-union","left":"u-arm-r","right":"paw-l","radius":0.06,"id":"u-paw-l"},{"type":"smooth-union","left":"u-paw-l","right":"paw-r","radius":0.06,"id":"u-paw-r"},{"type":"smooth-union","left":"u-paw-r","right":"leg-l","radius":0.1,"id":"u-leg-l"},{"type":"smooth-union","left":"u-leg-l","right":"leg-r","radius":0.1,"id":"u-leg-r"},{"type":"subtract","left":"u-leg-r","right":"ear-cup-l","id":"cut-l"},{"type":"subtract","left":"cut-l","right":"ear-cup-r","id":"body"}],"resolution":64,"bounds":{"min":[-0.92,-0.04,-0.76],"max":[0.92,2.16,0.84]}}},{"id":"heart","mat":"fur","sdf":{"primitives":[{"id":"lobe-l","type":"ellipsoid","center":[0.2,0.76,0.64],"radii":[0.25,0.24,0.17]},{"id":"lobe-r","type":"ellipsoid","center":[-0.2,0.76,0.64],"radii":[0.25,0.24,0.17]},{"id":"point","type":"cone","radius":0.42,"height":0.5,"center":[0,0.5,0.64],"transform":{"position":[0,0.5,0.64],"rotation":[0,0,3.1416],"scale":[1,1,0.4]}}],"operations":[{"type":"smooth-union","left":"lobe-l","right":"lobe-r","radius":0.08,"id":"lobes"},{"type":"smooth-union","left":"lobes","right":"point","radius":0.08,"id":"heart"}],"resolution":56,"bounds":{"min":[-0.56,0.16,0.42],"max":[0.56,1.06,0.88]}}},{"id":"eyes","mat":"plaster","sdf":{"primitives":[{"id":"eye-l","type":"sphere","radius":0.07,"center":[0.19,1.5,0.44]},{"id":"eye-r","type":"sphere","radius":0.07,"center":[-0.19,1.5,0.44]}],"operations":[{"type":"smooth-union","left":"eye-l","right":"eye-r","radius":0.01,"id":"eyes"}],"resolution":44,"bounds":{"min":[-0.29,1.4,0.33],"max":[0.29,1.6,0.54]}}},{"id":"nose","mat":"plaster","sdf":{"primitives":[{"id":"nose-top","type":"ellipsoid","center":[0,1.35,0.6],"radii":[0.12,0.075,0.075]},{"id":"nose-tip","type":"ellipsoid","center":[0,1.28,0.615],"radii":[0.05,0.065,0.055]}],"operations":[{"type":"smooth-union","left":"nose-top","right":"nose-tip","radius":0.05,"id":"nose"}],"resolution":40,"bounds":{"min":[-0.15,1.19,0.5],"max":[0.15,1.45,0.71]}}},{"id":"tail","mat":"fur","sdf":{"primitives":[{"id":"tail","type":"sphere","radius":0.13,"center":[0,0.28,-0.56]}],"resolution":28,"bounds":{"min":[-0.16,0.13,-0.72],"max":[0.16,0.43,-0.4]}}},{"id":"soles","mat":"plaster","sdf":{"primitives":[{"id":"sole-l","type":"ellipsoid","center":[0.55,0.25,0.73],"radii":[0.19,0.19,0.06],"transform":{"position":[0.55,0.25,0.73],"rotation":[0,0.24,0]}},{"id":"sole-r","type":"ellipsoid","center":[-0.55,0.25,0.73],"radii":[0.19,0.19,0.06],"transform":{"position":[-0.55,0.25,0.73],"rotation":[0,-0.24,0]}}],"operations":[{"type":"smooth-union","left":"sole-l","right":"sole-r","radius":0.01,"id":"soles"}],"resolution":48,"bounds":{"min":[-0.8,0.02,0.6],"max":[0.8,0.48,0.86]}}}],"paintset":[{"id":"root","mat":"clear-plastic","prim":"box","dims":[1.5552,0.01,0.02],"pos":[0,0.005,0],"rot":[0,0,0]},{"id":"pot-yellow","mat":"clear-plastic","prim":"cylinder","dims":[0.3564,0.3645,0.3564],"pos":[-0.5184,0.1823,0],"rot":[0,0,0]},{"id":"paint-yellow","mat":"paint-yellow","prim":"cylinder","dims":[0.3208,0.3281,0.3208],"pos":[-0.5184,0.1713,0],"rot":[0,0,0]},{"id":"lid-yellow","mat":"clear-plastic","prim":"cylinder","dims":[0.4131,0.135,0.4131],"pos":[-0.5184,0.432,0],"rot":[0,0,0]},{"id":"pot-red","mat":"clear-plastic","prim":"cylinder","dims":[0.3564,0.3645,0.3564],"pos":[0.0,0.1823,0],"rot":[0,0,0]},{"id":"paint-red","mat":"paint-red","prim":"cylinder","dims":[0.3208,0.3281,0.3208],"pos":[0.0,0.1713,0],"rot":[0,0,0]},{"id":"lid-red","mat":"clear-plastic","prim":"cylinder","dims":[0.4131,0.135,0.4131],"pos":[0.0,0.432,0],"rot":[0,0,0]},{"id":"pot-blue","mat":"clear-plastic","prim":"cylinder","dims":[0.3564,0.3645,0.3564],"pos":[0.5184,0.1823,0],"rot":[0,0,0]},{"id":"paint-blue","mat":"paint-blue","prim":"cylinder","dims":[0.3208,0.3281,0.3208],"pos":[0.5184,0.1713,0],"rot":[0,0,0]},{"id":"lid-blue","mat":"clear-plastic","prim":"cylinder","dims":[0.4131,0.135,0.4131],"pos":[0.5184,0.432,0],"rot":[0,0,0]},{"id":"tab-a","mat":"clear-plastic","prim":"box","dims":[0.202,0.03,0.05],"pos":[-0.2592,0.3695,0],"rot":[0,0,0]},{"id":"tab-b","mat":"clear-plastic","prim":"box","dims":[0.202,0.03,0.05],"pos":[0.2592,0.3695,0],"rot":[0,0,0]},{"id":"brush-handle","mat":"handle-black","prim":"cylinder","dims":[0.05,1.6767,0.05],"pos":[0.2592,0.028,-0.34],"rot":[0,0,1.5708]},{"id":"brush-ferrule","mat":"ferrule-metal","prim":"cylinder","dims":[0.046,0.3645,0.046],"pos":[-0.7614,0.028,-0.34],"rot":[0,0,1.5708]},{"id":"brush-tip","mat":"bristle-orange","prim":"cone","dims":[0.046,0.1539,0.046],"pos":[-1.0206,0.028,-0.34],"rot":[0,0,1.5708]}]};
+var KIT3D={heartbear:function(){return KIT_SDF.heartbear?k3FromSdf(KIT_SDF.heartbear):k3Bear({heart:1})},bowbear:function(){return k3Bear({bow:1})},vintagecar:k3VintageCar,policecar:k3PoliceCar,supercar:k3SuperCar,astronaut:k3Astronaut,pikamag:k3PikaMag,starmag:k3StarMag,bearmag:k3BearMag};
 function k3Start(){if(K.st!=='idle')return;if(!webglOK()){K.st='failed';return}K.st='loading';
   (window.THREE?Promise.resolve():loadScript(THREE_BASE+'build/three.min.js')).then(function(){k3Init();K.st='ready';k3Show()}).catch(function(e){K.st='failed';try{console.warn('Kit 3D off:',e)}catch(x){}})}
 function k3Init(){var T=window.THREE;K.T=T;
   var r=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));r.outputEncoding=T.sRGBEncoding;
   r.shadowMap.enabled=true;r.shadowMap.type=T.PCFSoftShadowMap;r.setClearColor(0x000000,0);r.domElement.className='k3d';r.domElement.setAttribute('aria-hidden','true');K.r=r;
   K.scene=new T.Scene();K.cam=new T.PerspectiveCamera(28,1,0.05,60);
-  K.scene.add(new T.HemisphereLight(0xffffff,0xd9d4cc,0.75));
-  var key=new T.DirectionalLight(0xffffff,0.85);key.position.set(2.5,5,4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
+  K.scene.add(new T.HemisphereLight(0xffffff,0xcfc9c0,0.55));
+  var key=new T.DirectionalLight(0xffffff,1.05);key.position.set(-2.5,4.5,3.5);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
   var sc=key.shadow.camera;sc.left=-2.2;sc.right=2.2;sc.top=3;sc.bottom=-1.5;sc.near=0.5;sc.far=14;key.shadow.bias=-0.0005;key.shadow.normalBias=0.02;K.scene.add(key);
   var fill=new T.DirectionalLight(0xfff6ee,0.35);fill.position.set(-4,2.5,-2);K.scene.add(fill);
   var rim=new T.DirectionalLight(0xffffff,0.25);rim.position.set(0,3,-5);K.scene.add(rim);
-  var ground=new T.Mesh(new T.PlaneGeometry(12,12),new T.ShadowMaterial({opacity:0.16}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;K.scene.add(ground);
+  var ground=new T.Mesh(new T.PlaneGeometry(12,12),new T.ShadowMaterial({opacity:0.4}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;K.scene.add(ground);
   K.pivot=new T.Group();K.scene.add(K.pivot);requestAnimationFrame(k3Tick)}
 /* Build once per kit, sit it on the floor and centre it on the turntable axis. */
-function k3Model(name){if(K.models[name])return K.models[name];var T=K.T,g=KIT3D[name]();
+function k3Model(name){if(K.models[name])return K.models[name];var T=K.T,g=k3WithPaints(KIT3D[name]());
   g.traverse(function(o){if(o.isMesh&&!o.material.transparent){o.castShadow=true;o.receiveShadow=true}});
   var box=new T.Box3().setFromObject(g),c=box.getCenter(new T.Vector3()),sz=box.getSize(new T.Vector3()),wrap=new T.Group();
   g.position.set(-c.x,-box.min.y,-c.z);wrap.add(g);wrap.userData={h:sz.y,rad:Math.max(Math.hypot(sz.x,sz.z)/2,sz.y/2)};return K.models[name]=wrap}
@@ -1674,7 +1733,7 @@ function k3Show(){if(S.fs!=='diy')return;var sp=document.querySelector('#deck .s
   if(!k||!KIT3D[k.model]){sp.classList.remove('is3d');if(K.r&&K.r.domElement.parentNode)K.r.domElement.remove();K.kid=null;return}
   if(K.st==='idle'){k3Start();return}if(K.st!=='ready')return;
   if(K.kid!==k.id){K.kid=k.id;while(K.pivot.children.length)K.pivot.remove(K.pivot.children[0]);K.cur=k3Model(k.model);K.pivot.add(K.cur);
-    var u=K.cur.userData;K.dist=u.rad/Math.sin(K.cam.fov*Math.PI/360)*1.3;K.tgt=new K.T.Vector3(0,u.h*0.5,0);K.yaw=0.6;K.pitch=0.3;K.vel=0;K.idle=-1e9}
+    var u=K.cur.userData;K.dist=u.rad/Math.sin(K.cam.fov*Math.PI/360)*1.12;K.tgt=new K.T.Vector3(0,u.h*0.5,0);K.yaw=0.6;K.pitch=0.3;K.vel=0;K.idle=-1e9}
   var host=sp.firstChild;if(K.r.domElement.parentNode!==host)host.insertBefore(K.r.domElement,host.firstChild);
   sp.classList.add('is3d');var b=sp.querySelector('.turnbadge');if(b)b.innerHTML=TURN+'360°';k3Resize()}
 function k3Resize(){if(!K.r||!K.r.domElement.parentNode)return;var h=K.r.domElement.parentNode,w=h.clientWidth,ht=h.clientHeight;if(!w||!ht)return;K.r.setSize(w,ht,false);K.cam.aspect=w/ht;K.cam.updateProjectionMatrix()}
