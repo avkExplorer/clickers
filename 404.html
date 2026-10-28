@@ -1,8 +1,8 @@
-<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Custom clicker keychains, built one key at a time. Spin the 3D keychain, tap your letters, and send your request."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>Click &amp; Charm Keychains</title>
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Custom clicker backpack charms, built one key at a time, and paint-your-own plaster kits. Made by hand by Agilan. Tap your letters and send your request."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>Click &amp; Charm Backpack Charms</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style id="app-css">
-/* Layout: a product-photo studio. The 3D keychain stands on a seamless sweep (left, sticky); the builder sits beside it; the request and price ladder follow. */
+/* Layout: a product-photo studio. The 3D backpack charm stands on a seamless sweep (left, sticky); the builder sits beside it; the request and price ladder follow. */
 :root{
   --bg:#EFEEF3; --surface:#FFFFFF; --sunk:#F5F4F8; --ink:#27213A; --muted:#6B6580; --line:#DFDCE7;
   --accent:#6A45C6; --accent-ink:#FFFFFF; --pop:#D2486E; --cap:#F1EEF7; --cap-edge:#D3CDE0; --cap-ink:#2A2340;
@@ -300,6 +300,8 @@ td input[type=text]{padding:6px 8px}
 .hello .land-h{font-size:clamp(38px,6.4vw,76px)}
 .hello .land-h span{background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hello .lede{font-size:17px;max-width:46ch}
+.byline{color:var(--ink);font-weight:700}
+.nowrap{white-space:nowrap}
 @media (max-width:620px){.hello{flex-direction:column;text-align:center}.hello .lede{margin-inline:auto}}
 .spks{position:absolute;inset:0;pointer-events:none;z-index:1}
 .spk{position:absolute;width:22px;height:22px;color:var(--rb3);animation:twinkle 3.2s ease-in-out infinite}
@@ -393,11 +395,807 @@ html.noscroll,html.noscroll body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <div id="root"><div class="wrap"><p class="muted">Loading the charm counter…</p></div></div>
-<script type="application/json" id="catalog">{"kits":[{"price":5,"model":"heartbear","desc":"Plaster bear to paint, 3 colour pods and a brush","cat":"kit","stock":5,"pic":"heartbear","spin":["heartbear_1","heartbear_2","heartbear_3","heartbear_4"],"id":"D-heartbear","name":"Heart Bear"},{"pic":"bowbear","name":"Bow Tie Bear","spin":["bowbear_1","bowbear_2","bowbear_3","bowbear_4"],"id":"D-bowbear","model":"bowbear","price":5,"cat":"kit","stock":5,"desc":"Plaster bear to paint, 3 colour pods and a brush"},{"pic":"car","name":"Vintage Car","spin":["car_1","car_2","car_3","car_4","car_5"],"id":"D-car","model":"vintagecar","price":5,"cat":"kit","stock":5,"desc":"Plaster car to paint, 3 colour pods and a brush"},{"pic":"pika","name":"Pikachu Fridge Magnet","id":"D-pika","spin":["pika_1","pika_2"],"model":"pikamag","price":4,"stock":5,"cat":"magnet","desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3},{"desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3,"stock":5,"cat":"magnet","price":4,"model":"bearmag","id":"D-bearmag","name":"Bear Fridge Magnet","pic":"bearmag_1"},{"stock":5,"cat":"kit","desc":"Plaster car to paint, 3 colour pods and a brush","model":"policecar","price":5,"name":"Police Car","id":"D-police","spin":["police_1","police_2","police_3","police_4","police_5"],"pic":"police_1"},{"spin":["supercar_1","supercar_2","supercar_3","supercar_4"],"id":"D-supercar","name":"Super Car","pic":"supercar_1","desc":"Plaster car to paint, 3 colour pods and a brush","cat":"kit","stock":5,"price":5,"model":"supercar"},{"price":5,"model":"astronaut","desc":"Plaster astronaut to paint, 3 colour pods and a brush","cat":"kit","stock":5,"pic":"astro_1","spin":["astro_1","astro_2","astro_3","astro_4"],"id":"D-astro","name":"Astronaut on the Moon"},{"pic":"star_1","spin":["star_1","star_2"],"id":"D-starmag","name":"Star Fridge Magnet","price":4,"model":"starmag","desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3,"cat":"magnet","stock":5}],"updated":"2026-10-27","shop":{"name":"Click & Charm","pickup":"Pay cash when you pick up at the stall.","contact":"Text or email your order slip to us","email":"orders@avkaiexplorer.com","tagline":"Clicky keychain charms, spelled your way.","phone":"+1 512-947-8249","instagram":"https://www.instagram.com/my_curious_hands/"},"offers":[{"active":true,"minKeys":1,"id":"o-magnet","maxKeys":0,"value":3,"type":"magnet","title":"Magnet offer: buy any 2 clickers or one 6-piece clicker and every fridge magnet is $3"}],"v":1,"estimates":true,"charms":[{"id":"L-A","stock":12,"name":"A","kind":"letter","aud":["boys","girls","men","women"],"label":"A"},{"kind":"letter","label":"B","aud":["boys","girls","men","women"],"id":"L-B","name":"B","stock":12},{"id":"L-C","stock":12,"name":"C","kind":"letter","aud":["boys","girls","men","women"],"label":"C"},{"name":"D","id":"L-D","label":"D","stock":12,"aud":["boys","girls","men","women"],"kind":"letter"},{"name":"E","stock":12,"id":"L-E","label":"E","aud":["boys","girls","men","women"],"kind":"letter"},{"name":"F","stock":12,"id":"L-F","aud":["boys","girls","men","women"],"label":"F","kind":"letter"},{"kind":"letter","aud":["boys","girls","men","women"],"label":"G","id":"L-G","stock":12,"name":"G"},{"label":"H","id":"L-H","name":"H","kind":"letter","aud":["boys","girls","men","women"],"stock":12},{"id":"L-I","name":"I","stock":12,"kind":"letter","aud":["boys","girls","men","women"],"label":"I"},{"kind":"letter","label":"J","aud":["boys","girls","men","women"],"id":"L-J","stock":12,"name":"J"},{"id":"L-K","name":"K","label":"K","stock":12,"kind":"letter","aud":["boys","girls","men","women"]},{"name":"L","stock":12,"id":"L-L","aud":["boys","girls","men","women"],"label":"L","kind":"letter"},{"id":"L-M","stock":12,"name":"M","kind":"letter","label":"M","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"kind":"letter","stock":12,"label":"N","name":"N","id":"L-N"},{"aud":["boys","girls","men","women"],"label":"O","kind":"letter","stock":12,"name":"O","id":"L-O"},{"id":"L-P","name":"P","stock":12,"kind":"letter","label":"P","aud":["boys","girls","men","women"]},{"id":"L-Q","name":"Q","stock":12,"kind":"letter","label":"Q","aud":["boys","girls","men","women"]},{"id":"L-R","name":"R","stock":12,"kind":"letter","label":"R","aud":["boys","girls","men","women"]},{"kind":"letter","aud":["boys","girls","men","women"],"stock":12,"label":"S","id":"L-S","name":"S"},{"kind":"letter","aud":["boys","girls","men","women"],"stock":12,"label":"T","id":"L-T","name":"T"},{"stock":12,"kind":"letter","aud":["boys","girls","men","women"],"id":"L-U","name":"U","label":"U"},{"label":"V","name":"V","id":"L-V","aud":["boys","girls","men","women"],"kind":"letter","stock":12},{"id":"L-W","name":"W","stock":12,"kind":"letter","label":"W","aud":["boys","girls","men","women"]},{"id":"L-X","stock":12,"name":"X","kind":"letter","label":"X","aud":["boys","girls","men","women"]},{"stock":12,"name":"Y","id":"L-Y","aud":["boys","girls","men","women"],"label":"Y","kind":"letter"},{"label":"Z","aud":["boys","girls","men","women"],"kind":"letter","stock":12,"name":"Z","id":"L-Z"},{"label":"♥","name":"Heart","id":"S-heart","aud":["girls","women","boys","men"],"kind":"symbol","stock":6},{"id":"S-star","name":"Star","stock":6,"kind":"symbol","label":"★","aud":["boys","girls","men","women"]},{"name":"Exclamation","stock":6,"id":"S-excl","label":"!","aud":["boys","girls","men","women"],"kind":"symbol"},{"name":"Question mark","stock":6,"id":"S-q","aud":["boys","girls","men","women"],"label":"?","kind":"symbol"},{"kind":"symbol","label":"&","aud":["boys","girls","men","women"],"id":"S-amp","stock":6,"name":"And"},{"id":"S-hash","stock":6,"name":"Hash","kind":"symbol","aud":["boys","girls","men","women"],"label":"#"},{"id":"S-at","stock":6,"name":"At","kind":"symbol","label":"@","aud":["boys","girls","men","women"]},{"label":"+","name":"Plus","id":"S-plus","aud":["boys","girls","men","women"],"kind":"symbol","stock":6},{"icon":"crown","stock":15,"name":"Princess crown","id":"T-princess","label":"","aud":["girls","women"],"kind":"theme"},{"label":"","id":"T-bow","icon":"bow","name":"Bow","kind":"theme","aud":["girls","women"],"stock":15},{"label":"","name":"Dog paw","icon":"paw","id":"T-paw","aud":["boys","girls","men","women"],"kind":"theme","stock":15},{"label":"","id":"F-duck","name":"Duck light & sound","icon":"duck","kind":"fancy","aud":["boys","girls","men","women"],"stock":15},{"name":"Frog light & sound","icon":"frog","id":"F-frog","label":"","stock":15,"aud":["boys","girls","men","women"],"kind":"fancy"}],"pricing":{"tiers":{"5":8,"6":10,"4":6},"maxKeys":6,"minKeys":4,"extraKey":0,"fancyExtra":0},"bases":350,"colors":[{"id":"blue","hex":"#3E7BFA","stock":120,"name":"Blue"},{"name":"Purple","stock":120,"hex":"#8B5CF6","id":"purple"},{"id":"pink","hex":"#F25FA8","stock":150,"name":"Pink"}],"punchlines":[{"text":"GAME ON","aud":["boys","men"]},{"text":"BOSS","aud":["boys","men","women"]},{"text":"LEVEL UP","aud":["boys"]},{"aud":["men"],"text":"DAD #1"},{"text":"QUEEN","aud":["girls","women"]},{"text":"BFF ♥","aud":["girls","women"]},{"aud":["women"],"text":"MOM ♥"},{"text":"SPARKLE","aud":["girls"]},{"text":"NO DRAMA","aud":["women","men"]},{"text":"LOL!","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"text":"HAPPY"},{"text":"DREAM BIG","aud":["boys","girls","men","women"]}]}</script>
+<script type="application/json" id="catalog">{
+ "kits": [
+  {
+   "price": 5,
+   "model": "heartbear",
+   "desc": "Plaster bear to paint, 3 colour pods and a brush",
+   "cat": "kit",
+   "stock": 5,
+   "pic": "heartbear",
+   "spin": [
+    "heartbear_1",
+    "heartbear_2",
+    "heartbear_3",
+    "heartbear_4"
+   ],
+   "id": "D-heartbear",
+   "name": "Heart Bear"
+  },
+  {
+   "pic": "bowbear",
+   "name": "Bow Tie Bear",
+   "spin": [
+    "bowbear_1",
+    "bowbear_2",
+    "bowbear_3",
+    "bowbear_4"
+   ],
+   "id": "D-bowbear",
+   "model": "bowbear",
+   "price": 5,
+   "cat": "kit",
+   "stock": 5,
+   "desc": "Plaster bear to paint, 3 colour pods and a brush"
+  },
+  {
+   "pic": "car",
+   "name": "Vintage Car",
+   "spin": [
+    "car_1",
+    "car_2",
+    "car_3",
+    "car_4",
+    "car_5"
+   ],
+   "id": "D-car",
+   "model": "vintagecar",
+   "price": 5,
+   "cat": "kit",
+   "stock": 5,
+   "desc": "Plaster car to paint, 3 colour pods and a brush"
+  },
+  {
+   "pic": "pika",
+   "name": "Pikachu Fridge Magnet",
+   "id": "D-pika",
+   "spin": [
+    "pika_1",
+    "pika_2"
+   ],
+   "model": "pikamag",
+   "price": 4,
+   "stock": 5,
+   "cat": "magnet",
+   "desc": "Plaster magnet to paint, 3 colour pods and a brush",
+   "offerPrice": 3
+  },
+  {
+   "desc": "Plaster magnet to paint, 3 colour pods and a brush",
+   "offerPrice": 3,
+   "stock": 5,
+   "cat": "magnet",
+   "price": 4,
+   "model": "bearmag",
+   "id": "D-bearmag",
+   "name": "Bear Fridge Magnet",
+   "pic": "bearmag_1"
+  },
+  {
+   "stock": 5,
+   "cat": "kit",
+   "desc": "Plaster car to paint, 3 colour pods and a brush",
+   "model": "policecar",
+   "price": 5,
+   "name": "Police Car",
+   "id": "D-police",
+   "spin": [
+    "police_1",
+    "police_2",
+    "police_3",
+    "police_4",
+    "police_5"
+   ],
+   "pic": "police_1"
+  },
+  {
+   "spin": [
+    "supercar_1",
+    "supercar_2",
+    "supercar_3",
+    "supercar_4"
+   ],
+   "id": "D-supercar",
+   "name": "Super Car",
+   "pic": "supercar_1",
+   "desc": "Plaster car to paint, 3 colour pods and a brush",
+   "cat": "kit",
+   "stock": 5,
+   "price": 5,
+   "model": "supercar"
+  },
+  {
+   "price": 5,
+   "model": "astronaut",
+   "desc": "Plaster astronaut to paint, 3 colour pods and a brush",
+   "cat": "kit",
+   "stock": 5,
+   "pic": "astro_1",
+   "spin": [
+    "astro_1",
+    "astro_2",
+    "astro_3",
+    "astro_4"
+   ],
+   "id": "D-astro",
+   "name": "Astronaut on the Moon"
+  },
+  {
+   "pic": "star_1",
+   "spin": [
+    "star_1",
+    "star_2"
+   ],
+   "id": "D-starmag",
+   "name": "Star Fridge Magnet",
+   "price": 4,
+   "model": "starmag",
+   "desc": "Plaster magnet to paint, 3 colour pods and a brush",
+   "offerPrice": 3,
+   "cat": "magnet",
+   "stock": 5
+  }
+ ],
+ "updated": "2026-10-27",
+ "shop": {
+  "name": "Click & Charm",
+  "pickup": "Pay cash when you pick up at the stall.",
+  "contact": "Text or email your order slip to us",
+  "email": "orders@avkaiexplorer.com",
+  "tagline": "Clicky backpack charms, spelled your way.",
+  "phone": "+1 512-947-8249",
+  "instagram": "https://www.instagram.com/my_curious_hands/"
+ },
+ "offers": [
+  {
+   "active": true,
+   "minKeys": 1,
+   "id": "o-magnet",
+   "maxKeys": 0,
+   "value": 3,
+   "type": "magnet",
+   "title": "Magnet offer: buy any 2 clickers or one 6-piece clicker and every fridge magnet is $3"
+  }
+ ],
+ "v": 1,
+ "estimates": true,
+ "charms": [
+  {
+   "id": "L-A",
+   "stock": 12,
+   "name": "A",
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "A"
+  },
+  {
+   "kind": "letter",
+   "label": "B",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "id": "L-B",
+   "name": "B",
+   "stock": 12
+  },
+  {
+   "id": "L-C",
+   "stock": 12,
+   "name": "C",
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "C"
+  },
+  {
+   "name": "D",
+   "id": "L-D",
+   "label": "D",
+   "stock": 12,
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "letter"
+  },
+  {
+   "name": "E",
+   "stock": 12,
+   "id": "L-E",
+   "label": "E",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "letter"
+  },
+  {
+   "name": "F",
+   "stock": 12,
+   "id": "L-F",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "F",
+   "kind": "letter"
+  },
+  {
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "G",
+   "id": "L-G",
+   "stock": 12,
+   "name": "G"
+  },
+  {
+   "label": "H",
+   "id": "L-H",
+   "name": "H",
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "stock": 12
+  },
+  {
+   "id": "L-I",
+   "name": "I",
+   "stock": 12,
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "I"
+  },
+  {
+   "kind": "letter",
+   "label": "J",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "id": "L-J",
+   "stock": 12,
+   "name": "J"
+  },
+  {
+   "id": "L-K",
+   "name": "K",
+   "label": "K",
+   "stock": 12,
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "name": "L",
+   "stock": 12,
+   "id": "L-L",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "L",
+   "kind": "letter"
+  },
+  {
+   "id": "L-M",
+   "stock": 12,
+   "name": "M",
+   "kind": "letter",
+   "label": "M",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "letter",
+   "stock": 12,
+   "label": "N",
+   "name": "N",
+   "id": "L-N"
+  },
+  {
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "O",
+   "kind": "letter",
+   "stock": 12,
+   "name": "O",
+   "id": "L-O"
+  },
+  {
+   "id": "L-P",
+   "name": "P",
+   "stock": 12,
+   "kind": "letter",
+   "label": "P",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "id": "L-Q",
+   "name": "Q",
+   "stock": 12,
+   "kind": "letter",
+   "label": "Q",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "id": "L-R",
+   "name": "R",
+   "stock": 12,
+   "kind": "letter",
+   "label": "R",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "stock": 12,
+   "label": "S",
+   "id": "L-S",
+   "name": "S"
+  },
+  {
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "stock": 12,
+   "label": "T",
+   "id": "L-T",
+   "name": "T"
+  },
+  {
+   "stock": 12,
+   "kind": "letter",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "id": "L-U",
+   "name": "U",
+   "label": "U"
+  },
+  {
+   "label": "V",
+   "name": "V",
+   "id": "L-V",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "letter",
+   "stock": 12
+  },
+  {
+   "id": "L-W",
+   "name": "W",
+   "stock": 12,
+   "kind": "letter",
+   "label": "W",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "id": "L-X",
+   "stock": 12,
+   "name": "X",
+   "kind": "letter",
+   "label": "X",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "stock": 12,
+   "name": "Y",
+   "id": "L-Y",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "Y",
+   "kind": "letter"
+  },
+  {
+   "label": "Z",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "letter",
+   "stock": 12,
+   "name": "Z",
+   "id": "L-Z"
+  },
+  {
+   "label": "♥",
+   "name": "Heart",
+   "id": "S-heart",
+   "aud": [
+    "girls",
+    "women",
+    "boys",
+    "men"
+   ],
+   "kind": "symbol",
+   "stock": 6
+  },
+  {
+   "id": "S-star",
+   "name": "Star",
+   "stock": 6,
+   "kind": "symbol",
+   "label": "★",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "name": "Exclamation",
+   "stock": 6,
+   "id": "S-excl",
+   "label": "!",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "symbol"
+  },
+  {
+   "name": "Question mark",
+   "stock": 6,
+   "id": "S-q",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "?",
+   "kind": "symbol"
+  },
+  {
+   "kind": "symbol",
+   "label": "&",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "id": "S-amp",
+   "stock": 6,
+   "name": "And"
+  },
+  {
+   "id": "S-hash",
+   "stock": 6,
+   "name": "Hash",
+   "kind": "symbol",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "label": "#"
+  },
+  {
+   "id": "S-at",
+   "stock": 6,
+   "name": "At",
+   "kind": "symbol",
+   "label": "@",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "label": "+",
+   "name": "Plus",
+   "id": "S-plus",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "symbol",
+   "stock": 6
+  },
+  {
+   "icon": "crown",
+   "stock": 15,
+   "name": "Princess crown",
+   "id": "T-princess",
+   "label": "",
+   "aud": [
+    "girls",
+    "women"
+   ],
+   "kind": "theme"
+  },
+  {
+   "label": "",
+   "id": "T-bow",
+   "icon": "bow",
+   "name": "Bow",
+   "kind": "theme",
+   "aud": [
+    "girls",
+    "women"
+   ],
+   "stock": 15
+  },
+  {
+   "label": "",
+   "name": "Dog paw",
+   "icon": "paw",
+   "id": "T-paw",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "theme",
+   "stock": 15
+  },
+  {
+   "label": "",
+   "id": "F-duck",
+   "name": "Duck light & sound",
+   "icon": "duck",
+   "kind": "fancy",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "stock": 15
+  },
+  {
+   "name": "Frog light & sound",
+   "icon": "frog",
+   "id": "F-frog",
+   "label": "",
+   "stock": 15,
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "kind": "fancy"
+  }
+ ],
+ "pricing": {
+  "tiers": {
+   "5": 8,
+   "6": 10,
+   "4": 6
+  },
+  "maxKeys": 6,
+  "minKeys": 4,
+  "extraKey": 0,
+  "fancyExtra": 0
+ },
+ "bases": 350,
+ "colors": [
+  {
+   "id": "blue",
+   "hex": "#3E7BFA",
+   "stock": 120,
+   "name": "Blue"
+  },
+  {
+   "name": "Purple",
+   "stock": 120,
+   "hex": "#8B5CF6",
+   "id": "purple"
+  },
+  {
+   "id": "pink",
+   "hex": "#F25FA8",
+   "stock": 150,
+   "name": "Pink"
+  }
+ ],
+ "punchlines": [
+  {
+   "text": "GAME ON",
+   "aud": [
+    "boys",
+    "men"
+   ]
+  },
+  {
+   "text": "BOSS",
+   "aud": [
+    "boys",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "text": "LEVEL UP",
+   "aud": [
+    "boys"
+   ]
+  },
+  {
+   "aud": [
+    "men"
+   ],
+   "text": "DAD #1"
+  },
+  {
+   "text": "QUEEN",
+   "aud": [
+    "girls",
+    "women"
+   ]
+  },
+  {
+   "text": "BFF ♥",
+   "aud": [
+    "girls",
+    "women"
+   ]
+  },
+  {
+   "aud": [
+    "women"
+   ],
+   "text": "MOM ♥"
+  },
+  {
+   "text": "SPARKLE",
+   "aud": [
+    "girls"
+   ]
+  },
+  {
+   "text": "NO DRAMA",
+   "aud": [
+    "women",
+    "men"
+   ]
+  },
+  {
+   "text": "LOL!",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  },
+  {
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ],
+   "text": "HAPPY"
+  },
+  {
+   "text": "DREAM BIG",
+   "aud": [
+    "boys",
+    "girls",
+    "men",
+    "women"
+   ]
+  }
+ ]
+}</script>
 <script id="app">
 (function(){
 "use strict";
-var HEAD_HTML='<title>Click &amp; Charm Keychains<'+'/title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">\n';
+var HEAD_HTML='<title>Click &amp; Charm Backpack Charms<'+'/title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">\n';
 var RESET_FALLBACK=':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
 var CSS_SRC=document.getElementById('app-css').textContent;
 var APP_SRC=document.getElementById('app').textContent;
@@ -511,7 +1309,7 @@ function keysFromText(text){
 function currentKeys(){return S.keys}
 function keyText(keys){return keys.map(function(k){var c=k.id&&charmById(k.id);return c&&c.label&&c.kind!=='theme'&&c.kind!=='fancy'?c.label:''}).join('')}
 function addKey(id){
-  if(S.keys.length>=catalog.pricing.maxKeys){toast('That keychain is full ('+catalog.pricing.maxKeys+' keys max).');return}
+  if(S.keys.length>=catalog.pricing.maxKeys){toast('That backpack charm is full ('+catalog.pricing.maxKeys+' keys max).');return}
   S.keys.push({id:id,cap:nextCap(S.keys.length)});S.sel=null;updateBuilder();
 }
 /* ---------- pricing ---------- */
@@ -530,7 +1328,7 @@ function priceFor(keys){
     off=Math.max(0,Math.min(base,off));if(off>bestOff){bestOff=off;best=o}});
   return {keys:n,base:base,off:Math.round(bestOff*100)/100,offer:best?best.title:'',total:Math.round((base-bestOff)*100)/100};
 }
-/* Fridge magnet offer: any 2 keychains, or one 6-key keychain, in the same request puts every magnet at its offer price. Kits never change. */
+/* Fridge magnet offer: any 2 backpack charms, or one 6-key backpack charm, in the same request puts every magnet at its offer price. Kits never change. */
 function magnetOffer(){return (catalog.offers||[]).filter(function(o){return o.active&&o.type==='magnet'})[0]||null}
 function isMagnet(k){return !!k&&k.cat==='magnet'}
 function offerQualifies(lines){var n=0,six=false;lines.forEach(function(l){if(l.kit)return;n++;if((+l.keysCount||(l.keys||[]).length)>=6)six=true});return !!magnetOffer()&&(n>=2||six)}
@@ -539,7 +1337,7 @@ function priceLines(lines){var q=offerQualifies(lines),mo=magnetOffer();
   lines.forEach(function(l){if(!l.kit)return;var k=kitById(l.kit);if(!k)return;l.unit=unitFor(k,q);l.offer=l.unit<(+k.price||0)&&mo?mo.title:'';l.price=Math.round(l.unit*l.qty*100)/100});return q}
 
 /* ---------- stock ---------- */
-/* Kit lines ({kit,qty}) use kit stock only; keychain lines use charms, a color and a base. */
+/* Kit lines ({kit,qty}) use kit stock only; backpack charm lines use charms, a color and a base. */
 function demand(lines){var d={charms:{},colors:{},bases:0,kits:{}};
   lines.forEach(function(l){if(l.kit){d.kits[l.kit]=(d.kits[l.kit]||0)+(+l.qty||1);return}
     d.bases++;if(l.colorId)d.colors[l.colorId]=(d.colors[l.colorId]||0)+1;
@@ -548,10 +1346,10 @@ function shortages(lines){var d=demand(lines),s=[];
   for(var id in d.charms){var c=charmById(id);var have=c?+c.stock:0;if(d.charms[id]>have)s.push((c?(c.label||c.name):id)+' (need '+d.charms[id]+', have '+have+')')}
   for(var kid in d.kits){var kt=kitById(kid);var kh=kt?+kt.stock:0;if(d.kits[kid]>kh)s.push((kt?kt.name:'a kit we no longer sell')+' (need '+d.kits[kid]+', have '+kh+')')}
   for(var cid in d.colors){var col=colorById(cid);var h=col?+col.stock:0;if(d.colors[cid]>h)s.push((col?col.name:cid)+' base (need '+d.colors[cid]+', have '+h+')')}
-  if(d.bases>+catalog.bases)s.push('keychain bases (need '+d.bases+', have '+catalog.bases+')');
+  if(d.bases>+catalog.bases)s.push('backpack charm bases (need '+d.bases+', have '+catalog.bases+')');
   return s;}
 
-/* ---------- 3D keychain viewer (procedural Three.js, built from the product photos) ---------- */
+/* ---------- 3D backpack charm viewer (procedural Three.js, built from the product photos) ---------- */
 /* Each key: scalloped rounded cube body, dark recessed well, raised keycap with a raised glyph.
    Keys stack vertically with an interlock gap; a half loop and silver ball chain hang off the top key. */
 var THREE_BASE='https://cdn.jsdelivr.net/npm/three@0.147.0/';
@@ -781,24 +1579,24 @@ function viewerSet(spec){
 function audOK(list){return S.aud==='all'||!list||list.indexOf(S.aud)>=0}
 function renderShop(){
   var sh=catalog.shop;
-  var h='<div class="hero"><span class="eyebrow">Custom clicker keychains</span><h1>'+esc(sh.tagline)+'</h1><p class="muted lede">Every letter is its own clicky key with its own cap color. Tap the letters you want, pick a base color, add a fun charm, and send us your request. '+esc(sh.pickup)+'</p></div>';
+  var h='<div class="hero"><span class="eyebrow">Custom clicker backpack charms</span><h1>'+esc(sh.tagline)+'</h1><p class="muted lede">Every letter is its own clicky key with its own cap color. Tap the letters you want, pick a base color, add a fun charm, and send us your request. '+esc(sh.pickup)+'</p></div>';
   h+='<div class="shop"><div class="left">';
-  h+='<section class="studio" id="studio" aria-label="Keychain preview"><div id="stage3d" class="stage3d"></div><div id="stage2d" class="stage2d"></div>';
+  h+='<section class="studio" id="studio" aria-label="Backpack charm preview"><div id="stage3d" class="stage3d"></div><div id="stage2d" class="stage2d"></div>';
   h+='<div class="studio-top"><span class="eyebrow">Live preview</span><span id="specline" class="specline num"></span></div>';
-  h+='<div class="studio-foot"><span class="hint" id="hint">Your keychain, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section>';
+  h+='<div class="studio-foot"><span class="hint" id="hint">Your backpack charm, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section>';
   h+='<div class="panel buy" id="buy"><div class="pricebox" id="pricebox"></div><button class="btn" id="add" type="button">Add to request</button></div>';
-  h+='</div><section class="panel controls" aria-label="Build your keychain">';
-  h+='<div class="field"><div class="striprow"><span class="label">Your keychain</span><span class="small muted num" id="kcount"></span></div><div class="strip" id="keystrip"></div><div class="status" id="avail" aria-live="polite"></div><div id="capedit"></div></div>';
+  h+='</div><section class="panel controls" aria-label="Build your backpack charm">';
+  h+='<div class="field"><div class="striprow"><span class="label">Your backpack charm</span><span class="small muted num" id="kcount"></span></div><div class="strip" id="keystrip"></div><div class="status" id="avail" aria-live="polite"></div><div id="capedit"></div></div>';
   h+='<div class="field"><span class="label">Tap letters to add them</span><div class="board" id="board"></div></div>';
   h+='<div class="field"><span class="label">Who is it for?</span><div class="chips" id="auds">'+AUDS.map(function(a){return '<button type="button" class="chip" data-aud="'+a[0]+'" aria-pressed="'+(S.aud===a[0])+'">'+a[1]+'</button>'}).join('')+'</div></div>';
   h+='<div class="field"><span class="label">Or start from an idea</span><div class="chips" id="punch"></div></div>';
   h+='<div class="field"><span class="label">Base color</span><div class="colors" id="colors"></div></div>';
   h+='<div class="field"><span class="label">Add a charm key</span><div class="charmgrid" id="charms"></div></div>';
-  if(kits().length)h+='<div class="field"><span class="label">Add a DIY colouring kit</span><span class="small muted">For kids: a plaster toy to paint, 3 colour pods and a brush. Added to your request on its own, not on the keychain.</span><div class="charmgrid kitpick" id="kitpick"></div></div>';
+  if(kits().length)h+='<div class="field"><span class="label">Add a DIY colouring kit</span><span class="small muted">For kids: a plaster toy to paint, 3 colour pods and a brush. Added to your request on its own, not on the backpack charm.</span><div class="charmgrid kitpick" id="kitpick"></div></div>';
   h+='<div id="offers"></div></section></div>';
   if(kits().length)h+='<section class="kits" id="kits" aria-label="DIY colouring kits"><div class="row"><div><span class="eyebrow">For kids</span><h2>DIY colouring kits</h2></div><span class="muted small">Each kit: a plaster toy to paint, 3 colour pods and a brush</span></div><div class="kitgrid" id="kitgrid"></div></section>';
   h+='<section class="request" aria-label="Your request"><h2>Your request</h2><div id="cartbox"></div></section>';
-  h+='<section class="panel" style="margin-top:28px" aria-label="Price list"><div class="row"><h2>Price list</h2><span class="muted small">'+minK()+' to '+catalog.pricing.maxKeys+' keys on one keychain</span></div><div class="ladder" id="plist"></div></section>';
+  h+='<section class="panel" style="margin-top:28px" aria-label="Price list"><div class="row"><h2>Price list</h2><span class="muted small">'+minK()+' to '+catalog.pricing.maxKeys+' keys on one backpack charm</span></div><div class="ladder" id="plist"></div></section>';
   return h;
 }
 function bindShop(){
@@ -834,7 +1632,7 @@ function bindShop(){
   renderPunch();renderColors();renderCharms();renderKits();updateBuilder();renderCart();
   mountViewer();
 }
-/* What is still free to add: stock minus the request and the keys already on this keychain. */
+/* What is still free to add: stock minus the request and the keys already on this backpack charm. */
 function leftFor(id){var c=charmById(id);if(!c)return 0;var used=demand(S.cart).charms[id]||0;
   var mine=S.keys.filter(function(k){return k.id===id}).length;return +c.stock-used-mine}
 function renderBoard(){
@@ -846,7 +1644,7 @@ function renderBoard(){
 function renderEditor(){
   var keys=S.keys,box=$('#keystrip');if(!box)return;
   if(S.sel!=null&&S.sel>=keys.length)S.sel=null;
-  box.innerHTML=keys.length?keys.map(function(k,i){return capHTML(k.id,{cap:k.cap,btn:String(i),sel:S.sel===i,out:V.outs&&V.outs[i]})}).join(''):'<span class="muted small">Tap letters below to start your keychain.</span>';
+  box.innerHTML=keys.length?keys.map(function(k,i){return capHTML(k.id,{cap:k.cap,btn:String(i),sel:S.sel===i,out:V.outs&&V.outs[i]})}).join(''):'<span class="muted small">Tap letters below to start your backpack charm.</span>';
   var h='';
   if(S.sel!=null){var k=keys[S.sel],c=charmById(k.id),fancy=c&&c.kind==='fancy';
     h='<div class="capedit"><div class="striprow"><b class="small">Key '+(S.sel+1)+': '+esc(c?c.name:'?')+'</b><button type="button" class="linkbtn" id="keydone">Done</button></div>';
@@ -870,7 +1668,7 @@ function updateBuilder(){
   keys.forEach(function(k){if(k.id)need[k.id]=(need[k.id]||0)+1});
   var outs=keys.map(function(k){if(!k.id)return true;var c=charmById(k.id);return !c||(+c.stock-(used[k.id]||0))<need[k.id]});V.outs=outs;
   var stage='';
-  if(!keys.length)stage='<p class="empty-stage">Tap letters to see your keychain.</p>';
+  if(!keys.length)stage='<p class="empty-stage">Tap letters to see your backpack charm.</p>';
   else{stage='<div class="chain" style="--base:'+esc(col?col.hex:'#B9B4C6')+'"><span class="ring" aria-hidden="true"></span>';
     keys.forEach(function(k,i){stage+=capHTML(k.id,{cap:k.cap,out:outs[i],btn:String(i)})});stage+='</div>';}
   $('#stage2d').innerHTML=stage;
@@ -879,15 +1677,15 @@ function updateBuilder(){
   var a='';
   if(keys.length>catalog.pricing.maxKeys)a='<span class="pill bad">Too long: '+keys.length+' keys, max '+catalog.pricing.maxKeys+'</span>';
   else if(sh.length)a='<span class="pill bad">Not enough in stock: '+esc(sh.join(', '))+'</span>';
-  else if(keys.length&&keys.length<minK())a='<span class="pill warn">Add '+(minK()-keys.length)+' more key'+(minK()-keys.length===1?'':'s')+'. Keychains have '+minK()+' to '+catalog.pricing.maxKeys+' keys.</span>';
+  else if(keys.length&&keys.length<minK())a='<span class="pill warn">Add '+(minK()-keys.length)+' more key'+(minK()-keys.length===1?'':'s')+'. Backpack charms have '+minK()+' to '+catalog.pricing.maxKeys+' keys.</span>';
   else if(keys.length)a='<span class="pill ok">All '+keys.length+' keys in stock</span>';
   $('#avail').innerHTML=a;
   $('#kcount').textContent=keys.length+' of '+catalog.pricing.maxKeys+' keys';
   $('#specline').textContent=keys.length?keys.length+' key'+(keys.length===1?'':'s')+(col?' · '+col.name+' base':''):'Empty';
   var p=priceFor(keys);
-  var pb='<span class="label">This keychain</span><div class="pricerow"><span class="price num">'+money(p.total)+'</span>'+(p.off?'<span class="strike num">'+money(p.base)+'</span>':'')+'</div>';
+  var pb='<span class="label">This backpack charm</span><div class="pricerow"><span class="price num">'+money(p.total)+'</span>'+(p.off?'<span class="strike num">'+money(p.base)+'</span>':'')+'</div>';
   if(p.offer)pb+='<span class="offer">'+esc(p.offer)+'</span>';
-  if(keys.length<minK())pb='<span class="label">This keychain</span><div class="pricerow"><span class="price num">'+minK()+'–'+catalog.pricing.maxKeys+' keys</span></div><span class="small muted">The price shows once your keychain has '+minK()+' keys.</span>';
+  if(keys.length<minK())pb='<span class="label">This backpack charm</span><div class="pricerow"><span class="price num">'+minK()+'–'+catalog.pricing.maxKeys+' keys</span></div><span class="small muted">The price shows once your backpack charm has '+minK()+' keys.</span>';
   $('#pricebox').innerHTML=pb;
   var act=(catalog.offers||[]).filter(function(o){return o.active});
   $('#offers').innerHTML=act.length?'<div class="offers"><span class="label">Today’s offers</span>'+act.map(function(o){return '<span class="small offer">'+esc(o.title)+'</span>'}).join('')+'</div>':'';
@@ -924,7 +1722,7 @@ function addKit(id){var k=kitById(id);if(!k)return;
 }
 function cartTotal(){return Math.round(S.cart.reduce(function(s,l){return s+l.price},0)*100)/100}
 function cartCount(lines){var n=0,k=0;lines.forEach(function(l){if(l.kit)k+=+l.qty||1;else n++});
-  return [n?n+' keychain'+(n===1?'':'s'):'',k?k+' kit'+(k===1?'':'s'):''].filter(Boolean).join(' · ')}
+  return [n?n+' backpack charm'+(n===1?'':'s'):'',k?k+' kit'+(k===1?'':'s'):''].filter(Boolean).join(' · ')}
 function kitLineHTML(l,i){var k=kitById(l.kit);
   return '<div class="line"><div class="kitline">'+kitImg(k,'kitthumb')+'<div><b>'+esc(l.text)+'</b> <span class="muted small">· '+(isMagnet(k)?'Fridge magnet':'DIY kit')+' · '+money(l.unit)+' each</span>'+(l.offer?' <span class="offer">Magnet offer</span>':'')+
     (i==null?'<div class="small">Qty '+l.qty+'</div>':'<div class="stepper" style="margin-top:6px"><button type="button" data-kq="'+i+'" data-d="-1" aria-label="One less">−</button><b class="num" style="min-width:22px;text-align:center">'+l.qty+'</b><button type="button" data-kq="'+i+'" data-d="1" aria-label="One more">+</button></div>')+
@@ -933,7 +1731,7 @@ function renderCart(){
   var box=$('#cartbox');if(!box)return;
   priceLines(S.cart);
   if(S.slip){box.innerHTML='<div class="panel">'+slipHTML(S.slip)+'</div>';bindSlip();return}
-  if(!S.cart.length){box.innerHTML='<div class="panel"><p class="muted">Nothing here yet. Build a keychain or pick a DIY kit above and tap <b>Add to request</b>. You can add as many as you like and send them together.</p></div>';return}
+  if(!S.cart.length){box.innerHTML='<div class="panel"><p class="muted">Nothing here yet. Build a backpack charm or pick a DIY kit above and tap <b>Add to request</b>. You can add as many as you like and send them together.</p></div>';return}
   var h='<div class="reqgrid"><div class="panel cart"><span class="label">'+cartCount(S.cart)+'</span>';
   S.cart.forEach(function(l,i){if(l.kit){h+=kitLineHTML(l,i);return}h+='<div class="line"><div><b>'+esc(l.text||'Charms only')+'</b> <span class="muted small">· '+l.keysCount+' keys · '+esc(l.colorName)+'</span><div class="keys">'+l.keys.map(function(k){return capHTML(k.id,{sm:true,cap:k.cap})}).join('')+'</div></div><div style="text-align:right"><b class="num">'+money(l.price)+'</b><br><button class="linkbtn" type="button" data-del="'+i+'">Remove</button></div></div>'});
   h+='<div class="row"><b>Total</b><span class="price num" style="font-size:28px">'+money(cartTotal())+'</span></div></div>';
@@ -946,7 +1744,7 @@ function renderCart(){
     h+='<div class="field"><label class="label" for="cnote">Note (optional)</label><input id="cnote" type="text" value="'+esc(S.cust.note)+'" placeholder="Pickup day, gift wrap…"></div>';
     h+='<button class="btn full" type="button" id="send">Save order</button>';
   }else if(!a){
-    h+='<div class="gate"><b>Sign in to send your request</b><p class="small muted">We need your name and phone so we can text you when it’s ready. Your keychains stay in your request while you sign in.</p><div class="chips"><button type="button" class="btn" data-go="signin">Sign in</button><button type="button" class="btn ghost" data-go="signup">Create account</button></div></div>';
+    h+='<div class="gate"><b>Sign in to send your request</b><p class="small muted">We need your name and phone so we can text you when it’s ready. Your backpack charms stay in your request while you sign in.</p><div class="chips"><button type="button" class="btn" data-go="signin">Sign in</button><button type="button" class="btn ghost" data-go="signup">Create account</button></div></div>';
   }else{
     h+='<div class="who"><span class="avatar" aria-hidden="true">'+esc(a.name[0]||'?')+'</span><div><b>'+esc(a.name)+'</b><br><span class="small muted">'+esc(a.phone)+(a.email?' · '+esc(a.email):'')+'</span></div><button type="button" class="linkbtn" data-go="account">Change</button></div>';
     if(a.minor)h+='<p class="small">Under 13 · Parent or guardian: <b>'+esc(a.guardian.name)+'</b>, '+esc(a.guardian.phone)+'</p>';
@@ -1196,7 +1994,7 @@ function adminInventory(el){
   var h='';
   if(catalog.estimates)h+='<p class="note sec">Starting counts are estimates from your supplier order. Count your bins, fix the numbers, then turn this note off. <button type="button" class="linkbtn" id="estoff">Counts are real now</button></p>';
   h+='<div class="sec"><h2>Bases &amp; colors</h2><div class="tablewrap"><table><thead><tr><th>Item</th><th>Color</th><th>In stock</th><th></th></tr></thead><tbody>';
-  h+='<tr><td>Interlocking clicker bases (1 per keychain)</td><td></td><td><span class="stepper"><button type="button" data-bstep="-1" aria-label="One less">−</button><input type="number" min="0" id="bases" value="'+catalog.bases+'" class="num '+low(catalog.bases)+'"><button type="button" data-bstep="1" aria-label="One more">+</button></span></td><td></td></tr>';
+  h+='<tr><td>Interlocking clicker bases (1 per backpack charm)</td><td></td><td><span class="stepper"><button type="button" data-bstep="-1" aria-label="One less">−</button><input type="number" min="0" id="bases" value="'+catalog.bases+'" class="num '+low(catalog.bases)+'"><button type="button" data-bstep="1" aria-label="One more">+</button></span></td><td></td></tr>';
   catalog.colors.forEach(function(c,i){h+='<tr><td><input type="text" data-cname="'+i+'" value="'+esc(c.name)+'" aria-label="Color name"></td><td><input type="color" data-chex="'+i+'" value="'+esc(c.hex)+'" aria-label="Color"></td><td><span class="stepper"><button type="button" data-cstep="'+i+'" data-d="-1" aria-label="One less">−</button><input type="number" min="0" data-cstock="'+i+'" value="'+c.stock+'" class="num '+low(c.stock)+'" aria-label="Stock"><button type="button" data-cstep="'+i+'" data-d="1" aria-label="One more">+</button></span></td><td><button type="button" class="btn danger small" data-cdel="'+i+'">Remove</button></td></tr>'});
   h+='</tbody></table></div><div class="formrow"><div class="field"><label class="label" for="ncol">New color</label><input id="ncol" type="text" placeholder="Green"></div><div class="field" style="flex:0 0 70px"><label class="label" for="nhex">Color</label><input id="nhex" type="color" value="#2FB36B"></div><div class="field"><label class="label" for="ncs">Stock</label><input id="ncs" type="number" min="0" value="0"></div><button class="btn small" type="button" id="addcol">Add color</button></div></div>';
   h+='<div class="sec"><h2>DIY colouring kits</h2><p class="muted small">Sold as they are, one price each. Confirming an order takes kits out of stock.</p><div class="tablewrap"><table><thead><tr><th>Photo</th><th>Name</th><th>What’s inside</th><th>Price ($)</th><th>In stock</th><th></th></tr></thead><tbody>';
@@ -1244,9 +2042,9 @@ function invClick(e){var b=e.target.closest('button');if(!b)return;var d=b.datas
 function adminPricing(el){
   var p=catalog.pricing;var tk=Object.keys(p.tiers).sort(function(a,b){return a-b});
   var h='<div class="sec panel"><h2>Price by number of keys</h2><div class="formrow">'+tk.map(function(k){return '<div class="field"><label class="label" for="tier'+k+'">'+k+' key'+(k==='1'?'':'s')+' ($)</label><input id="tier'+k+'" type="number" min="0" step="0.5" data-tier="'+k+'" value="'+p.tiers[k]+'"></div>'}).join('')+'</div>';
-  h+='<div class="formrow"><div class="field"><label class="label" for="pextra">Each key after '+tk[tk.length-1]+' ($)</label><input id="pextra" type="number" min="0" step="0.5" value="'+p.extraKey+'"></div><div class="field"><label class="label" for="pfancy">Light &amp; sound key surcharge ($)</label><input id="pfancy" type="number" min="0" step="0.5" value="'+p.fancyExtra+'"></div><div class="field"><label class="label" for="pmax">Most keys on one keychain</label><input id="pmax" type="number" min="1" max="30" value="'+p.maxKeys+'"></div></div>';
+  h+='<div class="formrow"><div class="field"><label class="label" for="pextra">Each key after '+tk[tk.length-1]+' ($)</label><input id="pextra" type="number" min="0" step="0.5" value="'+p.extraKey+'"></div><div class="field"><label class="label" for="pfancy">Light &amp; sound key surcharge ($)</label><input id="pfancy" type="number" min="0" step="0.5" value="'+p.fancyExtra+'"></div><div class="field"><label class="label" for="pmax">Most keys on one backpack charm</label><input id="pmax" type="number" min="1" max="30" value="'+p.maxKeys+'"></div></div>';
   h+='<p class="muted small">Example: a 6-letter name costs '+money(basePrice(6))+' before offers. A single light &amp; sound charm costs '+money(basePrice(1)+(+p.fancyExtra))+'.</p></div>';
-  h+='<div class="sec"><h2>Offers</h2><p class="muted small">Active offers apply on their own. When several fit a keychain, the biggest discount wins.</p><div class="tablewrap"><table><thead><tr><th>On</th><th>Offer name shoppers see</th><th>Type</th><th>Value</th><th>Min keys</th><th>Max keys (0 = any)</th><th></th></tr></thead><tbody>';
+  h+='<div class="sec"><h2>Offers</h2><p class="muted small">Active offers apply on their own. When several fit a backpack charm, the biggest discount wins.</p><div class="tablewrap"><table><thead><tr><th>On</th><th>Offer name shoppers see</th><th>Type</th><th>Value</th><th>Min keys</th><th>Max keys (0 = any)</th><th></th></tr></thead><tbody>';
   (catalog.offers||[]).forEach(function(o,i){h+='<tr><td><input type="checkbox" data-oact="'+i+'" '+(o.active?'checked':'')+' aria-label="Active"></td><td><input type="text" data-otitle="'+i+'" value="'+esc(o.title)+'" aria-label="Offer name"></td><td><select data-otype="'+i+'" aria-label="Offer type"><option value="percent"'+(o.type==='percent'?' selected':'')+'>% off</option><option value="flat"'+(o.type==='flat'?' selected':'')+'>$ off</option><option value="price"'+(o.type==='price'?' selected':'')+'>Fixed price $</option><option value="magnet"'+(o.type==='magnet'?' selected':'')+'>Fridge magnets at their offer price</option></select></td><td><input type="number" min="0" step="0.5" data-oval="'+i+'" value="'+o.value+'" aria-label="Value"></td><td><input type="number" min="1" data-omin="'+i+'" value="'+(o.minKeys||1)+'" aria-label="Min keys"></td><td><input type="number" min="0" data-omax="'+i+'" value="'+(o.maxKeys||0)+'" aria-label="Max keys"></td><td><button type="button" class="btn danger small" data-odel="'+i+'">Remove</button></td></tr>'});
   h+='</tbody></table></div><div><button class="btn small" type="button" id="addoffer">Add offer</button></div></div>';
   h+='<div class="sec"><h2>Punchline ideas</h2><div class="tablewrap"><table><thead><tr><th>Punchline</th><th>Show to</th><th></th></tr></thead><tbody>';
@@ -1273,7 +2071,7 @@ function adminShop(el){
   el.addEventListener('change',function(e){if(e.target.id==='sterms'){s.terms=e.target.value.split('\n').map(function(x){return x.trim()}).filter(Boolean).slice(0,12);markDirty();return}
     var m={sname:'name',stag:'tagline',scontact:'contact',sphone:'phone',semail:'email',sig:'instagram',spick:'pickup'}[e.target.id];if(!m)return;s[m]=e.target.value.trim();markDirty()});
 }
-var DEFAULT_TERMS=['Payment is cash only, when you pick up your order.','Please pick up within 7 days of our text saying your order is ready.','Custom keychains are made for you, so they can’t be returned or refunded.','Customers under 13 need a parent or guardian’s name and phone.','We use your phone and email only to contact you about your order.'];
+var DEFAULT_TERMS=['Payment is cash only, when you pick up your order.','Please pick up within 7 days of our text saying your order is ready.','Custom backpack charms are made for you, so they can’t be returned or refunded.','Customers under 13 need a parent or guardian’s name and phone.','We use your phone and email only to contact you about your order.'];
 function termsList(){var t=catalog.shop&&catalog.shop.terms;return Array.isArray(t)&&t.length?t:DEFAULT_TERMS}
 function fmtDate(ms){if(!ms)return '—';try{return new Date(ms).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}catch(e){return '—'}}
 
@@ -1295,7 +2093,7 @@ function renderAuth(){
     h+='<section class="panel authcard"><span class="eyebrow">'+(edit?'Your account':'Create account')+'</span><h1>'+(edit?esc(a.name):'Sign up to order')+'</h1>';
     h+='<form id="accform" class="authform" novalidate>';
     h+='<div class="field"><label class="label" for="aname">Your name</label><input id="aname" type="text" autocomplete="name" maxlength="60" value="'+esc(v.name||'')+'" required></div>';
-    h+='<div class="field"><label class="label" for="aphone">Phone</label><input id="aphone" type="tel" autocomplete="tel" maxlength="30" value="'+esc(v.phone||'')+'" required><span class="small muted">We text you when your keychain is ready.</span></div>';
+    h+='<div class="field"><label class="label" for="aphone">Phone</label><input id="aphone" type="tel" autocomplete="tel" maxlength="30" value="'+esc(v.phone||'')+'" required><span class="small muted">We text you when your backpack charm is ready.</span></div>';
     h+='<div class="field"><label class="label" for="aemail">Email (optional)</label><input id="aemail" type="email" autocomplete="email" maxlength="120" value="'+esc(v.email||'')+'"></div>';
     h+='<label class="check"><input type="checkbox" id="aminor" '+(v.minor?'checked':'')+'><span>I’m under 13</span></label>';
     h+='<fieldset class="guardian" id="gbox" '+(v.minor?'':'hidden')+'><legend>Parent or guardian</legend><p class="small muted">Customers under 13 need a grown-up’s details. We contact them about the order.</p>'+
@@ -1348,7 +2146,7 @@ function go(where){
 }
 
 /* ---------- landing ---------- */
-/* A showcase with no prices: two frames, Clickers (the 3D keychain) and DIY Coloring Kits (a deck of spins with Paint Play).
+/* A showcase with no prices: two frames, Clickers (the 3D backpack charm) and DIY Coloring Kits (a deck of spins with Paint Play).
    Tapping a frame opens it full screen with a back button; prices appear only in the shop, once something is picked. */
 function showSpec(){
   var col=colorById(S.showColor)||colorById('purple')||catalog.colors[0];S.showColor=col?col.id:null;
@@ -1365,11 +2163,11 @@ function deckKits(){return kits().filter(function(k){return +k.stock>0})}
 function kitArt(k,cls){var src=kitPic(k);return src?'<img class="'+cls+'" src="'+src+'" alt="'+esc(k.name)+'" draggable="false">':'<span class="'+cls+' nopic" role="img" aria-label="'+esc(k.name)+', photo coming soon">'+(isMagnet(k)?'🧲':'🎨')+'<small>Photo coming soon</small></span>'}
 function renderHome(){
   var dk=deckKits(),h;
-  h='<section class="hello">'+sparkles(6)+'<img class="biglogo" src="'+LOGO+'" alt="'+esc(catalog.shop.name)+' logo" width="176" height="176"><div class="hello-copy"><span class="eyebrow">'+esc(catalog.shop.name)+'</span><h1 class="land-h">Click it. Spin it. <span>Paint it.</span></h1><p class="lede muted">Clicky keychains and paint-your-own plaster kits, made by hand. Tap a frame to take a closer look.</p></div></section>';
+  h='<section class="hello">'+sparkles(6)+'<img class="biglogo" src="'+LOGO+'" alt="'+esc(catalog.shop.name)+' logo" width="176" height="176"><div class="hello-copy"><span class="eyebrow">'+esc(catalog.shop.name)+'</span><h1 class="land-h">Click it. Spin it. <span>Paint it.</span></h1><p class="lede muted">Clicky backpack charms and paint-your-own plaster kits, <span class="nowrap">made by hand - <b class="byline">By Agilan</b></span><br>Tap a frame to take a closer look.</p></div></section>';
   h+='<section class="frames" aria-label="Our products"><div class="frame" id="fclk"><div class="fs-bar"><button type="button" class="backbtn" data-close>'+BACK+'Back</button><b class="fs-title">Clickers</b><button type="button" class="btn" data-go="shop">Build yours</button></div>';
-  h+='<section class="studio land-studio" id="studio" aria-label="3D keychain you can spin"><div id="stage3d" class="stage3d"></div><div id="stage2d" class="stage2d"></div>';
+  h+='<section class="studio land-studio" id="studio" aria-label="3D backpack charm you can spin"><div id="stage3d" class="stage3d"></div><div id="stage2d" class="stage2d"></div>';
   h+='<div class="studio-top"><span class="eyebrow">Spin it 360°</span><span class="specline">Tap any key</span></div>';
-  h+='<div class="studio-foot"><span class="hint" id="hint">A real clicker keychain, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section>';
+  h+='<div class="studio-foot"><span class="hint" id="hint">A real clicker backpack charm, key by key.</span><span class="studio-acts"><button type="button" class="iconbtn" id="vreset" hidden>Reset view</button><button type="button" class="iconbtn" id="vsound" aria-pressed="true" hidden>Sound on</button></span></div></section>';
   h+='<div class="fs-only fs-colors">';
   h+='<div class="field"><span class="label">Try a base color</span><div class="colors" id="showcols">'+catalog.colors.map(function(c){return '<button type="button" class="swatch" data-show="'+c.id+'" aria-pressed="'+(S.showColor===c.id)+'" style="--c:'+esc(c.hex)+'"><i></i>'+esc(c.name)+'</button>'}).join('')+'</div></div>';
   h+='</div><button type="button" class="frame-open" data-open="clk" aria-label="Open Clickers full screen"><span class="frame-tag"><b>Clickers</b><span>Tap to spin one 360°</span></span></button></div>';
@@ -1378,7 +2176,7 @@ function renderHome(){
   h+='</section>';
   h+='<section class="steps" aria-label="How it works"><h2>How it works</h2><ol class="stepgrid">'+
     '<li><b>Tap your letters</b><span class="muted">Pick each key on the letter board, then choose cap colors and a base color.</span></li>'+
-    '<li><b>Send your request</b><span class="muted">Sign in, and we get an order slip with your keychains and your contact details.</span></li>'+
+    '<li><b>Send your request</b><span class="muted">Sign in, and we get an order slip with your backpack charms and your contact details.</span></li>'+
     '<li><b>Pay cash at pickup</b><span class="muted">We text you when it’s ready. '+esc(catalog.shop.pickup)+'</span></li></ol></section>';
   if(dk.length)h+='<div class="fsdiy" id="fsdiy" role="dialog" aria-modal="true" aria-label="DIY Coloring Kits" hidden></div>';
   return h;
@@ -1468,7 +2266,7 @@ function bindSwipe(el){var st=null;
   el.addEventListener('pointercancel',function(){st=null})}
 /* ---------- shell ---------- */
 function render(){
-  var a=me(),v=S.view,nav=[['home','Home'],['shop','Build a keychain']];if(kits().length)nav.push(['kits','DIY kits']);if(S.canEdit)nav.push(['admin','Back office']);
+  var a=me(),v=S.view,nav=[['home','Home'],['shop','Build a backpack charm']];if(kits().length)nav.push(['kits','DIY kits']);if(S.canEdit)nav.push(['admin','Back office']);
   var ig=String(catalog.shop.instagram||'').trim(),igName=ig.replace(/\/+$/,'').split('/').pop();
   var h='<div class="wrap"><header class="top"><button type="button" class="brand" data-go="home" aria-label="'+esc(catalog.shop.name)+' home"><img class="logo" src="'+LOGO+'" alt="" width="48" height="48"><span class="brandtx"><b>'+esc(catalog.shop.name)+'</b><small>by My Curious Hands</small></span></button>';
   h+='<nav class="nav" aria-label="Main">'+nav.map(function(n){return '<button type="button" class="navlink" data-go="'+n[0]+'"'+(v===n[0]?' aria-current="page"':'')+'>'+n[1]+'</button>'}).join('');
