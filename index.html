@@ -370,6 +370,10 @@ html.noscroll,html.noscroll body{overflow:hidden}
 .spin.multi .spin-in{animation:none}
 .turnbadge{position:absolute;left:10px;top:10px;z-index:3;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.88);color:var(--ink,#27213A);font:700 12px var(--body);box-shadow:0 2px 8px rgba(0,0,0,.12);pointer-events:none}
 .turnbadge svg{width:14px;height:14px}
+.k3d{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;z-index:1;border-radius:18px}
+.spin.is3d .spin-img,.spin.is3d .nopic,.spin.is3d .sheen{visibility:hidden}
+.spin.is3d .spin-in{animation:none!important;transform:none!important}
+.spin.is3d .paint{z-index:2}
 .inkit{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;align-items:center;margin:0;padding:8px;border-radius:14px;background:var(--sunk)}
 .inkit img{width:72px;height:72px;object-fit:cover;border-radius:10px;background:#fff}
 .slide.cur .spin:not(.drag) .spin-in{animation:sway 7s ease-in-out infinite}
@@ -412,7 +416,7 @@ html.noscroll,html.noscroll body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <div id="root"><div class="wrap"><p class="muted">Loading the charm counter…</p></div></div>
-<script type="application/json" id="catalog">{"pricing":{"tiers":{"5":8,"4":6,"6":10},"maxKeys":6,"extraKey":0,"minKeys":4,"fancyExtra":0},"shop":{"instagram":"https://www.instagram.com/my_curious_hands/","email":"orders@avkaiexplorer.com","contact":"Text or email your order slip to us","phone":"+1 512-947-8249","pickup":"Pay cash when you pick up at the stall.","name":"Click & Charm","tagline":"Clicky keychain charms, spelled your way."},"kits":[{"cat":"kit","pic":"heartbear","name":"Heart Bear","price":5,"spin":["heartbear_1","heartbear_2","heartbear_3","heartbear_4"],"id":"D-heartbear","stock":5,"desc":"Plaster bear to paint, 3 colour pods and a brush"},{"stock":5,"desc":"Plaster bear to paint, 3 colour pods and a brush","spin":["bowbear_1","bowbear_2","bowbear_3","bowbear_4"],"id":"D-bowbear","name":"Bow Tie Bear","price":5,"cat":"kit","pic":"bowbear"},{"desc":"Plaster car to paint, 3 colour pods and a brush","stock":5,"id":"D-car","spin":["car_1","car_2","car_3","car_4","car_5"],"name":"Vintage Car","price":5,"pic":"car","cat":"kit"},{"offerPrice":3,"name":"Pikachu Fridge Magnet","price":4,"cat":"magnet","pic":"pika","stock":5,"desc":"Plaster magnet to paint, 3 colour pods and a brush","spin":["pika_1","pika_2"],"id":"D-pika"},{"offerPrice":3,"name":"Bear Fridge Magnet","price":4,"pic":"bearmag_1","cat":"magnet","desc":"Plaster magnet to paint, 3 colour pods and a brush","stock":5,"id":"D-bearmag"},{"desc":"Plaster car to paint, 3 colour pods and a brush","stock":5,"id":"D-police","spin":["police_1","police_2","police_3","police_4","police_5"],"price":5,"name":"Police Car","pic":"police_1","cat":"kit"},{"price":5,"name":"Super Car","pic":"supercar_1","cat":"kit","desc":"Plaster car to paint, 3 colour pods and a brush","stock":5,"id":"D-supercar","spin":["supercar_1","supercar_2","supercar_3","supercar_4"]},{"name":"Astronaut on the Moon","price":5,"cat":"kit","pic":"astro_1","stock":5,"desc":"Plaster astronaut to paint, 3 colour pods and a brush","spin":["astro_1","astro_2","astro_3","astro_4"],"id":"D-astro"},{"price":4,"name":"Star Fridge Magnet","offerPrice":3,"cat":"magnet","pic":"star_1","stock":5,"desc":"Plaster magnet to paint, 3 colour pods and a brush","spin":["star_1","star_2"],"id":"D-starmag"}],"updated":"2026-10-27","colors":[{"id":"blue","stock":120,"name":"Blue","hex":"#3E7BFA"},{"hex":"#8B5CF6","name":"Purple","stock":120,"id":"purple"},{"id":"pink","name":"Pink","stock":150,"hex":"#F25FA8"}],"charms":[{"name":"A","aud":["boys","girls","men","women"],"label":"A","stock":12,"kind":"letter","id":"L-A"},{"stock":12,"label":"B","id":"L-B","kind":"letter","aud":["boys","girls","men","women"],"name":"B"},{"name":"C","aud":["boys","girls","men","women"],"label":"C","stock":12,"kind":"letter","id":"L-C"},{"kind":"letter","id":"L-D","label":"D","stock":12,"name":"D","aud":["boys","girls","men","women"]},{"name":"E","aud":["boys","girls","men","women"],"label":"E","stock":12,"kind":"letter","id":"L-E"},{"stock":12,"name":"F","aud":["boys","girls","men","women"],"label":"F","kind":"letter","id":"L-F"},{"id":"L-G","kind":"letter","label":"G","stock":12,"aud":["boys","girls","men","women"],"name":"G"},{"id":"L-H","kind":"letter","aud":["boys","girls","men","women"],"stock":12,"name":"H","label":"H"},{"id":"L-I","kind":"letter","label":"I","stock":12,"aud":["boys","girls","men","women"],"name":"I"},{"aud":["boys","girls","men","women"],"name":"J","label":"J","stock":12,"id":"L-J","kind":"letter"},{"kind":"letter","id":"L-K","label":"K","stock":12,"name":"K","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"name":"L","label":"L","stock":12,"id":"L-L","kind":"letter"},{"label":"M","stock":12,"id":"L-M","kind":"letter","aud":["boys","girls","men","women"],"name":"M"},{"id":"L-N","kind":"letter","aud":["boys","girls","men","women"],"name":"N","stock":12,"label":"N"},{"label":"O","stock":12,"name":"O","aud":["boys","girls","men","women"],"kind":"letter","id":"L-O"},{"name":"P","aud":["boys","girls","men","women"],"kind":"letter","id":"L-P","label":"P","stock":12},{"name":"Q","aud":["boys","girls","men","women"],"stock":12,"label":"Q","kind":"letter","id":"L-Q"},{"name":"R","aud":["boys","girls","men","women"],"kind":"letter","id":"L-R","label":"R","stock":12},{"kind":"letter","id":"L-S","name":"S","stock":12,"aud":["boys","girls","men","women"],"label":"S"},{"kind":"letter","id":"L-T","label":"T","name":"T","stock":12,"aud":["boys","girls","men","women"]},{"kind":"letter","id":"L-U","name":"U","stock":12,"aud":["boys","girls","men","women"],"label":"U"},{"label":"V","stock":12,"kind":"letter","id":"L-V","name":"V","aud":["boys","girls","men","women"]},{"stock":12,"label":"W","id":"L-W","kind":"letter","aud":["boys","girls","men","women"],"name":"W"},{"aud":["boys","girls","men","women"],"stock":12,"name":"X","label":"X","id":"L-X","kind":"letter"},{"label":"Y","stock":12,"id":"L-Y","kind":"letter","aud":["boys","girls","men","women"],"name":"Y"},{"id":"L-Z","kind":"letter","label":"Z","stock":12,"aud":["boys","girls","men","women"],"name":"Z"},{"kind":"symbol","id":"S-heart","label":"♥","stock":6,"name":"Heart","aud":["girls","women","boys","men"]},{"id":"S-star","kind":"symbol","label":"★","stock":6,"aud":["boys","girls","men","women"],"name":"Star"},{"name":"Exclamation","aud":["boys","girls","men","women"],"kind":"symbol","id":"S-excl","label":"!","stock":6},{"stock":6,"name":"Question mark","aud":["boys","girls","men","women"],"label":"?","kind":"symbol","id":"S-q"},{"id":"S-amp","kind":"symbol","label":"&","aud":["boys","girls","men","women"],"stock":6,"name":"And"},{"id":"S-hash","kind":"symbol","stock":6,"label":"#","aud":["boys","girls","men","women"],"name":"Hash"},{"aud":["boys","girls","men","women"],"stock":6,"name":"At","label":"@","id":"S-at","kind":"symbol"},{"aud":["boys","girls","men","women"],"name":"Plus","id":"S-plus","kind":"symbol","stock":6,"label":"+"},{"aud":["girls","women"],"name":"Princess crown","icon":"crown","label":"","stock":15,"id":"T-princess","kind":"theme"},{"icon":"bow","id":"T-bow","kind":"theme","aud":["girls","women"],"name":"Bow","stock":15,"label":""},{"id":"T-paw","kind":"theme","icon":"paw","label":"","aud":["boys","girls","men","women"],"stock":15,"name":"Dog paw"},{"label":"","stock":15,"id":"F-duck","kind":"fancy","aud":["boys","girls","men","women"],"name":"Duck light & sound","icon":"duck"},{"label":"","name":"Frog light & sound","stock":15,"aud":["boys","girls","men","women"],"kind":"fancy","id":"F-frog","icon":"frog"}],"estimates":true,"punchlines":[{"text":"GAME ON","aud":["boys","men"]},{"text":"BOSS","aud":["boys","men","women"]},{"text":"LEVEL UP","aud":["boys"]},{"text":"DAD #1","aud":["men"]},{"aud":["girls","women"],"text":"QUEEN"},{"aud":["girls","women"],"text":"BFF ♥"},{"aud":["women"],"text":"MOM ♥"},{"aud":["girls"],"text":"SPARKLE"},{"aud":["women","men"],"text":"NO DRAMA"},{"text":"LOL!","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"text":"HAPPY"},{"aud":["boys","girls","men","women"],"text":"DREAM BIG"}],"bases":350,"offers":[{"value":3,"title":"Magnet offer: buy any 2 clickers or one 6-piece clicker and every fridge magnet is $3","type":"magnet","id":"o-magnet","active":true,"minKeys":1,"maxKeys":0}],"v":1}</script>
+<script type="application/json" id="catalog">{"kits":[{"price":5,"model":"heartbear","desc":"Plaster bear to paint, 3 colour pods and a brush","cat":"kit","stock":5,"pic":"heartbear","spin":["heartbear_1","heartbear_2","heartbear_3","heartbear_4"],"id":"D-heartbear","name":"Heart Bear"},{"pic":"bowbear","name":"Bow Tie Bear","spin":["bowbear_1","bowbear_2","bowbear_3","bowbear_4"],"id":"D-bowbear","model":"bowbear","price":5,"cat":"kit","stock":5,"desc":"Plaster bear to paint, 3 colour pods and a brush"},{"pic":"car","name":"Vintage Car","spin":["car_1","car_2","car_3","car_4","car_5"],"id":"D-car","model":"vintagecar","price":5,"cat":"kit","stock":5,"desc":"Plaster car to paint, 3 colour pods and a brush"},{"pic":"pika","name":"Pikachu Fridge Magnet","id":"D-pika","spin":["pika_1","pika_2"],"model":"pikamag","price":4,"stock":5,"cat":"magnet","desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3},{"desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3,"stock":5,"cat":"magnet","price":4,"model":"bearmag","id":"D-bearmag","name":"Bear Fridge Magnet","pic":"bearmag_1"},{"stock":5,"cat":"kit","desc":"Plaster car to paint, 3 colour pods and a brush","model":"policecar","price":5,"name":"Police Car","id":"D-police","spin":["police_1","police_2","police_3","police_4","police_5"],"pic":"police_1"},{"spin":["supercar_1","supercar_2","supercar_3","supercar_4"],"id":"D-supercar","name":"Super Car","pic":"supercar_1","desc":"Plaster car to paint, 3 colour pods and a brush","cat":"kit","stock":5,"price":5,"model":"supercar"},{"price":5,"model":"astronaut","desc":"Plaster astronaut to paint, 3 colour pods and a brush","cat":"kit","stock":5,"pic":"astro_1","spin":["astro_1","astro_2","astro_3","astro_4"],"id":"D-astro","name":"Astronaut on the Moon"},{"pic":"star_1","spin":["star_1","star_2"],"id":"D-starmag","name":"Star Fridge Magnet","price":4,"model":"starmag","desc":"Plaster magnet to paint, 3 colour pods and a brush","offerPrice":3,"cat":"magnet","stock":5}],"updated":"2026-10-27","shop":{"name":"Click & Charm","pickup":"Pay cash when you pick up at the stall.","contact":"Text or email your order slip to us","email":"orders@avkaiexplorer.com","tagline":"Clicky keychain charms, spelled your way.","phone":"+1 512-947-8249","instagram":"https://www.instagram.com/my_curious_hands/"},"offers":[{"active":true,"minKeys":1,"id":"o-magnet","maxKeys":0,"value":3,"type":"magnet","title":"Magnet offer: buy any 2 clickers or one 6-piece clicker and every fridge magnet is $3"}],"v":1,"estimates":true,"charms":[{"id":"L-A","stock":12,"name":"A","kind":"letter","aud":["boys","girls","men","women"],"label":"A"},{"kind":"letter","label":"B","aud":["boys","girls","men","women"],"id":"L-B","name":"B","stock":12},{"id":"L-C","stock":12,"name":"C","kind":"letter","aud":["boys","girls","men","women"],"label":"C"},{"name":"D","id":"L-D","label":"D","stock":12,"aud":["boys","girls","men","women"],"kind":"letter"},{"name":"E","stock":12,"id":"L-E","label":"E","aud":["boys","girls","men","women"],"kind":"letter"},{"name":"F","stock":12,"id":"L-F","aud":["boys","girls","men","women"],"label":"F","kind":"letter"},{"kind":"letter","aud":["boys","girls","men","women"],"label":"G","id":"L-G","stock":12,"name":"G"},{"label":"H","id":"L-H","name":"H","kind":"letter","aud":["boys","girls","men","women"],"stock":12},{"id":"L-I","name":"I","stock":12,"kind":"letter","aud":["boys","girls","men","women"],"label":"I"},{"kind":"letter","label":"J","aud":["boys","girls","men","women"],"id":"L-J","stock":12,"name":"J"},{"id":"L-K","name":"K","label":"K","stock":12,"kind":"letter","aud":["boys","girls","men","women"]},{"name":"L","stock":12,"id":"L-L","aud":["boys","girls","men","women"],"label":"L","kind":"letter"},{"id":"L-M","stock":12,"name":"M","kind":"letter","label":"M","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"kind":"letter","stock":12,"label":"N","name":"N","id":"L-N"},{"aud":["boys","girls","men","women"],"label":"O","kind":"letter","stock":12,"name":"O","id":"L-O"},{"id":"L-P","name":"P","stock":12,"kind":"letter","label":"P","aud":["boys","girls","men","women"]},{"id":"L-Q","name":"Q","stock":12,"kind":"letter","label":"Q","aud":["boys","girls","men","women"]},{"id":"L-R","name":"R","stock":12,"kind":"letter","label":"R","aud":["boys","girls","men","women"]},{"kind":"letter","aud":["boys","girls","men","women"],"stock":12,"label":"S","id":"L-S","name":"S"},{"kind":"letter","aud":["boys","girls","men","women"],"stock":12,"label":"T","id":"L-T","name":"T"},{"stock":12,"kind":"letter","aud":["boys","girls","men","women"],"id":"L-U","name":"U","label":"U"},{"label":"V","name":"V","id":"L-V","aud":["boys","girls","men","women"],"kind":"letter","stock":12},{"id":"L-W","name":"W","stock":12,"kind":"letter","label":"W","aud":["boys","girls","men","women"]},{"id":"L-X","stock":12,"name":"X","kind":"letter","label":"X","aud":["boys","girls","men","women"]},{"stock":12,"name":"Y","id":"L-Y","aud":["boys","girls","men","women"],"label":"Y","kind":"letter"},{"label":"Z","aud":["boys","girls","men","women"],"kind":"letter","stock":12,"name":"Z","id":"L-Z"},{"label":"♥","name":"Heart","id":"S-heart","aud":["girls","women","boys","men"],"kind":"symbol","stock":6},{"id":"S-star","name":"Star","stock":6,"kind":"symbol","label":"★","aud":["boys","girls","men","women"]},{"name":"Exclamation","stock":6,"id":"S-excl","label":"!","aud":["boys","girls","men","women"],"kind":"symbol"},{"name":"Question mark","stock":6,"id":"S-q","aud":["boys","girls","men","women"],"label":"?","kind":"symbol"},{"kind":"symbol","label":"&","aud":["boys","girls","men","women"],"id":"S-amp","stock":6,"name":"And"},{"id":"S-hash","stock":6,"name":"Hash","kind":"symbol","aud":["boys","girls","men","women"],"label":"#"},{"id":"S-at","stock":6,"name":"At","kind":"symbol","label":"@","aud":["boys","girls","men","women"]},{"label":"+","name":"Plus","id":"S-plus","aud":["boys","girls","men","women"],"kind":"symbol","stock":6},{"icon":"crown","stock":15,"name":"Princess crown","id":"T-princess","label":"","aud":["girls","women"],"kind":"theme"},{"label":"","id":"T-bow","icon":"bow","name":"Bow","kind":"theme","aud":["girls","women"],"stock":15},{"label":"","name":"Dog paw","icon":"paw","id":"T-paw","aud":["boys","girls","men","women"],"kind":"theme","stock":15},{"label":"","id":"F-duck","name":"Duck light & sound","icon":"duck","kind":"fancy","aud":["boys","girls","men","women"],"stock":15},{"name":"Frog light & sound","icon":"frog","id":"F-frog","label":"","stock":15,"aud":["boys","girls","men","women"],"kind":"fancy"}],"pricing":{"tiers":{"5":8,"6":10,"4":6},"maxKeys":6,"minKeys":4,"extraKey":0,"fancyExtra":0},"bases":350,"colors":[{"id":"blue","hex":"#3E7BFA","stock":120,"name":"Blue"},{"name":"Purple","stock":120,"hex":"#8B5CF6","id":"purple"},{"id":"pink","hex":"#F25FA8","stock":150,"name":"Pink"}],"punchlines":[{"text":"GAME ON","aud":["boys","men"]},{"text":"BOSS","aud":["boys","men","women"]},{"text":"LEVEL UP","aud":["boys"]},{"aud":["men"],"text":"DAD #1"},{"text":"QUEEN","aud":["girls","women"]},{"text":"BFF ♥","aud":["girls","women"]},{"aud":["women"],"text":"MOM ♥"},{"text":"SPARKLE","aud":["girls"]},{"text":"NO DRAMA","aud":["women","men"]},{"text":"LOL!","aud":["boys","girls","men","women"]},{"aud":["boys","girls","men","women"],"text":"HAPPY"},{"text":"DREAM BIG","aud":["boys","girls","men","women"]}]}</script>
 <script id="app">
 (function(){
 "use strict";
@@ -1438,7 +1442,7 @@ function renderDeck(){
   var h='<div class="fs-bar"><button type="button" class="backbtn" data-close>'+BACK+'Back</button><b class="fs-title">DIY Coloring Kits</b><span class="deckcount num" id="deckcount"></span></div>';
   h+='<div class="deckarea"><div class="deckstage"><div class="deck" id="deck">';
   dk.forEach(function(k,i){var fr=kitFrames(k),art=fr.length>1?'<img class="spin-img" src="'+fr[0]+'" alt="'+esc(k.name)+'" draggable="false"><img class="spin-img spin-b" src="'+fr[1]+'" alt="" draggable="false">':kitArt(k,'spin-img');
-    h+='<article class="slide" aria-roledescription="slide" aria-label="'+esc(k.name)+'"><div class="spin'+(fr.length>1?' multi':'')+'" data-kit="'+esc(k.id)+'"><div class="spin-in">'+art+(fr.length>1?'<span class="turnbadge">'+TURN+fr.length+' sides</span>':'')+'<canvas class="paint" width="720" height="720"></canvas><span class="sheen" aria-hidden="true"></span></div></div>'+
+    h+='<article class="slide" aria-roledescription="slide" aria-label="'+esc(k.name)+'"><div class="spin'+(fr.length>1?' multi':'')+'" data-kit="'+esc(k.id)+'"><div class="spin-in">'+art+(fr.length>1||KIT3D[k.model]?'<span class="turnbadge">'+TURN+(fr.length>1?fr.length+' sides':'Turn it')+'</span>':'')+'<canvas class="paint" width="720" height="720"></canvas><span class="sheen" aria-hidden="true"></span></div></div>'+
     '<div class="slide-cap"><div><b>'+esc(k.name)+'</b><span class="small muted">'+esc(k.desc||'')+'</span></div><button type="button" class="btn" data-pick="'+esc(k.id)+'">Choose this</button></div></article>'});
   h+='</div><button type="button" class="deckarrow prev" data-step="-1" aria-label="Previous kit">'+BACK+'</button><button type="button" class="deckarrow next" data-step="1" aria-label="Next kit">'+BACK+'</button></div>';
   h+='<div class="dots">'+dk.map(function(k,i){return '<button type="button" data-dot="'+i+'" aria-label="'+esc(k.name)+'"></button>'}).join('')+'</div></div>';
@@ -1468,24 +1472,28 @@ function deckShow(){
   document.querySelectorAll('#fsdiy [data-dot]').forEach(function(b){b.setAttribute('aria-current',String(+b.dataset.dot===D.i))});
   var c=$('#deckcount');if(c)c.textContent=(D.i+1)+' / '+n;
   var p=$('#fsdiy .prev'),x=$('#fsdiy .next');if(p)p.disabled=D.i<=0;if(x)x.disabled=D.i>=n-1;
+  k3Show();
 }
 function deckGo(step){var j=Math.max(0,Math.min(deckKits().length-1,D.i+step));if(j===D.i)return;D.i=j;deckShow()}
 /* Keep each spin square so the paint layer lines up with the photo. */
-function sizeSpins(){document.querySelectorAll('#deck .spin').forEach(function(sp){var z=Math.max(80,Math.min(sp.clientWidth,sp.clientHeight)-36);sp.firstChild.style.width=z+'px';sp.firstChild.style.height=z+'px'})}
+function sizeSpins(){document.querySelectorAll('#deck .spin').forEach(function(sp){var z=Math.max(80,Math.min(sp.clientWidth,sp.clientHeight)-36);sp.firstChild.style.width=z+'px';sp.firstChild.style.height=z+'px'});k3Resize()}
 function bindSpin(el){
   var st=null,inner=el.firstChild;
   el.addEventListener('pointerdown',function(e){if(!el.closest('.slide').classList.contains('cur'))return;
-    try{el.setPointerCapture(e.pointerId)}catch(x){}st={x:e.clientX,y:e.clientY,t:performance.now(),pos:el._pos};el._goal=null;
-    if(D.tool==='spin')el.classList.add('drag');else paintStart(el,e)});
+    try{el.setPointerCapture(e.pointerId)}catch(x){}st={x:e.clientX,y:e.clientY,t:performance.now(),pos:el._pos,yaw:K.yaw,pitch:K.pitch,lx:e.clientX,lt:performance.now()};el._goal=null;
+    if(D.tool==='spin'){el.classList.add('drag');if(el.classList.contains('is3d')){K.drag=true;K.vel=0}}else paintStart(el,e)});
   el.addEventListener('pointermove',function(e){if(!st)return;
     if(D.tool!=='spin'){paintMove(el,e);return}
     var dx=e.clientX-st.x,dy=e.clientY-st.y,f=el._frames;
+    if(el.classList.contains('is3d')){var now=performance.now();K.yaw=st.yaw+dx*0.012;K.pitch=Math.max(-0.2,Math.min(0.75,st.pitch+dy*0.005));
+      K.vel=(e.clientX-st.lx)*0.012*Math.min(1,16/Math.max(1,now-st.lt));st.lx=e.clientX;st.lt=now;return}
     /* Several real angles: one full turn per ~1.4 widths of drag, cross-fading between neighbouring sides. */
     if(f.length>1){spinTo(el,st.pos-dx*f.length/(1.4*Math.max(160,el.clientWidth)));el.style.setProperty('--sx',(50+dx*0.2)+'%')}
     else{var ry=Math.max(-40,Math.min(40,dx*0.3)),rx=Math.max(-16,Math.min(16,-dy*0.15));inner.style.transform='rotateY('+ry+'deg) rotateX('+rx+'deg)';el.style.setProperty('--sx',(50+ry)+'%')}});
   var end=function(e,swipe){if(!st)return;var dt=performance.now()-st.t,dx=e.clientX-st.x;
     if(D.tool==='spin'){el.classList.remove('drag');inner.style.transform='';el.style.removeProperty('--sx');
-      if(el._frames.length>1){el._goal=Math.round(el._pos);el._idle=performance.now()}
+      if(el.classList.contains('is3d')){K.drag=false;K.idle=performance.now();if(K.idle-st.lt>90)K.vel=0}
+      else if(el._frames.length>1){el._goal=Math.round(el._pos);el._idle=performance.now()}
       else if(swipe&&dt<300&&Math.abs(dx)>60)deckGo(dx<0?1:-1)}
     else P.cv=null;
     st=null};
@@ -1499,9 +1507,182 @@ function spinTo(el,pos){var f=el._frames,n=f.length,p=((pos%n)+n)%n,i=Math.floor
   ims[1].style.opacity=String(t);var s='scaleX('+(1-0.1*Math.sin(Math.PI*t)).toFixed(3)+')';ims[0].style.transform=ims[1].style.transform=s}
 /* Settle on the nearest side after a drag; when left alone, turn to the next side every couple of seconds. */
 function spinTick(now){D.raf=requestAnimationFrame(spinTick);if(S.fs!=='diy')return;
-  var el=document.querySelector('#deck .slide.cur .spin.multi');if(!el||el.classList.contains('drag'))return;
+  var el=document.querySelector('#deck .slide.cur .spin.multi:not(.is3d)');if(!el||el.classList.contains('drag'))return;
   if(el._goal==null&&D.tool==='spin'&&!REDUCED&&now-(el._idle||0)>2200){el._goal=Math.round(el._pos)+1;el._idle=now}
   if(el._goal!=null){var d=el._goal-el._pos;if(Math.abs(d)<0.004){spinTo(el,el._goal);el._goal=null}else spinTo(el,el._pos+d*0.1)}}
+/* ---------- DIY kits in 3D: hand-built procedural plaster models that turn a full 360 degrees ----------
+   kits[].model names a builder in KIT3D. Shapes are simplified from the product photos (front +Z, base on y=0).
+   One shared renderer moves to whichever slide is current; without WebGL the photo views stay. */
+var K={st:'idle',r:null,T:null,scene:null,cam:null,pivot:null,models:{},cur:null,kid:null,yaw:0.6,pitch:0.12,vel:0,drag:false,idle:-1e9,last:0,mats:{},dist:4,tgt:null};
+function k3Rand(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;var t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
+/* Bump maps drawn on a canvas: short strokes read as teddy fur, specks and pits as cast plaster. */
+function k3Bump(kind){var T=K.T,c=document.createElement('canvas');c.width=c.height=256;var x=c.getContext('2d'),r=k3Rand(kind==='fur'?7:3);
+  x.fillStyle='#808080';x.fillRect(0,0,256,256);
+  if(kind==='fur'){x.lineCap='round';for(var i=0;i<5200;i++){var px=r()*256,py=r()*256,a=r()*Math.PI*2,l=3+r()*5,g=Math.floor(70+r()*120);x.strokeStyle='rgb('+g+','+g+','+g+')';x.lineWidth=1+r()*1.6;x.beginPath();x.moveTo(px,py);x.lineTo(px+Math.cos(a)*l,py+Math.sin(a)*l);x.stroke()}}
+  else{for(var j=0;j<2600;j++){var g2=Math.floor(96+r()*64);x.fillStyle='rgb('+g2+','+g2+','+g2+')';x.fillRect(r()*256,r()*256,1+r()*2,1+r()*2)}
+    for(var k=0;k<60;k++){x.fillStyle='rgba(30,30,30,.55)';x.beginPath();x.arc(r()*256,r()*256,0.8+r()*1.6,0,7);x.fill()}}
+  var t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(kind==='fur'?3:2,kind==='fur'?3:2);return t}
+function k3Mat(kind){var T=K.T;if(K.mats[kind])return K.mats[kind];var m;
+  if(kind==='magnet')m=new T.MeshStandardMaterial({color:0x2b2b2e,roughness:0.55,metalness:0.2});
+  else if(kind==='shade')m=new T.MeshStandardMaterial({color:0xdedbd5,roughness:0.8,metalness:0,bumpMap:k3Bump('plaster'),bumpScale:0.008});
+  else m=new T.MeshStandardMaterial({color:0xf4f2ed,roughness:0.93,metalness:0,bumpMap:k3Bump(kind==='fur'?'fur':'plaster'),bumpScale:kind==='fur'?0.05:0.012});
+  return K.mats[kind]=m}
+function k3(o,x,y,z,rx,ry,rz){o.position.set(x,y,z);o.rotation.set(rx||0,ry||0,rz||0);return o}
+function k3Sph(r,m,sx,sy,sz){var g=new K.T.Mesh(new K.T.SphereGeometry(r,40,28),m);g.scale.set(sx||1,sy||sx||1,sz||sx||1);return g}
+function k3Cap(r,len,m){return new K.T.Mesh(new K.T.CapsuleGeometry(r,len,8,20),m)}
+function k3Cyl(r,h,m,seg){return new K.T.Mesh(new K.T.CylinderGeometry(r,r,h,seg||32),m)}
+/* Extrude a 2D shape along Z with a soft bevel, centred on Z only (keeps the shape's own X/Y). */
+function k3Ext(shape,depth,m,bev){var b=bev==null?Math.min(0.04,depth*0.3):bev,d=Math.max(0.001,depth-2*b);
+  var g=new K.T.ExtrudeGeometry(shape,{depth:d,bevelEnabled:b>0,bevelThickness:b,bevelSize:b,bevelSegments:4,curveSegments:28});g.translate(0,0,-d/2);return new K.T.Mesh(g,m)}
+function k3RRect(w,h,r,cx,cy){var s=new K.T.Shape(),x=(cx||0)-w/2,y=(cy||0)-h/2;r=Math.min(r,w/2-0.001,h/2-0.001);s.moveTo(x+r,y);s.lineTo(x+w-r,y);s.quadraticCurveTo(x+w,y,x+w,y+r);s.lineTo(x+w,y+h-r);s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);s.lineTo(x+r,y+h);s.quadraticCurveTo(x,y+h,x,y+h-r);s.lineTo(x,y+r);s.quadraticCurveTo(x,y,x+r,y);return s}
+function k3Box(w,h,d,r,m){return k3Ext(k3RRect(w,h,r),d,m,Math.min(r*0.6,d*0.3))}
+function k3Circle(r){var s=new K.T.Shape();s.absarc(0,0,r,0,Math.PI*2,false);return s}
+function k3Star(ro,ri,n){var s=new K.T.Shape();for(var i=0;i<n*2;i++){var a=Math.PI/2+i*Math.PI/n,rr=i%2?ri:ro,x=Math.cos(a)*rr,y=Math.sin(a)*rr;if(i)s.lineTo(x,y);else s.moveTo(x,y)}s.closePath();return s}
+function k3Heart(w){var s=new K.T.Shape(),k=w/2;s.moveTo(0,-k*0.95);s.bezierCurveTo(k*0.9,-k*0.35,k*1.15,k*0.45,k*0.55,k*0.8);s.bezierCurveTo(k*0.25,k*0.98,0,k*0.75,0,k*0.5);s.bezierCurveTo(0,k*0.75,-k*0.25,k*0.98,-k*0.55,k*0.8);s.bezierCurveTo(-k*1.15,k*0.45,-k*0.9,-k*0.35,0,-k*0.95);return s}
+/* A raised smile: the lower arc of a thin torus. */
+function k3Smile(r,tube,m){var g=new K.T.Group(),t=new K.T.Mesh(new K.T.TorusGeometry(r,tube,8,24,Math.PI*0.8),m);t.rotation.z=-Math.PI*0.9;g.add(t);return g}
+/* Spoked wheel lying in the XY plane, axle along Z. */
+function k3Wheel(r,w,m,spokes){var T=K.T,g=new T.Group();
+  g.add(new T.Mesh(new T.TorusGeometry(r*0.78,r*0.22,14,36),m));
+  var disc=k3Cyl(r*0.7,w*0.6,m);disc.rotation.x=Math.PI/2;g.add(disc);
+  var hub=k3Sph(r*0.2,m,1,1,0.6);hub.position.z=w*0.32;g.add(hub);
+  for(var i=0;i<spokes;i++){var s=new T.Mesh(new T.BoxGeometry(r*0.08,r*1.2,w*0.1),m);s.rotation.z=i*Math.PI/spokes;s.position.z=w*0.31;g.add(s)}
+  return g}
+function k3Group(){var g=new K.T.Group();g.put=function(m,x,y,z,rx,ry,rz){g.add(k3(m,x,y,z,rx,ry,rz));return m};return g}
+function k3Bear(o){var g=k3Group(),f=k3Mat('fur'),p=k3Mat('plaster');
+  g.put(k3Sph(0.5,f,1.05,1.12,0.95),0,0.62,0);                 // body
+  g.put(k3Sph(0.42,f,1.08,1,0.98),0,1.36,0.03);                  // head
+  [-1,1].forEach(function(s){
+    g.put(k3Sph(0.15,f,1,1,0.55),s*0.33,1.7,-0.02);                // ear
+    g.put(k3Sph(0.085,p,1,1,0.4),s*0.33,1.69,0.05);                // inner ear
+    g.put(k3Sph(0.045,p),s*0.15,1.45,0.39);                        // eye
+    g.put(k3Cap(0.17,0.2,f),s*0.27,0.2,0.3,Math.PI/2,0,0);         // leg, sitting forward
+    g.put(k3Cyl(0.13,0.05,p),s*0.27,0.2,0.56,Math.PI/2,0,0);       // foot pad
+    if(o.heart)g.put(k3Cap(0.12,0.3,f),s*0.34,0.82,0.3,-1.0,0,s*0.55); // arm hugging the heart
+    else g.put(k3Cap(0.12,0.32,f),s*0.47,0.66,0.12,0.2,0,s*0.3);       // arm resting at the side
+  });
+  g.put(k3Sph(0.17,p,1.15,0.85,0.8),0,1.25,0.37);                 // muzzle
+  g.put(k3Sph(0.065,p,1.3,0.9,0.9),0,1.31,0.51);                  // nose
+  g.put(k3Sph(0.09,f),0,0.28,-0.47);                              // tail
+  if(o.heart)g.put(k3Ext(k3Heart(0.6),0.2,f,0.06),0,0.78,0.47,-0.15,0,0);
+  if(o.bow){g.put(k3Smile(0.09,0.016,p),0,1.22,0.5);
+    g.put(new K.T.Mesh(new K.T.TorusGeometry(0.33,0.035,10,40),p),0,1.0,0.02,Math.PI/2,0,0); // neck ribbon
+    [-1,1].forEach(function(s){g.put(k3Sph(0.13,p,1.25,0.75,0.45),s*0.15,1.0,0.36,0,0,-s*0.35);g.put(k3Cap(0.03,0.16,p),s*0.06,0.84,0.4,0,0,s*0.35)});
+    g.put(k3Sph(0.06,p),0,1.0,0.41)}
+  return g}
+function k3VintageCar(){var g=k3Group(),p=k3Mat('plaster'),T=K.T;
+  g.put(k3Box(1.9,0.34,0.9,0.12,p),0,0.42,0);                     // body
+  g.put(k3Box(0.72,0.3,0.66,0.12,p),0.55,0.72,0);                 // bonnet
+  var ring=k3RRect(0.92,0.88,0.16);ring.holes.push(k3RRect(0.72,0.68,0.1));
+  g.put(k3Ext(ring,0.62,p,0.03),-0.38,0.86,0,Math.PI/2,0,0);       // open planter cab
+  g.put(k3Box(0.76,0.04,0.7,0.02,p),-0.38,0.62,0);                 // planter floor
+  g.put(k3Box(0.06,0.34,0.5,0.03,p),0.93,0.72,0);                  // grille
+  for(var i=-3;i<=3;i++)g.put(new T.Mesh(new T.BoxGeometry(0.02,0.28,0.025),p),0.965,0.72,i*0.06);
+  [-1,1].forEach(function(s){
+    g.put(k3Cyl(0.075,0.08,p),0.93,0.86,s*0.3,0,0,Math.PI/2);     // headlight
+    [-1,1].forEach(function(e){g.put(k3Wheel(0.27,0.2,p,10),e*0.62,0.27,s*0.46);
+      var a=g.put(new T.Mesh(new T.TorusGeometry(0.31,0.06,10,24,Math.PI),p),e*0.62,0.3,s*0.42);a.scale.z=2.6})});
+  g.put(k3Box(0.08,0.08,1.0,0.03,p),1.0,0.3,0);g.put(k3Box(0.08,0.08,1.0,0.03,p),-1.0,0.3,0); // bumpers
+  return g}
+function k3PoliceCar(){var g=k3Group(),p=k3Mat('plaster'),sh=k3Mat('shade'),T=K.T;
+  g.put(k3Box(2.0,0.42,1.0,0.16,p),0,0.45,0);                     // body
+  g.put(k3Box(1.25,0.44,0.92,0.14,p),-0.12,0.86,0);               // cabin
+  g.put(k3Box(0.42,0.26,0.94,0.06,sh),0.12,0.88,0);g.put(k3Box(0.42,0.26,0.94,0.06,sh),-0.38,0.88,0); // side windows
+  g.put(k3Box(0.03,0.28,0.76,0.02,sh),0.51,0.88,0);g.put(k3Box(0.03,0.26,0.74,0.02,sh),-0.75,0.88,0); // front and rear glass
+  g.put(k3Box(0.22,0.08,0.52,0.03,p),-0.1,1.12,0);                // roof light bar
+  [-1,1].forEach(function(s){g.put(k3Sph(0.05,p),-0.1,1.17,s*0.17);
+    g.put(k3Cyl(0.07,0.06,p),1.0,0.52,s*0.32,0,0,Math.PI/2);       // headlights
+    [-1,1].forEach(function(e){g.put(k3Wheel(0.22,0.18,p,8),e*0.65,0.22,s*0.47)})});
+  g.put(k3Box(0.04,0.14,0.5,0.02,p),1.0,0.38,0);                  // grille
+  var c=document.createElement('canvas');c.width=256;c.height=64;var x=c.getContext('2d');x.fillStyle='#b9b5ae';x.font='bold 46px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('POLICE',128,34);
+  var lbl=new T.Mesh(new T.PlaneGeometry(0.5,0.125),new T.MeshStandardMaterial({map:new T.CanvasTexture(c),transparent:true,roughness:0.9}));
+  lbl.material.map.encoding=T.sRGBEncoding;g.put(lbl,0.7,0.664,0,-Math.PI/2,0,Math.PI/2);lbl.castShadow=false;
+  return g}
+function k3SuperCar(){var g=k3Group(),p=k3Mat('plaster'),sh=k3Mat('shade'),T=K.T;
+  var b=new T.Shape();[[-1.05,0.22],[1.05,0.22],[1.12,0.3],[1.1,0.4],[0.45,0.52],[0.05,0.8],[-0.45,0.8],[-0.8,0.62],[-1.05,0.58],[-1.08,0.4]].forEach(function(q,i){if(i)b.lineTo(q[0],q[1]);else b.moveTo(q[0],q[1])});b.closePath();
+  g.put(k3Ext(b,0.96,p,0.04),0,0,0);                               // wedge body
+  var w=new T.Shape();[[0.4,0.54],[0.06,0.76],[-0.43,0.76],[-0.62,0.6]].forEach(function(q,i){if(i)w.lineTo(q[0],q[1]);else w.moveTo(q[0],q[1])});w.closePath();
+  g.put(k3Ext(w,0.98,sh,0.01),0,0,0);                              // glasshouse
+  g.put(k3Box(0.36,0.1,0.99,0.03,sh),-0.62,0.48,0);                // side intakes
+  [-1,1].forEach(function(s){[-1,1].forEach(function(e){g.put(k3Wheel(0.2,0.22,p,6),e*0.66,0.2,s*0.47)});
+    g.put(k3Box(0.16,0.05,0.2,0.02,p),0.78,0.44,s*0.3)});           // headlamp covers
+  return g}
+function k3Astronaut(){var g=k3Group(),p=k3Mat('plaster'),sh=k3Mat('shade'),T=K.T,r=k3Rand(11);
+  var geo=new T.SphereGeometry(0.62,72,52),pos=geo.attributes.position,v=new T.Vector3(),cr=[];
+  for(var i=0;i<16;i++){var d=new T.Vector3(r()*2-1,r()*1.6-1,r()*2-1).normalize();cr.push([d,0.18+r()*0.22,0.03+r()*0.05])}
+  for(var j=0;j<pos.count;j++){v.fromBufferAttribute(pos,j);var n=v.clone().normalize(),h=0;
+    cr.forEach(function(c){var t=Math.acos(Math.max(-1,Math.min(1,n.dot(c[0]))))/c[1];if(t<1)h-=c[2]*(1-t*t);else if(t<1.35)h+=c[2]*0.35*Math.sin((t-1)/0.35*Math.PI)});
+    v.copy(n.multiplyScalar(0.62+h*0.62));pos.setXYZ(j,v.x,v.y,v.z)}
+  geo.computeVertexNormals();g.put(new T.Mesh(geo,p),0,0.62,0);   // cratered moon
+  g.put(k3Sph(0.17,p,1.2,0.8,1),0,1.28,0);                         // pelvis
+  g.put(k3Cap(0.2,0.22,p),0,1.55,0);                               // torso
+  g.put(k3Box(0.22,0.14,0.08,0.03,sh),0,1.58,0.2);                 // chest panel
+  g.put(k3Box(0.36,0.42,0.18,0.05,p),0,1.58,-0.27);                // backpack
+  g.put(k3Sph(0.25,p),0,1.98,0);                                   // helmet
+  g.put(k3Sph(0.16,sh,1,1,0.45),0,1.97,0.17);                      // visor
+  g.put(new T.Mesh(new T.TorusGeometry(0.17,0.025,10,32),p),0,1.97,0.2); // visor rim
+  [-1,1].forEach(function(s){g.put(k3Cyl(0.06,0.06,p),s*0.25,1.98,0,0,0,Math.PI/2);
+    g.put(k3Cap(0.075,0.2,p),s*0.27,1.55,0.05,0,0,s*0.4);          // upper arm
+    g.put(k3Cap(0.07,0.18,p),s*0.33,1.38,0.16,-1.0,0,0);            // forearm
+    g.put(k3Sph(0.07,p),s*0.33,1.3,0.3);                             // glove
+    g.put(k3Cap(0.09,0.22,p),s*0.12,1.27,0.22,Math.PI/2,0,0);       // thigh
+    g.put(k3Cap(0.085,0.22,p),s*0.12,1.07,0.5,0.25,0,0);            // shin
+    g.put(k3Sph(0.1,p,1,0.7,1.4),s*0.12,0.9,0.56)});                // boot
+  return g}
+/* Fridge magnets stand upright facing +Z; the black disc is the magnet on the back. */
+function k3Magnet(g,y,t){g.put(k3Cyl(0.13,0.03,k3Mat('magnet')),0,y,-t/2-0.012,Math.PI/2,0,0);return g}
+function k3PikaMag(){var g=k3Group(),p=k3Mat('plaster'),T=K.T,hd=new T.Shape();hd.absellipse(0,0,0.45,0.38,0,Math.PI*2,false);
+  g.put(k3Ext(hd,0.16,p,0.05),0,0.45,0);
+  var ear=new T.Shape();ear.moveTo(-0.16,0);ear.bezierCurveTo(-0.2,0.2,-0.08,0.42,0.02,0.54);ear.bezierCurveTo(0.1,0.4,0.19,0.2,0.16,0);ear.closePath();
+  [-1,1].forEach(function(s){g.put(k3Ext(ear,0.13,p,0.03),s*0.22,0.62,-0.01,0,0,-s*0.45);
+    g.put(k3Cyl(0.1,0.03,p),s*0.27,0.36,0.085,Math.PI/2,0,0);        // cheek
+    g.put(new T.Mesh(new T.TorusGeometry(0.07,0.018,8,24),p),s*0.17,0.52,0.085); // eye rim
+    g.put(k3Sph(0.045,p,1,1,0.4),s*0.17,0.52,0.08)});
+  g.put(k3Sph(0.025,p),0,0.45,0.09);g.put(k3Smile(0.07,0.014,p),0,0.38,0.088);
+  return k3Magnet(g,0.45,0.16)}
+function k3StarMag(){var g=k3Group(),p=k3Mat('plaster');
+  g.put(k3Ext(k3Star(0.6,0.3,5),0.14,p,0.04),0,0.55,0);
+  var ring=k3Star(0.5,0.25,5);ring.holes.push(k3Star(0.4,0.2,5));g.put(k3Ext(ring,0.05,p,0.01),0,0.55,0.08);
+  g.put(k3Ext(k3Star(0.18,0.08,5),0.06,p,0.015),0,0.55,0.085);
+  return k3Magnet(g,0.55,0.14)}
+function k3BearMag(){var g=k3Group(),p=k3Mat('plaster');
+  g.put(k3Ext(k3Circle(0.42),0.16,p,0.05),0,0.48,0);
+  [-1,1].forEach(function(s){g.put(k3Ext(k3Circle(0.16),0.14,p,0.04),s*0.34,0.82,-0.01);g.put(k3Sph(0.035,p,1,1.5,0.5),s*0.17,0.6,0.085)});
+  g.put(k3Sph(0.2,p,1.15,0.8,0.25),0,0.36,0.08);g.put(k3Sph(0.055,p,1.3,1,0.6),0,0.42,0.13);g.put(k3Smile(0.06,0.012,p),0,0.33,0.125);
+  return k3Magnet(g,0.48,0.16)}
+var KIT3D={heartbear:function(){return k3Bear({heart:1})},bowbear:function(){return k3Bear({bow:1})},vintagecar:k3VintageCar,policecar:k3PoliceCar,supercar:k3SuperCar,astronaut:k3Astronaut,pikamag:k3PikaMag,starmag:k3StarMag,bearmag:k3BearMag};
+function k3Start(){if(K.st!=='idle')return;if(!webglOK()){K.st='failed';return}K.st='loading';
+  (window.THREE?Promise.resolve():loadScript(THREE_BASE+'build/three.min.js')).then(function(){k3Init();K.st='ready';k3Show()}).catch(function(e){K.st='failed';try{console.warn('Kit 3D off:',e)}catch(x){}})}
+function k3Init(){var T=window.THREE;K.T=T;
+  var r=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});r.setPixelRatio(Math.min(window.devicePixelRatio||1,2));r.outputEncoding=T.sRGBEncoding;
+  r.shadowMap.enabled=true;r.shadowMap.type=T.PCFSoftShadowMap;r.setClearColor(0x000000,0);r.domElement.className='k3d';r.domElement.setAttribute('aria-hidden','true');K.r=r;
+  K.scene=new T.Scene();K.cam=new T.PerspectiveCamera(28,1,0.05,60);
+  K.scene.add(new T.HemisphereLight(0xffffff,0xd9d4cc,0.75));
+  var key=new T.DirectionalLight(0xffffff,0.85);key.position.set(2.5,5,4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);
+  var sc=key.shadow.camera;sc.left=-2.2;sc.right=2.2;sc.top=3;sc.bottom=-1.5;sc.near=0.5;sc.far=14;key.shadow.bias=-0.0005;key.shadow.normalBias=0.02;K.scene.add(key);
+  var fill=new T.DirectionalLight(0xfff6ee,0.35);fill.position.set(-4,2.5,-2);K.scene.add(fill);
+  var rim=new T.DirectionalLight(0xffffff,0.25);rim.position.set(0,3,-5);K.scene.add(rim);
+  var ground=new T.Mesh(new T.PlaneGeometry(12,12),new T.ShadowMaterial({opacity:0.16}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;K.scene.add(ground);
+  K.pivot=new T.Group();K.scene.add(K.pivot);requestAnimationFrame(k3Tick)}
+/* Build once per kit, sit it on the floor and centre it on the turntable axis. */
+function k3Model(name){if(K.models[name])return K.models[name];var T=K.T,g=KIT3D[name]();
+  g.traverse(function(o){if(o.isMesh&&!o.material.transparent){o.castShadow=true;o.receiveShadow=true}});
+  var box=new T.Box3().setFromObject(g),c=box.getCenter(new T.Vector3()),sz=box.getSize(new T.Vector3()),wrap=new T.Group();
+  g.position.set(-c.x,-box.min.y,-c.z);wrap.add(g);wrap.userData={h:sz.y,rad:Math.max(Math.hypot(sz.x,sz.z)/2,sz.y/2)};return K.models[name]=wrap}
+function k3Show(){if(S.fs!=='diy')return;var sp=document.querySelector('#deck .slide.cur .spin');if(!sp)return;
+  var k=kitById(sp.dataset.kit);document.querySelectorAll('#deck .spin.is3d').forEach(function(x){if(x!==sp)x.classList.remove('is3d')});
+  if(!k||!KIT3D[k.model]){sp.classList.remove('is3d');if(K.r&&K.r.domElement.parentNode)K.r.domElement.remove();K.kid=null;return}
+  if(K.st==='idle'){k3Start();return}if(K.st!=='ready')return;
+  if(K.kid!==k.id){K.kid=k.id;while(K.pivot.children.length)K.pivot.remove(K.pivot.children[0]);K.cur=k3Model(k.model);K.pivot.add(K.cur);
+    var u=K.cur.userData;K.dist=u.rad/Math.sin(K.cam.fov*Math.PI/360)*1.3;K.tgt=new K.T.Vector3(0,u.h*0.5,0);K.yaw=0.6;K.pitch=0.3;K.vel=0;K.idle=-1e9}
+  var host=sp.firstChild;if(K.r.domElement.parentNode!==host)host.insertBefore(K.r.domElement,host.firstChild);
+  sp.classList.add('is3d');var b=sp.querySelector('.turnbadge');if(b)b.innerHTML=TURN+'360°';k3Resize()}
+function k3Resize(){if(!K.r||!K.r.domElement.parentNode)return;var h=K.r.domElement.parentNode,w=h.clientWidth,ht=h.clientHeight;if(!w||!ht)return;K.r.setSize(w,ht,false);K.cam.aspect=w/ht;K.cam.updateProjectionMatrix()}
+/* Turntable: drag to turn (with a little throw), tilt a touch on vertical drag, keep turning on its own when left alone. */
+function k3Tick(now){requestAnimationFrame(k3Tick);if(S.fs!=='diy'||!K.cur||!K.r.domElement.isConnected)return;
+  var dt=Math.min(0.05,(now-(K.last||now))/1000);K.last=now;
+  if(!K.drag){if(Math.abs(K.vel)>0.0005){K.yaw+=K.vel;K.vel*=0.94}else if(D.tool==='spin'&&!REDUCED&&now-K.idle>1500)K.yaw+=dt*0.55;K.pitch+=(0.3-K.pitch)*0.03}
+  K.pivot.rotation.y=K.yaw;K.cam.position.set(0,K.tgt.y+Math.sin(K.pitch)*K.dist,Math.cos(K.pitch)*K.dist);K.cam.lookAt(K.tgt);K.r.render(K.scene,K.cam)}
 /* Paint Play: soft dabs bloom onto a canvas over the photo; multiply blending lets the white plaster take the color. */
 var P={cv:null,last:null,dabs:[],raf:0};
 function paintHex(){for(var i=0;i<PAINTS.length;i++)if(PAINTS[i][0]===D.tool)return PAINTS[i][2];return PAINTS[2][2]}
