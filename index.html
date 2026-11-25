@@ -1874,24 +1874,7 @@ function pageSource(){
   var json=JSON.stringify(catalog).replace(/</g,'\\u003c');
   var body=HEAD_HTML+'<style id="app-css">'+CSS_SRC+'<'+'/style>\n<div id="root"><div class="wrap"><p class="muted">Loading the charm counter…</p></div></div>\n<script type="application/json" id="catalog">'+json+'<'+'/script>\n<script id="app">'+APP_SRC+'<'+'/script>\n';
   var hs=document.head.querySelector('style');var reset=hs?hs.textContent:RESET_FALLBACK;
-  return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+reset+'<'+'/style></head><body>'+body+'<!-- avk-legal-footer:start -->
-<footer class="site-footer">
-<nav aria-label="Legal and support">
-<ul>
-<li><a href="/legal/terms.html">Terms of Service</a></li>
-<li><a href="/legal/privacy.html">Privacy Policy</a></li>
-<li><a href="/legal/cookies.html">Cookie Notice</a></li>
-<li><a href="/legal/accessibility.html">Accessibility Statement</a></li>
-<li><a href="/legal/contact.html">Contact</a></li>
-<li><a href="/legal/cookies.html" data-consent-open>Cookie settings</a></li>
-</ul>
-</nav>
-<p>&copy; AVK Explorer</p>
-</footer>
-<!-- avk-legal-footer:end -->
-<link rel="stylesheet" href="/legal/legal.css">
-<script src="/legal/consent.js" data-mode="notice" defer></script>
-</body></html>';
+  return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+reset+'<'+'/style></head><body>'+body+'</body></html>';
 }
 async function publishCatalog(msg){
   if(!S.art){toast('Saving isn’t available in this view. Open the page from your Claude account.');return}
@@ -2313,4 +2296,21 @@ render();
 })();
 </script>
 
+<!-- avk-legal-footer:start -->
+<footer class="site-footer">
+<nav aria-label="Legal and support">
+<ul>
+<li><a href="/legal/terms.html">Terms of Service</a></li>
+<li><a href="/legal/privacy.html">Privacy Policy</a></li>
+<li><a href="/legal/cookies.html">Cookie Notice</a></li>
+<li><a href="/legal/accessibility.html">Accessibility Statement</a></li>
+<li><a href="/legal/contact.html">Contact</a></li>
+<li><a href="/legal/cookies.html" data-consent-open>Cookie settings</a></li>
+</ul>
+</nav>
+<p>&copy; AVK Explorer</p>
+</footer>
+<!-- avk-legal-footer:end -->
+<link rel="stylesheet" href="/legal/footer.css">
+<script src="/legal/consent.js" data-mode="notice" defer></script>
 </body></html>

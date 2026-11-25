@@ -1,0 +1,12 @@
+/* Only the footer links and the cookie notice, for pages that have their own design (an adopted site). Not legal advice; draft pack.
+   Everything is scoped to .site-footer and #avk-consent so it cannot change the page's own styles. */
+.site-footer { max-width:44rem; margin:2rem auto 0; padding:1rem; border-top:1px solid rgba(128,128,128,.4); font:14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color:inherit; }
+.site-footer ul { list-style:none; display:flex; flex-wrap:wrap; gap:.5rem 1rem; padding:0; margin:0 0 .5rem; }
+.site-footer a { color:inherit; text-decoration:underline; }
+#avk-consent { position:fixed; left:0; right:0; bottom:0; padding:1rem; background:#fff; color:#14181f; border-top:2px solid #0b6b63; z-index:1000; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+@media (prefers-color-scheme: dark) { #avk-consent { background:#0f1218; color:#e8ebf0; border-top-color:#4cc2b6; } }
+#avk-consent p { margin:0 0 .5rem; }
+#avk-consent a { color:inherit; text-decoration:underline; }
+#avk-consent div { display:flex; gap:.75rem; }
+#avk-consent button { font:inherit; padding:.5rem 1rem; color:#fff; background:#0b6b63; border:2px solid #0b6b63; border-radius:4px; cursor:pointer; }
+@media (prefers-color-scheme: dark) { #avk-consent button { color:#0f1218; background:#4cc2b6; border-color:#4cc2b6; } }
