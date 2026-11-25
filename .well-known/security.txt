@@ -1,0 +1,5 @@
+# Not legal advice. Contact for reporting security problems (RFC 9116).
+Contact: mailto:security@avkaiexplorer.com
+Expires: <mark class="todo">[TO COMPLETE: effective_date]</mark>
+Preferred-Languages: en
+Canonical: https://clickers.avkaiexplorer.com/.well-known/security.txt

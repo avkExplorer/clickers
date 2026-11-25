@@ -1,0 +1,8 @@
+# Throwaway "ci" stack: proves the exact image digest before anyone is asked to approve it. A static site has no database, so it is
+# just the app. APP_IMAGE is provided per run by the platform's release workflow.
+name: ci
+services:
+  app:
+    image: ${APP_IMAGE:?set by the workflow}
+    ports:
+      - "127.0.0.1:8080:8080"

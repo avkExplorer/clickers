@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "id": "clickers",
+  "name": "Click & Charm",
+  "description": "Storefront for custom clicker backpack charms and paint-your-own plaster kits: build a charm key by key, then send a request.",
+  "kind": "static",
+  "stage": "completed",
+  "progress": "Live at clickers.avkaiexplorer.com",
+  "stack": ["Static HTML/CSS/JS", "three.js"],
+  "requires": ["python"],
+  "launch": {"cmd": ["{python}", "-m", "http.server", "4710", "--bind", "127.0.0.1"], "detached": true},
+  "open": "http://127.0.0.1:4710/",
+  "status": {"port": 4710},
+  "docs": "index.html",
+  "notes": "Also published at clickers.avkaiexplorer.com (CNAME). The Wall serves the local copy only and never publishes.",
+  "checks": [
+    {"name": "HTML parses, local links resolve", "cmd": ["{python}", "../wall/tools/static_check.py", "."], "timeout": 60}
+  ]
+}
