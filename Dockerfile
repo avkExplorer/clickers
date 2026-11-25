@@ -1,12 +1,14 @@
 # A static site: the files are copied as they are into an unprivileged nginx. Nothing to build, so the pipeline builds and scans
-# exactly what is shipped. The base image is pinned by digest; Dependabot proposes updates.
+# exactly what is shipped. The base image is pinned by digest (nginx mainline, slim: no extra modules) and Dependabot proposes updates.
 # Build:  docker build -t clickers .
 
-FROM nginxinc/nginx-unprivileged@sha256:f5116ed4606f3eb015dd4a8e28cb9b351476dc0ad4bc6e9f93b19cec130cdf03
+FROM nginxinc/nginx-unprivileged@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+# The publisher rebuilds the base image only now and then: take the Alpine package fixes released since, so the image scan stays clean.
+USER root
+RUN apk upgrade --no-cache
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY ./ /usr/share/nginx/html/
-# The image's own unprivileged user (uid 101); stated here so the Dockerfile scan can see it.
+# The image's own unprivileged user (uid 101); stated last so the Dockerfile scan and the runtime agree.
 USER 101:101
 EXPOSE 8080
-HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -q -O /dev/null http://127.0.0.1:8080/healthz || exit 1
+HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3   CMD wget -q -O /dev/null http://127.0.0.1:8080/healthz || exit 1
