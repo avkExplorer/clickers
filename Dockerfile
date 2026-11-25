@@ -2,7 +2,7 @@
 # exactly what is shipped. The base image is pinned by digest (nginx mainline, slim: no extra modules) and Dependabot proposes updates.
 # Build:  docker build -t clickers .
 
-FROM nginxinc/nginx-unprivileged@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
+FROM nginxinc/nginx-unprivileged@sha256:09b0d3eda2aa592d2487f284519419015cab010d7df16cd0fe224b585fc60eb6
 # The publisher rebuilds the base image only now and then: take the Alpine package fixes released since, so the image scan stays clean.
 USER root
 RUN apk upgrade --no-cache
