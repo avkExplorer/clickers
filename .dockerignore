@@ -1,0 +1,19 @@
+# Only the site and nginx.conf go into the image. (When the site is the repository root, everything else is listed here.)
+.git
+.github
+.claude
+.gitignore
+.gitattributes
+.dockerignore
+Dockerfile
+nginx.conf.example
+e2e
+ci
+node_modules
+wall.json
+avk.yaml
+README.md
+CNAME
+check.cmd
+compose.local.yaml
+run-local.cmd
